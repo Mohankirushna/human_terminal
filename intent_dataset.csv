@@ -1,0 +1,2451 @@
+text,label
+hey change filename from data.csv to home,RENAME_FILE
+can y0u make a file named report.pdf,CREATE_FILE
+hey current directory,SHOW_PATH
+hey enter projects,NAVIGATION
+make a file named data.csv,CREATE_FILE
+Can you touch data.csv,CREATE_FILE
+Erase rep0rt.pdf,DELETE_FILE
+Can you pwd,SHOW_PATH
+Can you take me to logs,NAVIGATION
+Hey read notes.txt,READ_FILE
+can you touch test.txt,CREATE_FILE
+Hey cat notes.txt,READ_FILE
+can you create file main.cpp,CREATE_FILE
+List all files,LIST_FILES
+Hey pwd,SHOW_PATH
+Can you wipe all files,FORBIDDEN
+can you delete data.csv,DELETE_FILE
+can you pwd,SHOW_PATH
+what is the weather t0day,INVALID
+can you display a.py,READ_FILE
+change filename from a.py to data,RENAME_FILE
+please open a.py,READ_FILE
+new file main.cpp,CREATE_FILE
+please remove notes.txt,DELETE_FILE
+Can you show path,SHOW_PATH
+can you copy test.txt to projects,COPY_FILE
+please cd to desktop,NAVIGATION
+hey new file data.csv,CREATE_FILE
+can  you  shutdown  system,FORBIDDEN
+please  open  data,NAVIGATION
+hey move notes.txt to src,MOVE_FILE
+hey erase main.cpp,DELETE_FILE
+Can you copy report.pdf to a.py,COPY_FILE
+hey delete test.txt,DELETE_FILE
+hey change filename from main.cpp to data,RENAME_FILE
+hey navigate to projects,NAVIGATION
+Can you delete test.txt,DELETE_FILE
+hey enter desktop,NAVIGATION
+hey pwd,SHOW_PATH
+change filename from test.txt to report.pdf,RENAME_FILE
+Please change filename from notes.txt to downloads,RENAME_FILE
+create file data.csv,CREATE_FILE
+erase main.cpp,DELETE_FILE
+please duplicate report.pdf into data,COPY_FILE
+hey what files are here,LIST_FILES
+can you where am i,SHOW_PATH
+can you relocate test.txt into home,MOVE_FILE
+hey format c drive,FORBIDDEN
+Create  file  a.py,CREATE_FILE
+hey move data.csv to report.pdf,MOVE_FILE
+new file main.cpp,CREATE_FILE
+hey  duplicate  a.py  into  test.txt,COPY_FILE
+Can you show files,LIST_FILES
+Hey  restart  computer,FORBIDDEN
+hey pwd,SHOW_PATH
+can you duplicate main.cpp into home,COPY_FILE
+Hey  change  filename  from  report.pdf  to  documents,RENAME_FILE
+Delete  data.csv,DELETE_FILE
+can y0u tell me a joke,INVALID
+Can you restart computer,FORBIDDEN
+Change filename from main.cpp to downloads,RENAME_FILE
+Hey relocate report.pdf into src,MOVE_FILE
+Please delete report.pdf,DELETE_FILE
+hey open a.py,READ_FILE
+hey new file main.cpp,CREATE_FILE
+Touch notes.txt,CREATE_FILE
+please duplicate test.txt int0 data.csv,COPY_FILE
+please delete report.pdf,DELETE_FILE
+hey erase test.txt,DELETE_FILE
+hey  make  a  file  named  a.py,CREATE_FILE
+Delete main.cpp,DELETE_FILE
+hey delete main.cpp,DELETE_FILE
+open main.cpp,READ_FILE
+please touch a.py,CREATE_FILE
+Can you rm -rf /,FORBIDDEN
+can  you  switch  to  home,NAVIGATION
+Please rm -rf /,FORBIDDEN
+move main.cpp to projects,MOVE_FILE
+hey  tell  me  a  joke,INVALID
+open a.py,READ_FILE
+what is the weather today,INVALID
+Please rename main.cpp to downloads,RENAME_FILE
+show path,SHOW_PATH
+hey open notes.txt,READ_FILE
+hey show directory contents,LIST_FILES
+can you remove test.txt,DELETE_FILE
+Can  you  show  contents  of  report.pdf,READ_FILE
+hey delete test.txt,DELETE_FILE
+Hey change filename from notes.txt to src,RENAME_FILE
+new file test.txt,CREATE_FILE
+hey play music,INVALID
+please read a.py,READ_FILE
+Please take me to documents,NAVIGATION
+duplicate main.cpp into main.cpp,COPY_FILE
+Hey show contents of report.pdf,READ_FILE
+Please  shutdown  system,FORBIDDEN
+Can you duplicate main.cpp into home,COPY_FILE
+Hey erase report.pdf,DELETE_FILE
+can  you  rename  notes.txt  to  notes.txt,RENAME_FILE
+hey what is the weather today,INVALID
+can you move notes.txt to notes.txt,MOVE_FILE
+please  change  filename  from  test.txt  to  main.cpp,RENAME_FILE
+please copy data.csv to logs,COPY_FILE
+hey read a.py,READ_FILE
+hey current directory,SHOW_PATH
+please relocate a.py into projects,MOVE_FILE
+Please list all files,LIST_FILES
+hey  list  all  files,LIST_FILES
+can you rename main.cpp to notes.txt,RENAME_FILE
+Please display test.txt,READ_FILE
+Can y0u wipe all files,FORBIDDEN
+move data.csv to src,MOVE_FILE
+hey open chrome,INVALID
+hey delete everything,FORBIDDEN
+can you open documents,NAVIGATION
+can you where am i,SHOW_PATH
+Tell me a joke,INVALID
+format c drive,FORBIDDEN
+Can you what files are here,LIST_FILES
+please new file notes.txt,CREATE_FILE
+hey relocate data.csv into desktop,MOVE_FILE
+Create  file  a.py,CREATE_FILE
+rename notes.txt to test.txt,RENAME_FILE
+please make a file named report.pdf,CREATE_FILE
+Can  you  restart  computer,FORBIDDEN
+switch t0 logs,NAVIGATION
+please format c drive,FORBIDDEN
+Hey relocate data.csv into report.pdf,MOVE_FILE
+List files,LIST_FILES
+Hey relocate test.txt into data,MOVE_FILE
+open projects,NAVIGATION
+format c drive,FORBIDDEN
+Please go to home,NAVIGATION
+can you copy main.cpp to projects,COPY_FILE
+move report.pdf to documents,MOVE_FILE
+can you duplicate notes.txt into report.pdf,COPY_FILE
+can you relocate notes.txt into home,MOVE_FILE
+please relocate test.txt into a.py,MOVE_FILE
+can y0u delete main.cpp,DELETE_FILE
+delete  notes.txt,DELETE_FILE
+Hey show directory contents,LIST_FILES
+format c drive,FORBIDDEN
+please delete notes.txt,DELETE_FILE
+hey  erase  report.pdf,DELETE_FILE
+please sh0w contents of notes.txt,READ_FILE
+can you what files are here,LIST_FILES
+erase report.pdf,DELETE_FILE
+please rename main.cpp to data.csv,RENAME_FILE
+relocate test.txt into a.py,MOVE_FILE
+enter src,NAVIGATION
+hey wipe all files,FORBIDDEN
+can you show contents of test.txt,READ_FILE
+Change  filename  from  main.cpp  to  a.py,RENAME_FILE
+hey  show  directory  contents,LIST_FILES
+please  change  filename  from  a.py  to  projects,RENAME_FILE
+can you change filename from main.cpp to desktop,RENAME_FILE
+please move notes.txt to desktop,MOVE_FILE
+display test.txt,READ_FILE
+can  you  list  files,LIST_FILES
+hey  duplicate  test.txt  into  home,COPY_FILE
+can you create file report.pdf,CREATE_FILE
+list files,LIST_FILES
+hey rename main.cpp to data,RENAME_FILE
+Remove data.csv,DELETE_FILE
+hey move report.pdf to notes.txt,MOVE_FILE
+please  display  data.csv,READ_FILE
+please show directory contents,LIST_FILES
+can  you  create  file  notes.txt,CREATE_FILE
+Sh0w directory contents,LIST_FILES
+please touch notes.txt,CREATE_FILE
+Can  you  move  main.cpp  to  downloads,MOVE_FILE
+hey search google for cats,INVALID
+Please duplicate report.pdf into a.py,COPY_FILE
+Can  you  delete  a.py,DELETE_FILE
+Hey duplicate report.pdf into projects,COPY_FILE
+please  show  files,LIST_FILES
+hey rename report.pdf to home,RENAME_FILE
+can you display test.txt,READ_FILE
+can you cd to src,NAVIGATION
+Hey what is the weather today,INVALID
+G0 to logs,NAVIGATION
+Can you open chrome,INVALID
+can y0u what files are here,LIST_FILES
+Hey  create  file  a.py,CREATE_FILE
+please remove notes.txt,DELETE_FILE
+Open  main.cpp,READ_FILE
+hey show contents of test.txt,READ_FILE
+please display notes.txt,READ_FILE
+hey new file test.txt,CREATE_FILE
+Cd  to  src,NAVIGATION
+can you new file a.py,CREATE_FILE
+can you copy data.csv to report.pdf,COPY_FILE
+remove report.pdf,DELETE_FILE
+Hey  change  filename  from  a.py  to  desktop,RENAME_FILE
+can you cat test.txt,READ_FILE
+can you erase data.csv,DELETE_FILE
+Can  you  list  files,LIST_FILES
+Please  rename  data.csv  to  documents,RENAME_FILE
+please cat report.pdf,READ_FILE
+Hey copy data.csv to test.txt,COPY_FILE
+hey pwd,SHOW_PATH
+hey erase data.csv,DELETE_FILE
+open chrome,INVALID
+Can you what files are here,LIST_FILES
+please open a.py,READ_FILE
+hey relocate notes.txt into data.csv,MOVE_FILE
+can you touch data.csv,CREATE_FILE
+display notes.txt,READ_FILE
+can you remove main.cpp,DELETE_FILE
+can  you  what  files  are  here,LIST_FILES
+hey cat test.txt,READ_FILE
+what is the weather today,INVALID
+Can you tell me a joke,INVALID
+Please enter desktop,NAVIGATION
+can you duplicate test.txt into home,COPY_FILE
+can  you  search  google  for  cats,INVALID
+please erase data.csv,DELETE_FILE
+Please copy notes.txt to notes.txt,COPY_FILE
+erase test.txt,DELETE_FILE
+can you navigate to documents,NAVIGATION
+show  contents  of  test.txt,READ_FILE
+can  you  current  directory,SHOW_PATH
+can  you  rm  -rf  /,FORBIDDEN
+hey rename a.py to notes.txt,RENAME_FILE
+please current directory,SHOW_PATH
+can you search google for cats,INVALID
+duplicate  report.pdf  into  main.cpp,COPY_FILE
+Hey show path,SHOW_PATH
+can you move a.py to logs,MOVE_FILE
+Restart  computer,FORBIDDEN
+create  file  report.pdf,CREATE_FILE
+please where am i,SHOW_PATH
+can  you  copy  data.csv  to  a.py,COPY_FILE
+Can you touch report.pdf,CREATE_FILE
+restart computer,FORBIDDEN
+hey show directory contents,LIST_FILES
+Take me to home,NAVIGATION
+please delete n0tes.txt,DELETE_FILE
+Please make a file named test.txt,CREATE_FILE
+Change filename from report.pdf to main.cpp,RENAME_FILE
+can you go to projects,NAVIGATION
+Can you print working directory,SHOW_PATH
+Rm -rf /,FORBIDDEN
+can you rename report.pdf to data.csv,RENAME_FILE
+Please copy main.cpp to src,COPY_FILE
+cat a.py,READ_FILE
+hey  touch  main.cpp,CREATE_FILE
+please make a file named notes.txt,CREATE_FILE
+can y0u cat test.txt,READ_FILE
+move data.csv to documents,MOVE_FILE
+hey erase a.py,DELETE_FILE
+can you open src,NAVIGATION
+please list files,LIST_FILES
+Can you show files,LIST_FILES
+hey show contents of main.cpp,READ_FILE
+Open desktop,NAVIGATION
+hey  duplicate  data.csv  into  logs,COPY_FILE
+please rename report.pdf to downloads,RENAME_FILE
+hey cat a.py,READ_FILE
+please take me to logs,NAVIGATION
+erase notes.txt,DELETE_FILE
+can  you  copy  main.cpp  to  main.cpp,COPY_FILE
+delete everything,FORBIDDEN
+list files,LIST_FILES
+can you open report.pdf,READ_FILE
+rel0cate  data.csv  into  documents,MOVE_FILE
+can you change filename from test.txt to data,RENAME_FILE
+hey where am i,SHOW_PATH
+list all files,LIST_FILES
+hey cd to data,NAVIGATION
+can you remove report.pdf,DELETE_FILE
+can you change filename from notes.txt to notes.txt,RENAME_FILE
+Hey list all files,LIST_FILES
+Can  you  what  files  are  here,LIST_FILES
+can  you  enter  desktop,NAVIGATION
+Please what is the weather today,INVALID
+hey create file report.pdf,CREATE_FILE
+please  duplicate  rep0rt.pdf  into  a.py,COPY_FILE
+Show  files,LIST_FILES
+Please  duplicate  report.pdf  into  documents,COPY_FILE
+can you play music,INVALID
+Hey show files,LIST_FILES
+Can you make a file named data.csv,CREATE_FILE
+can you move a.py to data.csv,MOVE_FILE
+can  you  show  files,LIST_FILES
+can you duplicate test.txt into data,COPY_FILE
+Please take me to projects,NAVIGATION
+hey shutdown system,FORBIDDEN
+can you rename data.csv to documents,RENAME_FILE
+please touch report.pdf,CREATE_FILE
+hey erase a.py,DELETE_FILE
+please duplicate main.cpp into desktop,COPY_FILE
+can you copy notes.txt to report.pdf,COPY_FILE
+Please show contents of data.csv,READ_FILE
+Please relocate notes.txt into a.py,MOVE_FILE
+can you what is the weather today,INVALID
+Can  you  list  files,LIST_FILES
+can you navigate to src,NAVIGATION
+switch  to  home,NAVIGATION
+hey delete rep0rt.pdf,DELETE_FILE
+Can you list all files,LIST_FILES
+Please list files,LIST_FILES
+can you go to desktop,NAVIGATION
+Hey list all files,LIST_FILES
+hey what is the weather today,INVALID
+Can you navigate to downloads,NAVIGATION
+hey  0pen  data,NAVIGATION
+hey show contents of test.txt,READ_FILE
+show path,SHOW_PATH
+hey new file report.pdf,CREATE_FILE
+format  c  drive,FORBIDDEN
+Hey show path,SHOW_PATH
+hey enter desktop,NAVIGATION
+move report.pdf to a.py,MOVE_FILE
+play music,INVALID
+Hey enter data,NAVIGATION
+please delete notes.txt,DELETE_FILE
+can you current directory,SHOW_PATH
+please navigate t0 desktop,NAVIGATION
+rm  -rf  /,FORBIDDEN
+Please rel0cate data.csv into a.py,MOVE_FILE
+hey enter projects,NAVIGATION
+can  you  where  am  i,SHOW_PATH
+Show contents of data.csv,READ_FILE
+move notes.txt to data,MOVE_FILE
+relocate  notes.txt  into  src,MOVE_FILE
+new file main.cpp,CREATE_FILE
+hey relocate report.pdf into report.pdf,MOVE_FILE
+remove  notes.txt,DELETE_FILE
+please relocate test.txt into a.py,MOVE_FILE
+tell me a joke,INVALID
+hey  relocate  a.py  into  desktop,MOVE_FILE
+Remove notes.txt,DELETE_FILE
+can you make a file named notes.txt,CREATE_FILE
+please list files,LIST_FILES
+go to src,NAVIGATION
+navigate to data,NAVIGATION
+Hey rename test.txt to documents,RENAME_FILE
+list files,LIST_FILES
+Can  you  go  to  home,NAVIGATION
+hey erase main.cpp,DELETE_FILE
+please  take  me  to  data,NAVIGATION
+Please  relocate  a.py  into  test.txt,MOVE_FILE
+please 0pen test.txt,READ_FILE
+relocate  a.py  into  main.cpp,MOVE_FILE
+please delete report.pdf,DELETE_FILE
+Please g0 to data,NAVIGATION
+can you enter downloads,NAVIGATION
+c0py  test.txt  to  home,COPY_FILE
+0pen a.py,READ_FILE
+Please touch data.csv,CREATE_FILE
+can you pwd,SHOW_PATH
+hey  relocate  notes.txt  into  test.txt,MOVE_FILE
+Please print working directory,SHOW_PATH
+touch report.pdf,CREATE_FILE
+Please 0pen desktop,NAVIGATION
+hey copy report.pdf to report.pdf,COPY_FILE
+Hey  search  google  for  cats,INVALID
+can you make a file named data.csv,CREATE_FILE
+please list files,LIST_FILES
+Hey cd to downloads,NAVIGATION
+can you open notes.txt,READ_FILE
+print working directory,SHOW_PATH
+create file main.cpp,CREATE_FILE
+can you tell me a joke,INVALID
+can you erase data.csv,DELETE_FILE
+take me to data,NAVIGATION
+please create file a.py,CREATE_FILE
+hey  take  me  to  documents,NAVIGATION
+Hey  open  data.csv,READ_FILE
+Please show files,LIST_FILES
+hey what is the weather today,INVALID
+hey go to home,NAVIGATION
+hey read notes.txt,READ_FILE
+Where am i,SHOW_PATH
+can you what is the weather today,INVALID
+hey rm -rf /,FORBIDDEN
+Hey shutdown system,FORBIDDEN
+can you relocate notes.txt into report.pdf,MOVE_FILE
+can you remove main.cpp,DELETE_FILE
+play music,INVALID
+can you delete everything,FORBIDDEN
+can you open projects,NAVIGATION
+hey go to src,NAVIGATION
+can you wipe all files,FORBIDDEN
+Duplicate data.csv into home,COPY_FILE
+Hey relocate a.py into downloads,MOVE_FILE
+please open chrome,INVALID
+Hey relocate report.pdf into home,MOVE_FILE
+Can y0u play music,INVALID
+Please rename test.txt to main.cpp,RENAME_FILE
+show contents of data.csv,READ_FILE
+please relocate test.txt into data.csv,MOVE_FILE
+display report.pdf,READ_FILE
+hey display a.py,READ_FILE
+Hey delete a.py,DELETE_FILE
+Can you rename test.txt to main.cpp,RENAME_FILE
+Please  copy  data.csv  to  data,COPY_FILE
+what files are here,LIST_FILES
+please move a.py to a.py,MOVE_FILE
+Can you copy report.pdf to notes.txt,COPY_FILE
+cat main.cpp,READ_FILE
+can  you  what  is  the  weather  today,INVALID
+hey new file notes.txt,CREATE_FILE
+Can you copy report.pdf to src,COPY_FILE
+please take me to projects,NAVIGATION
+please  show  directory  contents,LIST_FILES
+can you enter documents,NAVIGATION
+hey change filename from data.csv to home,RENAME_FILE
+please open report.pdf,READ_FILE
+Hey relocate data.csv into data.csv,MOVE_FILE
+hey  new  file  main.cpp,CREATE_FILE
+Hey shutdown system,FORBIDDEN
+can you pwd,SHOW_PATH
+hey  show  path,SHOW_PATH
+Please  touch  notes.txt,CREATE_FILE
+Hey  rem0ve  test.txt,DELETE_FILE
+Can y0u pwd,SHOW_PATH
+hey open chrome,INVALID
+Can you search google for cats,INVALID
+Hey show files,LIST_FILES
+print  working  directory,SHOW_PATH
+please rm -rf /,FORBIDDEN
+please  list  files,LIST_FILES
+can  you  format  c  drive,FORBIDDEN
+hey display a.py,READ_FILE
+hey rename main.cpp to test.txt,RENAME_FILE
+Please  show  path,SHOW_PATH
+please what files are here,LIST_FILES
+take me to data,NAVIGATION
+enter src,NAVIGATION
+please pwd,SHOW_PATH
+please change filename from main.cpp to documents,RENAME_FILE
+please c0py data.csv to report.pdf,COPY_FILE
+take me to logs,NAVIGATION
+can you erase report.pdf,DELETE_FILE
+please go to desktop,NAVIGATION
+please touch report.pdf,CREATE_FILE
+can  you  play  music,INVALID
+please  duplicate  notes.txt  into  documents,COPY_FILE
+Can you create file notes.txt,CREATE_FILE
+can you play music,INVALID
+hey rename report.pdf to test.txt,RENAME_FILE
+Cat a.py,READ_FILE
+Open  report.pdf,READ_FILE
+please show files,LIST_FILES
+can you read test.txt,READ_FILE
+please new file a.py,CREATE_FILE
+rm -rf /,FORBIDDEN
+Please enter downloads,NAVIGATION
+Please copy notes.txt to documents,COPY_FILE
+please switch to data,NAVIGATION
+can  y0u  wipe  all  files,FORBIDDEN
+can you create file main.cpp,CREATE_FILE
+hey  move  main.cpp  to  documents,MOVE_FILE
+Please delete test.txt,DELETE_FILE
+can you erase notes.txt,DELETE_FILE
+list files,LIST_FILES
+can  you  tell  me  a  joke,INVALID
+hey delete a.py,DELETE_FILE
+Please  create  file  notes.txt,CREATE_FILE
+Can  you  change  filename  from  test.txt  to  data.csv,RENAME_FILE
+can y0u show path,SHOW_PATH
+please erase notes.txt,DELETE_FILE
+please remove main.cpp,DELETE_FILE
+play music,INVALID
+Can you duplicate notes.txt into src,COPY_FILE
+hey pwd,SHOW_PATH
+Please m0ve a.py to projects,MOVE_FILE
+can  you  make  a  file  named  main.cpp,CREATE_FILE
+hey  remove  report.pdf,DELETE_FILE
+please rename report.pdf to main.cpp,RENAME_FILE
+please  display  main.cpp,READ_FILE
+change filename from a.py to report.pdf,RENAME_FILE
+hey open chrome,INVALID
+can you touch a.py,CREATE_FILE
+Shutdown  system,FORBIDDEN
+please list files,LIST_FILES
+Please display report.pdf,READ_FILE
+can you remove main.cpp,DELETE_FILE
+Copy notes.txt to notes.txt,COPY_FILE
+hey rel0cate report.pdf into home,MOVE_FILE
+Please current directory,SHOW_PATH
+can you show directory contents,LIST_FILES
+List files,LIST_FILES
+Please  shutd0wn  system,FORBIDDEN
+can y0u show files,LIST_FILES
+hey open data,NAVIGATION
+please open test.txt,READ_FILE
+Hey touch data.csv,CREATE_FILE
+remove a.py,DELETE_FILE
+can you open downloads,NAVIGATION
+create file notes.txt,CREATE_FILE
+Please make a file named notes.txt,CREATE_FILE
+Can you copy data.csv to downloads,COPY_FILE
+please current directory,SHOW_PATH
+Please  show  files,LIST_FILES
+please make a file named a.py,CREATE_FILE
+hey rm -rf /,FORBIDDEN
+hey  sh0w  files,LIST_FILES
+hey navigate to desktop,NAVIGATION
+can you restart computer,FORBIDDEN
+Go to projects,NAVIGATION
+Hey rename main.cpp to main.cpp,RENAME_FILE
+Please  move  report.pdf  to  report.pdf,MOVE_FILE
+please erase a.py,DELETE_FILE
+Please  go  to  logs,NAVIGATION
+Can  you  copy  test.txt  to  src,COPY_FILE
+can you open chrome,INVALID
+hey list all files,LIST_FILES
+Hey change filename from main.cpp to projects,RENAME_FILE
+can  you  read  test.txt,READ_FILE
+Format c drive,FORBIDDEN
+Please take me to data,NAVIGATION
+Hey move data.csv to src,MOVE_FILE
+can you show directory contents,LIST_FILES
+What files are here,LIST_FILES
+can you delete notes.txt,DELETE_FILE
+please cat a.py,READ_FILE
+Hey duplicate test.txt int0 downloads,COPY_FILE
+read test.txt,READ_FILE
+Hey rename notes.txt to home,RENAME_FILE
+Hey what is the weather today,INVALID
+make  a  file  named  data.csv,CREATE_FILE
+please read notes.txt,READ_FILE
+can  y0u  what  is  the  weather  today,INVALID
+Hey change filename fr0m report.pdf to home,RENAME_FILE
+hey rm -rf /,FORBIDDEN
+please rel0cate data.csv into logs,MOVE_FILE
+can you duplicate notes.txt into notes.txt,COPY_FILE
+tell me a joke,INVALID
+please open downloads,NAVIGATION
+please play music,INVALID
+can you copy test.txt to documents,COPY_FILE
+Hey create file notes.txt,CREATE_FILE
+can  you  what  is  the  weather  today,INVALID
+please  duplicate  a.py  into  logs,COPY_FILE
+Delete  test.txt,DELETE_FILE
+can  you  duplicate  data.csv  into  documents,COPY_FILE
+show directory contents,LIST_FILES
+please go to logs,NAVIGATION
+hey duplicate main.cpp into test.txt,COPY_FILE
+m0ve  notes.txt  to  report.pdf,MOVE_FILE
+show directory contents,LIST_FILES
+open data.csv,READ_FILE
+please wipe all files,FORBIDDEN
+hey take me to downloads,NAVIGATION
+can you where am i,SHOW_PATH
+Can you show path,SHOW_PATH
+Please new file notes.txt,CREATE_FILE
+please erase report.pdf,DELETE_FILE
+please erase report.pdf,DELETE_FILE
+Please what is the weather today,INVALID
+hey rename notes.txt to projects,RENAME_FILE
+please  show  directory  contents,LIST_FILES
+duplicate report.pdf into a.py,COPY_FILE
+Copy a.py to projects,COPY_FILE
+please tell me a joke,INVALID
+touch  data.csv,CREATE_FILE
+please  what  files  are  here,LIST_FILES
+new file main.cpp,CREATE_FILE
+Hey list all files,LIST_FILES
+can you display notes.txt,READ_FILE
+can you remove data.csv,DELETE_FILE
+Hey erase a.py,DELETE_FILE
+can you where am i,SHOW_PATH
+Please show path,SHOW_PATH
+Hey print working directory,SHOW_PATH
+hey open projects,NAVIGATION
+Rename data.csv to projects,RENAME_FILE
+please touch main.cpp,CREATE_FILE
+hey  rename  report.pdf  to  report.pdf,RENAME_FILE
+Hey where am i,SHOW_PATH
+Delete data.csv,DELETE_FILE
+hey wipe all files,FORBIDDEN
+Please rename main.cpp to report.pdf,RENAME_FILE
+hey  rename  main.cpp  to  data.csv,RENAME_FILE
+can  you  what  is  the  weather  today,INVALID
+Hey show directory contents,LIST_FILES
+can you show directory contents,LIST_FILES
+Hey  show  path,SHOW_PATH
+move a.py to notes.txt,MOVE_FILE
+please open a.py,READ_FILE
+can you tell me a joke,INVALID
+can you current directory,SHOW_PATH
+hey  duplicate  notes.txt  into  test.txt,COPY_FILE
+restart computer,FORBIDDEN
+Can you change filename from notes.txt to downloads,RENAME_FILE
+hey  switch  to  src,NAVIGATION
+delete data.csv,DELETE_FILE
+Current directory,SHOW_PATH
+search google for cats,INVALID
+Can you where am i,SHOW_PATH
+Please copy data.csv to logs,COPY_FILE
+can  you  move  data.csv  to  report.pdf,MOVE_FILE
+can  you  relocate  notes.txt  into  data.csv,MOVE_FILE
+Hey  display  test.txt,READ_FILE
+What is the weather today,INVALID
+change filename from main.cpp to projects,RENAME_FILE
+can you delete a.py,DELETE_FILE
+please  touch  report.pdf,CREATE_FILE
+please  make  a  file  named  test.txt,CREATE_FILE
+hey change filename from a.py to projects,RENAME_FILE
+hey cat main.cpp,READ_FILE
+Hey create file test.txt,CREATE_FILE
+hey duplicate main.cpp into main.cpp,COPY_FILE
+Wipe all files,FORBIDDEN
+please format c drive,FORBIDDEN
+can you open notes.txt,READ_FILE
+can you take me to logs,NAVIGATION
+Copy a.py to a.py,COPY_FILE
+touch main.cpp,CREATE_FILE
+hey print working directory,SHOW_PATH
+Go to data,NAVIGATION
+Please delete a.py,DELETE_FILE
+please 0pen logs,NAVIGATION
+can  you  duplicate  test.txt  into  desktop,COPY_FILE
+hey rename report.pdf to home,RENAME_FILE
+can you open data,NAVIGATION
+hey show files,LIST_FILES
+Please move report.pdf to test.txt,MOVE_FILE
+please display data.csv,READ_FILE
+can  you  open  main.cpp,READ_FILE
+can y0u copy main.cpp to logs,COPY_FILE
+Please remove notes.txt,DELETE_FILE
+hey switch to downloads,NAVIGATION
+hey move test.txt to documents,MOVE_FILE
+open desktop,NAVIGATION
+can you change filename from main.cpp to notes.txt,RENAME_FILE
+please  delete  notes.txt,DELETE_FILE
+hey copy test.txt to documents,COPY_FILE
+hey  sh0w  path,SHOW_PATH
+show directory contents,LIST_FILES
+hey rel0cate a.py into projects,MOVE_FILE
+hey wipe all files,FORBIDDEN
+can  you  read  a.py,READ_FILE
+Can you list files,LIST_FILES
+Please relocate data.csv into src,MOVE_FILE
+can  you  navigate  to  src,NAVIGATION
+Can you touch data.csv,CREATE_FILE
+Hey delete test.txt,DELETE_FILE
+hey list all files,LIST_FILES
+can  you  remove  a.py,DELETE_FILE
+please what is the weather today,INVALID
+can  you  make  a  file  named  report.pdf,CREATE_FILE
+show path,SHOW_PATH
+Hey duplicate a.py into home,COPY_FILE
+please sh0w path,SHOW_PATH
+please  open  downloads,NAVIGATION
+Navigate to downloads,NAVIGATION
+copy report.pdf to report.pdf,COPY_FILE
+please show contents of test.txt,READ_FILE
+hey  print  working  directory,SHOW_PATH
+can  y0u  copy  report.pdf  to  downloads,COPY_FILE
+can  you  open  desktop,NAVIGATION
+Hey switch to documents,NAVIGATION
+hey delete a.py,DELETE_FILE
+please show contents of main.cpp,READ_FILE
+hey show files,LIST_FILES
+please  search  google  for  cats,INVALID
+hey  what  is  the  weather  today,INVALID
+hey copy test.txt to downloads,COPY_FILE
+hey list files,LIST_FILES
+please play music,INVALID
+Please remove test.txt,DELETE_FILE
+hey show directory contents,LIST_FILES
+hey  relocate  test.txt  into  home,MOVE_FILE
+Cat main.cpp,READ_FILE
+hey show contents of report.pdf,READ_FILE
+Can y0u rename report.pdf to projects,RENAME_FILE
+can you move notes.txt to desktop,MOVE_FILE
+please rename report.pdf to logs,RENAME_FILE
+Can you wipe all files,FORBIDDEN
+take me to projects,NAVIGATION
+hey t0uch data.csv,CREATE_FILE
+hey  erase  test.txt,DELETE_FILE
+please open chrome,INVALID
+can you list all files,LIST_FILES
+hey change filename from report.pdf to downloads,RENAME_FILE
+can y0u make a file named a.py,CREATE_FILE
+cd to downloads,NAVIGATION
+can you read data.csv,READ_FILE
+please navigate t0 desktop,NAVIGATION
+what files are here,LIST_FILES
+delete test.txt,DELETE_FILE
+hey delete report.pdf,DELETE_FILE
+Please  read  n0tes.txt,READ_FILE
+hey what is the weather today,INVALID
+Hey duplicate main.cpp int0 documents,COPY_FILE
+please  m0ve  main.cpp  to  home,MOVE_FILE
+hey m0ve main.cpp to test.txt,MOVE_FILE
+show contents of main.cpp,READ_FILE
+please print working directory,SHOW_PATH
+Hey show contents of a.py,READ_FILE
+Hey where am i,SHOW_PATH
+hey duplicate a.py into desktop,COPY_FILE
+Show  directory  contents,LIST_FILES
+make a file named test.txt,CREATE_FILE
+can  you  show  directory  contents,LIST_FILES
+can you cat report.pdf,READ_FILE
+Hey  new  file  test.txt,CREATE_FILE
+please search google for cats,INVALID
+Can you change filename from main.cpp to test.txt,RENAME_FILE
+hey restart computer,FORBIDDEN
+current directory,SHOW_PATH
+relocate test.txt into projects,MOVE_FILE
+please  rename  main.cpp  t0  report.pdf,RENAME_FILE
+navigate to desktop,NAVIGATION
+Hey what is the weather today,INVALID
+Please  show  contents  of  test.txt,READ_FILE
+can  you  change  filename  from  test.txt  to  notes.txt,RENAME_FILE
+please change filename from test.txt to downloads,RENAME_FILE
+current directory,SHOW_PATH
+please take me to src,NAVIGATION
+Can y0u delete notes.txt,DELETE_FILE
+Show files,LIST_FILES
+please what is the weather today,INVALID
+can you print working directory,SHOW_PATH
+Hey enter documents,NAVIGATION
+can  you  enter  projects,NAVIGATION
+Can you tell me a joke,INVALID
+Open report.pdf,READ_FILE
+Duplicate a.py int0 main.cpp,COPY_FILE
+open report.pdf,READ_FILE
+can you make a file named notes.txt,CREATE_FILE
+hey show files,LIST_FILES
+Hey  erase  main.cpp,DELETE_FILE
+Can  you  play  music,INVALID
+can you tell me a joke,INVALID
+what files are here,LIST_FILES
+Hey show contents of report.pdf,READ_FILE
+pwd,SHOW_PATH
+please  where  am  i,SHOW_PATH
+please list all files,LIST_FILES
+Hey format c drive,FORBIDDEN
+Can y0u what is the weather today,INVALID
+please delete everything,FORBIDDEN
+Please rename main.cpp to desktop,RENAME_FILE
+Hey show contents of notes.txt,READ_FILE
+hey new file n0tes.txt,CREATE_FILE
+please change filename from main.cpp to desktop,RENAME_FILE
+Can you create file test.txt,CREATE_FILE
+change filename from test.txt to downloads,RENAME_FILE
+can you go to downloads,NAVIGATION
+enter projects,NAVIGATION
+Can you show files,LIST_FILES
+Can y0u switch to home,NAVIGATION
+Please  rename  data.csv  to  test.txt,RENAME_FILE
+switch to logs,NAVIGATION
+Please touch a.py,CREATE_FILE
+Can  you  go  to  downloads,NAVIGATION
+please rename main.cpp to downloads,RENAME_FILE
+can you show contents of report.pdf,READ_FILE
+please duplicate report.pdf into data.csv,COPY_FILE
+remove report.pdf,DELETE_FILE
+can  you  delete  data.csv,DELETE_FILE
+please  enter  projects,NAVIGATION
+hey create file rep0rt.pdf,CREATE_FILE
+Relocate test.txt into projects,MOVE_FILE
+can you navigate to desktop,NAVIGATION
+hey switch to data,NAVIGATION
+hey new file data.csv,CREATE_FILE
+Can you play music,INVALID
+hey t0uch report.pdf,CREATE_FILE
+show contents of report.pdf,READ_FILE
+can you search google for cats,INVALID
+please new file main.cpp,CREATE_FILE
+can you relocate a.py into data,MOVE_FILE
+Relocate main.cpp into data,MOVE_FILE
+Can you what is the weather today,INVALID
+Hey change filename from main.cpp to documents,RENAME_FILE
+What  is  the  weather  today,INVALID
+please move main.cpp to home,MOVE_FILE
+can you open desktop,NAVIGATION
+format c drive,FORBIDDEN
+Take me to src,NAVIGATION
+list all files,LIST_FILES
+can you move report.pdf to downloads,MOVE_FILE
+relocate main.cpp into desktop,MOVE_FILE
+duplicate data.csv into main.cpp,COPY_FILE
+please m0ve main.cpp to notes.txt,MOVE_FILE
+go to data,NAVIGATION
+open test.txt,READ_FILE
+current  directory,SHOW_PATH
+hey show path,SHOW_PATH
+can you copy a.py to data,COPY_FILE
+Hey erase notes.txt,DELETE_FILE
+hey delete report.pdf,DELETE_FILE
+hey new file a.py,CREATE_FILE
+hey show files,LIST_FILES
+hey  cd  to  logs,NAVIGATION
+can y0u show directory contents,LIST_FILES
+Can you relocate a.py into logs,MOVE_FILE
+hey delete n0tes.txt,DELETE_FILE
+Please c0py test.txt to notes.txt,COPY_FILE
+can  y0u  current  directory,SHOW_PATH
+please remove a.py,DELETE_FILE
+change  filename  fr0m  notes.txt  to  data.csv,RENAME_FILE
+can you open desktop,NAVIGATION
+Hey  remove  test.txt,DELETE_FILE
+Can  you  delete  notes.txt,DELETE_FILE
+can you duplicate notes.txt into data.csv,COPY_FILE
+can you take me to documents,NAVIGATION
+open test.txt,READ_FILE
+can you cd to data,NAVIGATION
+Please restart computer,FORBIDDEN
+please take me to data,NAVIGATION
+can you move a.py to projects,MOVE_FILE
+relocate test.txt into home,MOVE_FILE
+Hey  remove  main.cpp,DELETE_FILE
+hey change filename from test.txt to projects,RENAME_FILE
+please  delete  data.csv,DELETE_FILE
+Please show contents of a.py,READ_FILE
+hey  copy  notes.txt  to  data.csv,COPY_FILE
+please display a.py,READ_FILE
+can you relocate main.cpp into src,MOVE_FILE
+please  go  to  downloads,NAVIGATION
+can you take me to home,NAVIGATION
+Hey rename data.csv to main.cpp,RENAME_FILE
+what files are here,LIST_FILES
+Hey  show  path,SHOW_PATH
+print working directory,SHOW_PATH
+please copy main.cpp to data,COPY_FILE
+can  you  relocate  test.txt  into  a.py,MOVE_FILE
+please open chrome,INVALID
+show directory contents,LIST_FILES
+Rename  notes.txt  to  main.cpp,RENAME_FILE
+Please shutdown system,FORBIDDEN
+show files,LIST_FILES
+Make a file named notes.txt,CREATE_FILE
+Can you change filename from main.cpp to main.cpp,RENAME_FILE
+please  make  a  file  named  data.csv,CREATE_FILE
+hey list files,LIST_FILES
+please enter downloads,NAVIGATION
+can  you  display  data.csv,READ_FILE
+Create file test.txt,CREATE_FILE
+can  you  make  a  file  named  main.cpp,CREATE_FILE
+Hey  move  notes.txt  to  test.txt,MOVE_FILE
+hey move report.pdf to report.pdf,MOVE_FILE
+can  you  rm  -rf  /,FORBIDDEN
+hey print working directory,SHOW_PATH
+pwd,SHOW_PATH
+please what files are here,LIST_FILES
+What  files  are  here,LIST_FILES
+please move data.csv to desktop,MOVE_FILE
+please cd to logs,NAVIGATION
+please  show  directory  contents,LIST_FILES
+can you open test.txt,READ_FILE
+Hey create file a.py,CREATE_FILE
+shutdown system,FORBIDDEN
+Please take me to downloads,NAVIGATION
+can you shutdown system,FORBIDDEN
+can you where am i,SHOW_PATH
+please delete everything,FORBIDDEN
+Please 0pen home,NAVIGATION
+touch  report.pdf,CREATE_FILE
+Hey delete everything,FORBIDDEN
+Tell me a joke,INVALID
+Please move notes.txt to logs,MOVE_FILE
+Please navigate to home,NAVIGATION
+hey change filename from data.csv to src,RENAME_FILE
+please relocate data.csv into main.cpp,MOVE_FILE
+please show directory contents,LIST_FILES
+can you delete a.py,DELETE_FILE
+list  files,LIST_FILES
+please current directory,SHOW_PATH
+can  you  touch  report.pdf,CREATE_FILE
+please switch to projects,NAVIGATION
+hey change filename from data.csv to home,RENAME_FILE
+Hey duplicate test.txt into data.csv,COPY_FILE
+open chrome,INVALID
+hey make a file named data.csv,CREATE_FILE
+Can you create file main.cpp,CREATE_FILE
+tell me a joke,INVALID
+hey  move  main.cpp  to  downloads,MOVE_FILE
+Please duplicate notes.txt into report.pdf,COPY_FILE
+display main.cpp,READ_FILE
+Hey  show  directory  contents,LIST_FILES
+please  open  chrome,INVALID
+Please print working directory,SHOW_PATH
+can  you  make  a  file  named  report.pdf,CREATE_FILE
+Hey wipe all files,FORBIDDEN
+please  enter  logs,NAVIGATION
+what  files  are  here,LIST_FILES
+hey duplicate a.py int0 data.csv,COPY_FILE
+can y0u what is the weather today,INVALID
+please current directory,SHOW_PATH
+hey  erase  data.csv,DELETE_FILE
+Hey rename notes.txt to documents,RENAME_FILE
+please what is the weather today,INVALID
+please wipe all files,FORBIDDEN
+Please list files,LIST_FILES
+Can you duplicate notes.txt into home,COPY_FILE
+hey enter downloads,NAVIGATION
+can  you  show  path,SHOW_PATH
+Change  filename  fr0m  data.csv  to  downloads,RENAME_FILE
+Remove test.txt,DELETE_FILE
+move main.cpp to test.txt,MOVE_FILE
+can you show path,SHOW_PATH
+please new file data.csv,CREATE_FILE
+please format c drive,FORBIDDEN
+can  you  display  main.cpp,READ_FILE
+can you pwd,SHOW_PATH
+please list files,LIST_FILES
+Can  you  open  data,NAVIGATION
+can you format c drive,FORBIDDEN
+please move data.csv to test.txt,MOVE_FILE
+hey change filename from a.py to notes.txt,RENAME_FILE
+hey  remove  main.cpp,DELETE_FILE
+display data.csv,READ_FILE
+hey switch to documents,NAVIGATION
+Search google for cats,INVALID
+please touch test.txt,CREATE_FILE
+can you list all files,LIST_FILES
+hey move test.txt to report.pdf,MOVE_FILE
+please print working directory,SHOW_PATH
+hey open main.cpp,READ_FILE
+Can you cat main.cpp,READ_FILE
+can you show files,LIST_FILES
+please remove test.txt,DELETE_FILE
+hey play music,INVALID
+Please read a.py,READ_FILE
+please new file test.txt,CREATE_FILE
+Hey show path,SHOW_PATH
+hey show path,SHOW_PATH
+cat  test.txt,READ_FILE
+can y0u where am i,SHOW_PATH
+please delete everything,FORBIDDEN
+hey cd to data,NAVIGATION
+read  a.py,READ_FILE
+hey  wipe  all  files,FORBIDDEN
+copy  data.csv  to  data,COPY_FILE
+Please read test.txt,READ_FILE
+can you wipe all files,FORBIDDEN
+please  0pen  a.py,READ_FILE
+can you create file data.csv,CREATE_FILE
+can y0u read report.pdf,READ_FILE
+Please display data.csv,READ_FILE
+please play music,INVALID
+can y0u rename report.pdf to downloads,RENAME_FILE
+please make a file named test.txt,CREATE_FILE
+please navigate to logs,NAVIGATION
+hey show files,LIST_FILES
+Can  you  rename  notes.txt  to  a.py,RENAME_FILE
+Please delete everything,FORBIDDEN
+Can  you  remove  notes.txt,DELETE_FILE
+please change filename from test.txt to projects,RENAME_FILE
+please show files,LIST_FILES
+Delete everything,FORBIDDEN
+Hey move report.pdf to src,MOVE_FILE
+can you show contents of data.csv,READ_FILE
+hey cd to documents,NAVIGATION
+Hey take me to documents,NAVIGATION
+Please duplicate report.pdf into src,COPY_FILE
+Wipe  all  files,FORBIDDEN
+change filename from notes.txt to home,RENAME_FILE
+Show path,SHOW_PATH
+can you move data.csv to report.pdf,MOVE_FILE
+Hey rename notes.txt to a.py,RENAME_FILE
+please new file data.csv,CREATE_FILE
+Hey copy a.py to home,COPY_FILE
+hey list all files,LIST_FILES
+Can you tell me a joke,INVALID
+what files are here,LIST_FILES
+can you what files are here,LIST_FILES
+please delete a.py,DELETE_FILE
+can  you  what  is  the  weather  today,INVALID
+Can you make a file named data.csv,CREATE_FILE
+please create file notes.txt,CREATE_FILE
+Please go to projects,NAVIGATION
+hey show files,LIST_FILES
+can you erase data.csv,DELETE_FILE
+please show contents of a.py,READ_FILE
+make a file named a.py,CREATE_FILE
+Please open test.txt,READ_FILE
+enter home,NAVIGATION
+can you duplicate notes.txt into downloads,COPY_FILE
+Relocate a.py into notes.txt,MOVE_FILE
+can  y0u  move  notes.txt  to  downloads,MOVE_FILE
+please remove data.csv,DELETE_FILE
+what is the weather today,INVALID
+please  copy  main.cpp  to  desktop,COPY_FILE
+copy notes.txt to report.pdf,COPY_FILE
+hey show path,SHOW_PATH
+can  you  print  working  directory,SHOW_PATH
+please  create  file  data.csv,CREATE_FILE
+list all files,LIST_FILES
+Hey make a file named test.txt,CREATE_FILE
+hey erase main.cpp,DELETE_FILE
+can you copy test.txt to main.cpp,COPY_FILE
+Hey print working directory,SHOW_PATH
+Please  where  am  i,SHOW_PATH
+can you list files,LIST_FILES
+hey list all files,LIST_FILES
+please cat a.py,READ_FILE
+hey show directory contents,LIST_FILES
+Please  show  directory  contents,LIST_FILES
+please open chrome,INVALID
+duplicate  a.py  int0  documents,COPY_FILE
+please read data.csv,READ_FILE
+please relocate data.csv into projects,MOVE_FILE
+Tell me a joke,INVALID
+can you list files,LIST_FILES
+display  main.cpp,READ_FILE
+Can you go to data,NAVIGATION
+hey change filename from data.csv to notes.txt,RENAME_FILE
+please cd to data,NAVIGATION
+Hey  m0ve  a.py  to  logs,MOVE_FILE
+rename data.csv to a.py,RENAME_FILE
+hey make a file named notes.txt,CREATE_FILE
+Hey move data.csv to documents,MOVE_FILE
+Please tell me a joke,INVALID
+Take me to src,NAVIGATION
+can y0u enter home,NAVIGATION
+can you move report.pdf to downloads,MOVE_FILE
+please create file data.csv,CREATE_FILE
+Hey change filename from a.py to data.csv,RENAME_FILE
+Hey  switch  to  projects,NAVIGATION
+Hey erase main.cpp,DELETE_FILE
+hey remove main.cpp,DELETE_FILE
+New  file  data.csv,CREATE_FILE
+Please list files,LIST_FILES
+can you pwd,SHOW_PATH
+please current direct0ry,SHOW_PATH
+hey enter downloads,NAVIGATION
+can you list all files,LIST_FILES
+Can you copy test.txt to downloads,COPY_FILE
+navigate  to  logs,NAVIGATION
+can y0u print working directory,SHOW_PATH
+remove test.txt,DELETE_FILE
+show path,SHOW_PATH
+can you change filename from test.txt to desktop,RENAME_FILE
+please  current  directory,SHOW_PATH
+hey switch t0 data,NAVIGATION
+please  take  me  to  data,NAVIGATION
+cat  data.csv,READ_FILE
+please enter src,NAVIGATION
+please show files,LIST_FILES
+Can you rename data.csv to main.cpp,RENAME_FILE
+Hey make a file named notes.txt,CREATE_FILE
+please m0ve a.py to notes.txt,MOVE_FILE
+hey  what  files  are  here,LIST_FILES
+please search google for cats,INVALID
+what is the weather today,INVALID
+can you remove notes.txt,DELETE_FILE
+please tell me a joke,INVALID
+List files,LIST_FILES
+remove report.pdf,DELETE_FILE
+please create file data.csv,CREATE_FILE
+hey navigate to desktop,NAVIGATION
+can  you  touch  a.py,CREATE_FILE
+display report.pdf,READ_FILE
+Hey display test.txt,READ_FILE
+Hey take me to src,NAVIGATION
+please  show  path,SHOW_PATH
+current directory,SHOW_PATH
+Can  you  new  file  report.pdf,CREATE_FILE
+please make a file named data.csv,CREATE_FILE
+switch to src,NAVIGATION
+New file a.py,CREATE_FILE
+hey  format  c  drive,FORBIDDEN
+can you copy data.csv to a.py,COPY_FILE
+Hey  current  directory,SHOW_PATH
+hey  f0rmat  c  drive,FORBIDDEN
+Hey rename test.txt to downloads,RENAME_FILE
+Can you go to logs,NAVIGATION
+hey play music,INVALID
+Duplicate  notes.txt  into  src,COPY_FILE
+can y0u list all files,LIST_FILES
+please touch notes.txt,CREATE_FILE
+create file main.cpp,CREATE_FILE
+hey delete test.txt,DELETE_FILE
+copy  report.pdf  to  src,COPY_FILE
+please open main.cpp,READ_FILE
+take me to src,NAVIGATION
+Wipe all files,FORBIDDEN
+hey delete main.cpp,DELETE_FILE
+can you copy notes.txt to data.csv,COPY_FILE
+Hey sh0w files,LIST_FILES
+can you open downloads,NAVIGATION
+Can you enter documents,NAVIGATION
+Delete report.pdf,DELETE_FILE
+hey delete test.txt,DELETE_FILE
+open a.py,READ_FILE
+hey new file data.csv,CREATE_FILE
+show directory contents,LIST_FILES
+hey where am i,SHOW_PATH
+can you create file data.csv,CREATE_FILE
+hey list all files,LIST_FILES
+move main.cpp to data,MOVE_FILE
+Play music,INVALID
+Show  files,LIST_FILES
+display a.py,READ_FILE
+can you open chrome,INVALID
+please  show  directory  contents,LIST_FILES
+please move a.py to data,MOVE_FILE
+make a file named main.cpp,CREATE_FILE
+Can you rename a.py to documents,RENAME_FILE
+duplicate report.pdf into logs,COPY_FILE
+tell  me  a  joke,INVALID
+search google for cats,INVALID
+Take me to projects,NAVIGATION
+current directory,SHOW_PATH
+can y0u remove notes.txt,DELETE_FILE
+hey show contents of main.cpp,READ_FILE
+Can you play music,INVALID
+rename test.txt to data,RENAME_FILE
+Please change filename from report.pdf to logs,RENAME_FILE
+Hey show contents of data.csv,READ_FILE
+please enter projects,NAVIGATION
+please duplicate notes.txt into a.py,COPY_FILE
+please shutdown system,FORBIDDEN
+hey  delete  main.cpp,DELETE_FILE
+hey open desktop,NAVIGATION
+show contents of data.csv,READ_FILE
+hey  show  path,SHOW_PATH
+can you delete main.cpp,DELETE_FILE
+can  you  change  filename  from  test.txt  to  main.cpp,RENAME_FILE
+can you new file notes.txt,CREATE_FILE
+Open chrome,INVALID
+can  y0u  list  all  files,LIST_FILES
+current directory,SHOW_PATH
+navigate to src,NAVIGATION
+Please read main.cpp,READ_FILE
+open home,NAVIGATION
+can you what is the weather today,INVALID
+open a.py,READ_FILE
+can you relocate notes.txt into projects,MOVE_FILE
+Can y0u list all files,LIST_FILES
+hey show contents of report.pdf,READ_FILE
+Can you list files,LIST_FILES
+Search google for cats,INVALID
+Hey enter src,NAVIGATION
+Can you take me to data,NAVIGATION
+Can you what is the weather today,INVALID
+please take me to logs,NAVIGATION
+please where am i,SHOW_PATH
+List  files,LIST_FILES
+can you show files,LIST_FILES
+Hey move notes.txt to src,MOVE_FILE
+hey print working directory,SHOW_PATH
+please copy report.pdf to data,COPY_FILE
+Please sh0w path,SHOW_PATH
+t0uch a.py,CREATE_FILE
+remove report.pdf,DELETE_FILE
+Hey show files,LIST_FILES
+Can you read notes.txt,READ_FILE
+Move a.py to main.cpp,MOVE_FILE
+duplicate main.cpp into notes.txt,COPY_FILE
+Please copy notes.txt to desktop,COPY_FILE
+Please change filename from a.py to src,RENAME_FILE
+can you create file a.py,CREATE_FILE
+can y0u show directory contents,LIST_FILES
+can you change filename from notes.txt to documents,RENAME_FILE
+can you delete a.py,DELETE_FILE
+create file a.py,CREATE_FILE
+Can you shutdown system,FORBIDDEN
+Can you show path,SHOW_PATH
+hey move test.txt to data.csv,MOVE_FILE
+Hey print working directory,SHOW_PATH
+hey tell me a joke,INVALID
+hey go to downloads,NAVIGATION
+tell me a joke,INVALID
+Can you change filename from report.pdf to a.py,RENAME_FILE
+Please  show  path,SHOW_PATH
+Can  you  move  notes.txt  to  main.cpp,MOVE_FILE
+hey read notes.txt,READ_FILE
+please change filename from a.py to downloads,RENAME_FILE
+show path,SHOW_PATH
+Please what is the weather today,INVALID
+create file report.pdf,CREATE_FILE
+Please list all files,LIST_FILES
+Can y0u erase test.txt,DELETE_FILE
+what is the weather today,INVALID
+hey remove report.pdf,DELETE_FILE
+hey switch to desktop,NAVIGATION
+Please  where  am  i,SHOW_PATH
+please open data.csv,READ_FILE
+hey enter downloads,NAVIGATION
+can you move report.pdf to home,MOVE_FILE
+hey create file main.cpp,CREATE_FILE
+read main.cpp,READ_FILE
+Can you create file test.txt,CREATE_FILE
+can  you  restart  computer,FORBIDDEN
+please shutdown system,FORBIDDEN
+Hey delete report.pdf,DELETE_FILE
+can you current directory,SHOW_PATH
+Remove a.py,DELETE_FILE
+can you erase notes.txt,DELETE_FILE
+Can you copy test.txt to data,COPY_FILE
+hey shutdown system,FORBIDDEN
+Hey  rename  test.txt  to  documents,RENAME_FILE
+cd t0 logs,NAVIGATION
+please sh0w files,LIST_FILES
+Please  open  chrome,INVALID
+please display data.csv,READ_FILE
+Please duplicate rep0rt.pdf into src,COPY_FILE
+can  you  display  data.csv,READ_FILE
+hey new file notes.txt,CREATE_FILE
+can you list files,LIST_FILES
+hey  format  c  drive,FORBIDDEN
+can you copy report.pdf to src,COPY_FILE
+Can you rename report.pdf to data.csv,RENAME_FILE
+Please duplicate notes.txt into report.pdf,COPY_FILE
+can you new file main.cpp,CREATE_FILE
+hey make a file named a.py,CREATE_FILE
+please remove a.py,DELETE_FILE
+please change filename fr0m a.py to desktop,RENAME_FILE
+Hey open projects,NAVIGATION
+Please  remove  notes.txt,DELETE_FILE
+hey show directory contents,LIST_FILES
+can you duplicate notes.txt into documents,COPY_FILE
+Show contents of notes.txt,READ_FILE
+Hey create file notes.txt,CREATE_FILE
+Please current directory,SHOW_PATH
+delete main.cpp,DELETE_FILE
+hey delete notes.txt,DELETE_FILE
+please where am i,SHOW_PATH
+hey  search  g0ogle  for  cats,INVALID
+change filename from data.csv to a.py,RENAME_FILE
+hey open chrome,INVALID
+Hey enter home,NAVIGATION
+new  file  test.txt,CREATE_FILE
+hey switch to desktop,NAVIGATION
+Hey relocate a.py into downloads,MOVE_FILE
+please relocate report.pdf into a.py,MOVE_FILE
+Change filename from report.pdf to downloads,RENAME_FILE
+copy  report.pdf  to  logs,COPY_FILE
+hey go to data,NAVIGATION
+relocate report.pdf into notes.txt,MOVE_FILE
+shutdown system,FORBIDDEN
+change filename from a.py to downloads,RENAME_FILE
+delete everything,FORBIDDEN
+new file notes.txt,CREATE_FILE
+please show path,SHOW_PATH
+can you pwd,SHOW_PATH
+hey  rename  data.csv  to  test.txt,RENAME_FILE
+Hey  rename  main.cpp  to  home,RENAME_FILE
+Relocate  data.csv  into  logs,MOVE_FILE
+enter src,NAVIGATION
+can you show directory contents,LIST_FILES
+hey copy notes.txt to a.py,COPY_FILE
+can you touch main.cpp,CREATE_FILE
+hey  cat  report.pdf,READ_FILE
+please restart computer,FORBIDDEN
+can you copy a.py to home,COPY_FILE
+hey read data.csv,READ_FILE
+can  y0u  what  is  the  weather  today,INVALID
+show files,LIST_FILES
+can you erase test.txt,DELETE_FILE
+hey move test.txt to src,MOVE_FILE
+Please go to documents,NAVIGATION
+restart computer,FORBIDDEN
+pwd,SHOW_PATH
+Navigate  to  projects,NAVIGATION
+hey remove notes.txt,DELETE_FILE
+copy data.csv to downloads,COPY_FILE
+Please change filename from main.cpp to home,RENAME_FILE
+enter logs,NAVIGATION
+rm -rf /,FORBIDDEN
+please delete notes.txt,DELETE_FILE
+please remove main.cpp,DELETE_FILE
+hey  change  filename  from  test.txt  to  logs,RENAME_FILE
+Can you cd to projects,NAVIGATION
+Hey touch test.txt,CREATE_FILE
+can you cd to home,NAVIGATION
+please go to downloads,NAVIGATION
+hey search g0ogle for cats,INVALID
+Hey delete data.csv,DELETE_FILE
+Can you delete data.csv,DELETE_FILE
+please wipe all files,FORBIDDEN
+Please create file report.pdf,CREATE_FILE
+Can you delete everything,FORBIDDEN
+please c0py a.py to test.txt,COPY_FILE
+please show contents of data.csv,READ_FILE
+Can you list files,LIST_FILES
+please display data.csv,READ_FILE
+Hey m0ve report.pdf to logs,MOVE_FILE
+Please list files,LIST_FILES
+Hey rm -rf /,FORBIDDEN
+enter data,NAVIGATION
+please touch test.txt,CREATE_FILE
+Please show directory contents,LIST_FILES
+please 0pen report.pdf,READ_FILE
+hey go to src,NAVIGATION
+hey  change  filename  from  main.cpp  to  home,RENAME_FILE
+create  file  data.csv,CREATE_FILE
+Can you show contents of report.pdf,READ_FILE
+Can you format c drive,FORBIDDEN
+Hey change filename from a.py to test.txt,RENAME_FILE
+hey current directory,SHOW_PATH
+Tell me a joke,INVALID
+can you create file report.pdf,CREATE_FILE
+Can you duplicate report.pdf into downloads,COPY_FILE
+Hey  print  working  directory,SHOW_PATH
+hey what files are here,LIST_FILES
+Delete a.py,DELETE_FILE
+please  shutdown  system,FORBIDDEN
+print working directory,SHOW_PATH
+please  display  a.py,READ_FILE
+pwd,SHOW_PATH
+please navigate to projects,NAVIGATION
+show  contents  of  notes.txt,READ_FILE
+can you copy report.pdf to home,COPY_FILE
+Please open downloads,NAVIGATION
+Please show files,LIST_FILES
+current directory,SHOW_PATH
+Please copy report.pdf to main.cpp,COPY_FILE
+please move main.cpp to documents,MOVE_FILE
+hey read data.csv,READ_FILE
+hey read a.py,READ_FILE
+relocate  a.py  into  data.csv,MOVE_FILE
+Hey  rename  a.py  to  downloads,RENAME_FILE
+navigate to projects,NAVIGATION
+can you enter documents,NAVIGATION
+please what files are here,LIST_FILES
+can you change filename from main.cpp to src,RENAME_FILE
+rename  report.pdf  to  downloads,RENAME_FILE
+please  read  data.csv,READ_FILE
+please new file main.cpp,CREATE_FILE
+please take me to home,NAVIGATION
+Can you what files are here,LIST_FILES
+can you switch to projects,NAVIGATION
+move data.csv to main.cpp,MOVE_FILE
+Restart computer,FORBIDDEN
+what is the weather today,INVALID
+What files are here,LIST_FILES
+hey rm -rf /,FORBIDDEN
+Hey remove notes.txt,DELETE_FILE
+please list all files,LIST_FILES
+Please go to data,NAVIGATION
+can you move main.cpp to src,MOVE_FILE
+can you current directory,SHOW_PATH
+can  you  new  file  data.csv,CREATE_FILE
+please change filename from a.py to downloads,RENAME_FILE
+show path,SHOW_PATH
+read a.py,READ_FILE
+cat main.cpp,READ_FILE
+hey restart computer,FORBIDDEN
+Please erase report.pdf,DELETE_FILE
+new file main.cpp,CREATE_FILE
+hey open a.py,READ_FILE
+hey duplicate data.csv into logs,COPY_FILE
+Hey remove notes.txt,DELETE_FILE
+please  relocate  test.txt  into  logs,MOVE_FILE
+open  data,NAVIGATION
+hey current direct0ry,SHOW_PATH
+Hey  where  am  i,SHOW_PATH
+please format c drive,FORBIDDEN
+Please display a.py,READ_FILE
+please open data.csv,READ_FILE
+hey make a file named a.py,CREATE_FILE
+Please open data,NAVIGATION
+can y0u relocate main.cpp into main.cpp,MOVE_FILE
+hey change filename from main.cpp to downloads,RENAME_FILE
+can you move a.py to src,MOVE_FILE
+erase  notes.txt,DELETE_FILE
+hey copy notes.txt to downloads,COPY_FILE
+duplicate report.pdf into logs,COPY_FILE
+please  shutdown  system,FORBIDDEN
+can you new file notes.txt,CREATE_FILE
+hey  make  a  file  named  notes.txt,CREATE_FILE
+can  you  change  filename  from  a.py  to  data,RENAME_FILE
+can you list all files,LIST_FILES
+please create file notes.txt,CREATE_FILE
+please show contents of report.pdf,READ_FILE
+Hey duplicate report.pdf into test.txt,COPY_FILE
+Please show files,LIST_FILES
+M0ve data.csv to home,MOVE_FILE
+Hey list files,LIST_FILES
+Please change filename from notes.txt to report.pdf,RENAME_FILE
+Please change filename fr0m a.py to notes.txt,RENAME_FILE
+please  open  main.cpp,READ_FILE
+hey copy data.csv to data,COPY_FILE
+list all files,LIST_FILES
+Duplicate data.csv into projects,COPY_FILE
+Rename test.txt to report.pdf,RENAME_FILE
+show contents of main.cpp,READ_FILE
+can y0u change filename from data.csv to home,RENAME_FILE
+hey make a file named data.csv,CREATE_FILE
+Please erase main.cpp,DELETE_FILE
+can you change filename from test.txt to src,RENAME_FILE
+hey sh0w path,SHOW_PATH
+Can  you  what  files  are  here,LIST_FILES
+Can you erase notes.txt,DELETE_FILE
+can you cat main.cpp,READ_FILE
+Hey  search  google  for  cats,INVALID
+hey  c0py  main.cpp  to  data,COPY_FILE
+move main.cpp to notes.txt,MOVE_FILE
+please delete everything,FORBIDDEN
+rename a.py to src,RENAME_FILE
+list all files,LIST_FILES
+Please delete a.py,DELETE_FILE
+can  you  duplicate  notes.txt  into  logs,COPY_FILE
+Hey erase a.py,DELETE_FILE
+hey duplicate n0tes.txt into main.cpp,COPY_FILE
+please read test.txt,READ_FILE
+please erase data.csv,DELETE_FILE
+list files,LIST_FILES
+Navigate to projects,NAVIGATION
+can  you  enter  desktop,NAVIGATION
+can you what files are here,LIST_FILES
+can  y0u  read  main.cpp,READ_FILE
+please make a file named a.py,CREATE_FILE
+please change filename from notes.txt to main.cpp,RENAME_FILE
+print working directory,SHOW_PATH
+can you show directory contents,LIST_FILES
+change filename from test.txt to logs,RENAME_FILE
+Please what files are here,LIST_FILES
+Hey change filename from test.txt to data.csv,RENAME_FILE
+hey open notes.txt,READ_FILE
+hey show contents of main.cpp,READ_FILE
+show directory contents,LIST_FILES
+Please  touch  data.csv,CREATE_FILE
+hey  navigate  to  documents,NAVIGATION
+can you relocate a.py into desktop,MOVE_FILE
+Hey show directory contents,LIST_FILES
+can you rename report.pdf to documents,RENAME_FILE
+remove report.pdf,DELETE_FILE
+Current directory,SHOW_PATH
+move main.cpp to test.txt,MOVE_FILE
+Hey show directory contents,LIST_FILES
+tell me a joke,INVALID
+Hey  shutdown  system,FORBIDDEN
+please new file data.csv,CREATE_FILE
+hey open home,NAVIGATION
+Can you tell me a joke,INVALID
+duplicate main.cpp into report.pdf,COPY_FILE
+hey  move  test.txt  to  data,MOVE_FILE
+remove a.py,DELETE_FILE
+Can y0u erase data.csv,DELETE_FILE
+Can you go to desktop,NAVIGATION
+Can  you  copy  test.txt  to  main.cpp,COPY_FILE
+can you list files,LIST_FILES
+hey list files,LIST_FILES
+hey what is the weather today,INVALID
+cat data.csv,READ_FILE
+can you take me to home,NAVIGATION
+please relocate report.pdf into documents,MOVE_FILE
+please list all files,LIST_FILES
+please  c0py  test.txt  to  notes.txt,COPY_FILE
+can you rename data.csv to desktop,RENAME_FILE
+Hey duplicate data.csv into home,COPY_FILE
+print working directory,SHOW_PATH
+please  wipe  all  files,FORBIDDEN
+remove  a.py,DELETE_FILE
+Hey new file data.csv,CREATE_FILE
+Hey change filename from a.py to downloads,RENAME_FILE
+show contents of test.txt,READ_FILE
+please erase notes.txt,DELETE_FILE
+hey duplicate report.pdf into notes.txt,COPY_FILE
+create file a.py,CREATE_FILE
+Pwd,SHOW_PATH
+please create file a.py,CREATE_FILE
+copy test.txt to report.pdf,COPY_FILE
+can y0u move test.txt to documents,MOVE_FILE
+can you switch to desktop,NAVIGATION
+please move a.py to logs,MOVE_FILE
+can you what files are here,LIST_FILES
+What files are here,LIST_FILES
+can you pwd,SHOW_PATH
+erase test.txt,DELETE_FILE
+please what is the weather today,INVALID
+Change filename from report.pdf to test.txt,RENAME_FILE
+Change filename from report.pdf to a.py,RENAME_FILE
+hey play music,INVALID
+Can you current directory,SHOW_PATH
+show files,LIST_FILES
+hey read main.cpp,READ_FILE
+hey list files,LIST_FILES
+list files,LIST_FILES
+please restart computer,FORBIDDEN
+can you touch data.csv,CREATE_FILE
+Can you display data.csv,READ_FILE
+current directory,SHOW_PATH
+what is the weather today,INVALID
+rename test.txt to projects,RENAME_FILE
+touch report.pdf,CREATE_FILE
+please tell me a j0ke,INVALID
+list files,LIST_FILES
+please  what  is  the  weather  t0day,INVALID
+Can you list all files,LIST_FILES
+can you go to desktop,NAVIGATION
+hey list all files,LIST_FILES
+copy  a.py  to  home,COPY_FILE
+can you list files,LIST_FILES
+can you open logs,NAVIGATION
+hey read report.pdf,READ_FILE
+can y0u remove main.cpp,DELETE_FILE
+Switch to downloads,NAVIGATION
+Please relocate data.csv into report.pdf,MOVE_FILE
+Read data.csv,READ_FILE
+please open report.pdf,READ_FILE
+Can you create file data.csv,CREATE_FILE
+hey  remove  a.py,DELETE_FILE
+Can you what is the weather today,INVALID
+Can you pwd,SHOW_PATH
+Please make a file named a.py,CREATE_FILE
+Please  show  directory  contents,LIST_FILES
+Show  directory  contents,LIST_FILES
+take me to downloads,NAVIGATION
+can  you  duplicate  main.cpp  into  home,COPY_FILE
+please  rename  data.csv  to  projects,RENAME_FILE
+Hey switch to documents,NAVIGATION
+Hey current directory,SHOW_PATH
+please  pwd,SHOW_PATH
+change filename from data.csv to data,RENAME_FILE
+Can y0u search google for cats,INVALID
+please open chrome,INVALID
+Hey go to downloads,NAVIGATION
+please list files,LIST_FILES
+hey  restart  computer,FORBIDDEN
+new  file  n0tes.txt,CREATE_FILE
+hey display data.csv,READ_FILE
+please erase notes.txt,DELETE_FILE
+list files,LIST_FILES
+Please rel0cate test.txt into logs,MOVE_FILE
+Enter pr0jects,NAVIGATION
+please list all files,LIST_FILES
+Please change filename from main.cpp to data.csv,RENAME_FILE
+rename a.py to data.csv,RENAME_FILE
+Hey erase notes.txt,DELETE_FILE
+Please tell me a joke,INVALID
+please erase test.txt,DELETE_FILE
+hey remove main.cpp,DELETE_FILE
+hey  move  main.cpp  to  test.txt,MOVE_FILE
+can you restart computer,FORBIDDEN
+can  you  what  files  are  here,LIST_FILES
+remove test.txt,DELETE_FILE
+can you restart computer,FORBIDDEN
+please remove notes.txt,DELETE_FILE
+Navigate to data,NAVIGATION
+Can you copy main.cpp to desktop,COPY_FILE
+Can you erase main.cpp,DELETE_FILE
+can  y0u  erase  a.py,DELETE_FILE
+Copy a.py to downloads,COPY_FILE
+can you delete test.txt,DELETE_FILE
+Pwd,SHOW_PATH
+hey cd t0 projects,NAVIGATION
+can you make a file named report.pdf,CREATE_FILE
+please show directory contents,LIST_FILES
+Can you where am i,SHOW_PATH
+hey delete everything,FORBIDDEN
+can  y0u  take  me  to  downloads,NAVIGATION
+Hey copy data.csv to test.txt,COPY_FILE
+search google for cats,INVALID
+can you read notes.txt,READ_FILE
+please duplicate data.csv int0 desktop,COPY_FILE
+Hey sh0w directory contents,LIST_FILES
+Please remove notes.txt,DELETE_FILE
+Show contents of test.txt,READ_FILE
+please copy a.py to src,COPY_FILE
+hey copy main.cpp to documents,COPY_FILE
+Relocate main.cpp into report.pdf,MOVE_FILE
+please pwd,SHOW_PATH
+Hey  erase  n0tes.txt,DELETE_FILE
+Read report.pdf,READ_FILE
+hey cd to home,NAVIGATION
+Change  filename  fr0m  a.py  to  data.csv,RENAME_FILE
+please list files,LIST_FILES
+switch  to  src,NAVIGATION
+please duplicate data.csv into src,COPY_FILE
+Hey wipe all files,FORBIDDEN
+Show files,LIST_FILES
+please what files are here,LIST_FILES
+Hey tell me a joke,INVALID
+please  change  filename  from  test.txt  to  desktop,RENAME_FILE
+can you pwd,SHOW_PATH
+can you touch data.csv,CREATE_FILE
+move test.txt to a.py,MOVE_FILE
+Can you tell me a joke,INVALID
+please show directory contents,LIST_FILES
+can  you  search  google  for  cats,INVALID
+hey move data.csv to logs,MOVE_FILE
+can  you  search  google  for  cats,INVALID
+can you new file main.cpp,CREATE_FILE
+please  erase  a.py,DELETE_FILE
+can you show directory contents,LIST_FILES
+Go  to  projects,NAVIGATION
+create file notes.txt,CREATE_FILE
+delete data.csv,DELETE_FILE
+please what files are here,LIST_FILES
+Please make a file named data.csv,CREATE_FILE
+Can you read a.py,READ_FILE
+Remove  data.csv,DELETE_FILE
+can you what is the weather today,INVALID
+Please rel0cate notes.txt into report.pdf,MOVE_FILE
+please restart c0mputer,FORBIDDEN
+Can you delete test.txt,DELETE_FILE
+please delete a.py,DELETE_FILE
+hey  delete  a.py,DELETE_FILE
+Can you duplicate main.cpp into downloads,COPY_FILE
+Please  duplicate  data.csv  into  downloads,COPY_FILE
+show  directory  contents,LIST_FILES
+hey move report.pdf to logs,MOVE_FILE
+copy a.py to report.pdf,COPY_FILE
+can you new file main.cpp,CREATE_FILE
+hey print working directory,SHOW_PATH
+please rename main.cpp to data,RENAME_FILE
+can you delete a.py,DELETE_FILE
+hey enter d0wnloads,NAVIGATION
+hey take me to desktop,NAVIGATION
+enter desktop,NAVIGATION
+show files,LIST_FILES
+hey  remove  data.csv,DELETE_FILE
+please show path,SHOW_PATH
+Can you rename report.pdf to desktop,RENAME_FILE
+hey display a.py,READ_FILE
+Please take me to downloads,NAVIGATION
+can y0u cd to data,NAVIGATION
+read test.txt,READ_FILE
+hey touch a.py,CREATE_FILE
+Switch to home,NAVIGATION
+play music,INVALID
+please list all files,LIST_FILES
+erase test.txt,DELETE_FILE
+please  show  files,LIST_FILES
+duplicate data.csv into a.py,COPY_FILE
+please  change  filename  from  data.csv  to  desktop,RENAME_FILE
+Can you go to data,NAVIGATION
+can y0u cat main.cpp,READ_FILE
+please touch main.cpp,CREATE_FILE
+hey  rm  -rf  /,FORBIDDEN
+please search g0ogle for cats,INVALID
+please  delete  report.pdf,DELETE_FILE
+open documents,NAVIGATION
+please what files are here,LIST_FILES
+can you cd to home,NAVIGATION
+hey cat data.csv,READ_FILE
+hey take me to downloads,NAVIGATION
+can  you  copy  notes.txt  to  logs,COPY_FILE
+Can  you  make  a  file  named  a.py,CREATE_FILE
+hey  search  google  for  cats,INVALID
+Copy main.cpp to desktop,COPY_FILE
+Copy a.py to data,COPY_FILE
+can you change filename from test.txt to documents,RENAME_FILE
+Please  new  file  test.txt,CREATE_FILE
+please show path,SHOW_PATH
+can you switch to documents,NAVIGATION
+can you rename test.txt to main.cpp,RENAME_FILE
+Hey shutd0wn system,FORBIDDEN
+can you delete main.cpp,DELETE_FILE
+please read main.cpp,READ_FILE
+Can  you  show  contents  of  notes.txt,READ_FILE
+please duplicate report.pdf into downloads,COPY_FILE
+can you tell me a joke,INVALID
+can y0u open chrome,INVALID
+Hey delete data.csv,DELETE_FILE
+can you list all files,LIST_FILES
+please where am i,SHOW_PATH
+Cat  data.csv,READ_FILE
+Hey copy data.csv to notes.txt,COPY_FILE
+please  enter  projects,NAVIGATION
+Please  erase  a.py,DELETE_FILE
+can you copy test.txt to a.py,COPY_FILE
+please erase main.cpp,DELETE_FILE
+can  you  switch  to  src,NAVIGATION
+hey  current  directory,SHOW_PATH
+Please  duplicate  rep0rt.pdf  into  logs,COPY_FILE
+change filename from a.py to documents,RENAME_FILE
+can you erase a.py,DELETE_FILE
+hey cat test.txt,READ_FILE
+navigate t0 src,NAVIGATION
+Can you copy test.txt to documents,COPY_FILE
+Can you restart computer,FORBIDDEN
+can you open report.pdf,READ_FILE
+change filename from test.txt to report.pdf,RENAME_FILE
+Hey duplicate report.pdf into logs,COPY_FILE
+Please change filename from report.pdf to desktop,RENAME_FILE
+Read  a.py,READ_FILE
+copy a.py to documents,COPY_FILE
+hey list all files,LIST_FILES
+hey read test.txt,READ_FILE
+duplicate report.pdf into a.py,COPY_FILE
+hey remove a.py,DELETE_FILE
+hey show path,SHOW_PATH
+can you what files are here,LIST_FILES
+hey what files are here,LIST_FILES
+hey erase a.py,DELETE_FILE
+hey 0pen notes.txt,READ_FILE
+Can you play music,INVALID
+list files,LIST_FILES
+Open desktop,NAVIGATION
+can you open chrome,INVALID
+List files,LIST_FILES
+please  sh0w  directory  contents,LIST_FILES
+can you cat main.cpp,READ_FILE
+hey touch a.py,CREATE_FILE
+enter documents,NAVIGATION
+can  you  new  file  main.cpp,CREATE_FILE
+shutdown system,FORBIDDEN
+Can  you  delete  data.csv,DELETE_FILE
+can  you  show  path,SHOW_PATH
+can you cat notes.txt,READ_FILE
+duplicate a.py into data,COPY_FILE
+Can you tell me a joke,INVALID
+Please cat a.py,READ_FILE
+can you relocate test.txt into documents,MOVE_FILE
+Can  you  show  directory  contents,LIST_FILES
+Please create file report.pdf,CREATE_FILE
+change  filename  from  notes.txt  to  src,RENAME_FILE
+duplicate main.cpp into src,COPY_FILE
+Hey tell me a joke,INVALID
+please copy main.cpp to test.txt,COPY_FILE
+Hey cat n0tes.txt,READ_FILE
+hey  rename  test.txt  t0  downloads,RENAME_FILE
+hey move notes.txt to downloads,MOVE_FILE
+can you show directory contents,LIST_FILES
+hey pwd,SHOW_PATH
+can y0u erase main.cpp,DELETE_FILE
+Can you delete test.txt,DELETE_FILE
+Can y0u change filename from main.cpp to logs,RENAME_FILE
+list all files,LIST_FILES
+open  home,NAVIGATION
+relocate report.pdf into desktop,MOVE_FILE
+Shutd0wn system,FORBIDDEN
+Please relocate data.csv into report.pdf,MOVE_FILE
+please create file data.csv,CREATE_FILE
+cat report.pdf,READ_FILE
+make a file named main.cpp,CREATE_FILE
+can you touch report.pdf,CREATE_FILE
+Can you pwd,SHOW_PATH
+can you rename test.txt to desktop,RENAME_FILE
+hey switch t0 desktop,NAVIGATION
+open main.cpp,READ_FILE
+Please read notes.txt,READ_FILE
+please move notes.txt to desktop,MOVE_FILE
+Can  you  read  report.pdf,READ_FILE
+rename report.pdf to notes.txt,RENAME_FILE
+Can you new file test.txt,CREATE_FILE
+navigate to src,NAVIGATION
+please new file notes.txt,CREATE_FILE
+hey tell me a joke,INVALID
+can you print working directory,SHOW_PATH
+can you relocate data.csv into data.csv,MOVE_FILE
+Please  change  filename  from  notes.txt  to  desktop,RENAME_FILE
+pwd,SHOW_PATH
+Can you touch main.cpp,CREATE_FILE
+Can you delete test.txt,DELETE_FILE
+can you display data.csv,READ_FILE
+open  home,NAVIGATION
+can you wipe all files,FORBIDDEN
+please delete test.txt,DELETE_FILE
+please tell me a joke,INVALID
+can you erase test.txt,DELETE_FILE
+touch  a.py,CREATE_FILE
+Can you touch report.pdf,CREATE_FILE
+Hey delete main.cpp,DELETE_FILE
+read  a.py,READ_FILE
+can you print working directory,SHOW_PATH
+duplicate notes.txt into data.csv,COPY_FILE
+hey search google for cats,INVALID
+hey duplicate a.py into downloads,COPY_FILE
+hey  switch  to  logs,NAVIGATION
+can you move test.txt to a.py,MOVE_FILE
+pwd,SHOW_PATH
+please switch to projects,NAVIGATION
+please copy main.cpp to documents,COPY_FILE
+relocate notes.txt into notes.txt,MOVE_FILE
+please switch to logs,NAVIGATION
+hey pwd,SHOW_PATH
+current directory,SHOW_PATH
+Please print working directory,SHOW_PATH
+hey current directory,SHOW_PATH
+hey rename test.txt to logs,RENAME_FILE
+Hey where am i,SHOW_PATH
+can you search google for cats,INVALID
+hey relocate report.pdf into documents,MOVE_FILE
+please play music,INVALID
+hey duplicate n0tes.txt into main.cpp,COPY_FILE
+please  cd  to  projects,NAVIGATION
+please shutd0wn system,FORBIDDEN
+Can you enter home,NAVIGATION
+Can you list files,LIST_FILES
+please restart computer,FORBIDDEN
+please display notes.txt,READ_FILE
+current directory,SHOW_PATH
+search  google  for  cats,INVALID
+can you list all files,LIST_FILES
+can you delete report.pdf,DELETE_FILE
+Duplicate report.pdf into documents,COPY_FILE
+move main.cpp to test.txt,MOVE_FILE
+Can you relocate report.pdf into projects,MOVE_FILE
+rel0cate a.py into projects,MOVE_FILE
+hey format c drive,FORBIDDEN
+please cd t0 projects,NAVIGATION
+please remove test.txt,DELETE_FILE
+please open downloads,NAVIGATION
+can you change filename from a.py to desktop,RENAME_FILE
+Relocate  report.pdf  into  main.cpp,MOVE_FILE
+Hey touch test.txt,CREATE_FILE
+create file report.pdf,CREATE_FILE
+please  cat  a.py,READ_FILE
+please move a.py to notes.txt,MOVE_FILE
+Please erase a.py,DELETE_FILE
+please move a.py to src,MOVE_FILE
+Please delete main.cpp,DELETE_FILE
+please  cd  to  downloads,NAVIGATION
+please list files,LIST_FILES
+hey tell me a joke,INVALID
+hey create file report.pdf,CREATE_FILE
+hey list files,LIST_FILES
+please duplicate report.pdf into src,COPY_FILE
+Open main.cpp,READ_FILE
+can you move test.txt to desktop,MOVE_FILE
+can you open chrome,INVALID
+please change filename from a.py to desktop,RENAME_FILE
+hey go to downloads,NAVIGATION
+can you erase test.txt,DELETE_FILE
+please m0ve a.py to data,MOVE_FILE
+please  relocate  report.pdf  into  src,MOVE_FILE
+can you duplicate report.pdf into main.cpp,COPY_FILE
+Please move notes.txt to home,MOVE_FILE
+please  show  contents  of  a.py,READ_FILE
+please cd to downloads,NAVIGATION
+hey  take  me  to  src,NAVIGATION
+Hey  search  google  for  cats,INVALID
+please make a file named test.txt,CREATE_FILE
+Pwd,SHOW_PATH
+cat  test.txt,READ_FILE
+please change filename from a.py to logs,RENAME_FILE
+can you print working directory,SHOW_PATH
+hey go to data,NAVIGATION
+Hey  relocate  data.csv  into  main.cpp,MOVE_FILE
+Hey what files are here,LIST_FILES
+Hey  read  notes.txt,READ_FILE
+Copy data.csv to test.txt,COPY_FILE
+hey relocate test.txt into a.py,MOVE_FILE
+can  you  open  main.cpp,READ_FILE
+Delete a.py,DELETE_FILE
+Move test.txt to report.pdf,MOVE_FILE
+hey sh0w directory contents,LIST_FILES
+hey open notes.txt,READ_FILE
+Can you touch data.csv,CREATE_FILE
+hey  open  notes.txt,READ_FILE
+can you wipe all files,FORBIDDEN
+what  is  the  weather  t0day,INVALID
+please duplicate a.py into logs,COPY_FILE
+Hey  make  a  file  named  notes.txt,CREATE_FILE
+hey remove report.pdf,DELETE_FILE
+please  play  music,INVALID
+Please erase data.csv,DELETE_FILE
+please copy notes.txt to data.csv,COPY_FILE
+can  you  what  is  the  weather  today,INVALID
+Duplicate main.cpp into downloads,COPY_FILE
+can  you  play  music,INVALID
+move data.csv to data.csv,MOVE_FILE
+Please rename a.py to main.cpp,RENAME_FILE
+navigate to desktop,NAVIGATION
+can you change filename from notes.txt to notes.txt,RENAME_FILE
+Hey f0rmat c drive,FORBIDDEN
+hey switch to logs,NAVIGATION
+hey c0py data.csv to main.cpp,COPY_FILE
+can you list files,LIST_FILES
+hey make a file named notes.txt,CREATE_FILE
+can you go to projects,NAVIGATION
+what files are here,LIST_FILES
+hey search google for cats,INVALID
+relocate report.pdf into data,MOVE_FILE
+please new file report.pdf,CREATE_FILE
+hey relocate data.csv into test.txt,MOVE_FILE
+please rename data.csv to logs,RENAME_FILE
+navigate to downloads,NAVIGATION
+Hey show path,SHOW_PATH
+hey relocate main.cpp into home,MOVE_FILE
+change filename from main.cpp to documents,RENAME_FILE
+can you new file test.txt,CREATE_FILE
+Can you new file main.cpp,CREATE_FILE
+Please change filename fr0m data.csv to src,RENAME_FILE
+move  data.csv  to  projects,MOVE_FILE
+please  new  file  test.txt,CREATE_FILE
+please  erase  main.cpp,DELETE_FILE
+please create file a.py,CREATE_FILE
+can you navigate to data,NAVIGATION
+can you copy a.py to main.cpp,COPY_FILE
+Please t0uch notes.txt,CREATE_FILE
+please where am i,SHOW_PATH
+hey cat report.pdf,READ_FILE
+Please copy main.cpp to downloads,COPY_FILE
+Can you open main.cpp,READ_FILE
+what is the weather today,INVALID
+Hey  shutdown  system,FORBIDDEN
+open chrome,INVALID
+please pwd,SHOW_PATH
+can you new file a.py,CREATE_FILE
+please list files,LIST_FILES
+hey list files,LIST_FILES
+show directory contents,LIST_FILES
+please open home,NAVIGATION
+can you list files,LIST_FILES
+Hey  play  music,INVALID
+hey copy data.csv to src,COPY_FILE
+search google for cats,INVALID
+hey switch t0 documents,NAVIGATION
+please make a file named a.py,CREATE_FILE
+can you duplicate main.cpp into data,COPY_FILE
+Please print working directory,SHOW_PATH
+can you relocate main.cpp into home,MOVE_FILE
+Please  list  all  files,LIST_FILES
+make a file named main.cpp,CREATE_FILE
+can you navigate to logs,NAVIGATION
+can  you  go  to  documents,NAVIGATION
+can you delete test.txt,DELETE_FILE
+hey show path,SHOW_PATH
+new file notes.txt,CREATE_FILE
+Please display report.pdf,READ_FILE
+can you take me to documents,NAVIGATION
+please new file data.csv,CREATE_FILE
+Please take me to downloads,NAVIGATION
+Can you read data.csv,READ_FILE
+can you play music,INVALID
+Hey rename data.csv to data.csv,RENAME_FILE
+hey  remove  report.pdf,DELETE_FILE
+Please open test.txt,READ_FILE
+cd to logs,NAVIGATION
+hey open report.pdf,READ_FILE
+list  files,LIST_FILES
+please where am i,SHOW_PATH
+Hey  go  to  logs,NAVIGATION
+Can you enter logs,NAVIGATION
+hey touch a.py,CREATE_FILE
+can you open chrome,INVALID
+Please  take  me  to  src,NAVIGATION
+hey open desktop,NAVIGATION
+can you erase report.pdf,DELETE_FILE
+please  open  test.txt,READ_FILE
+switch to home,NAVIGATION
+please list files,LIST_FILES
+Please cat data.csv,READ_FILE
+show files,LIST_FILES
+new file test.txt,CREATE_FILE
+hey change filename from main.cpp to home,RENAME_FILE
+Delete report.pdf,DELETE_FILE
+please rename data.csv to a.py,RENAME_FILE
+please cd t0 home,NAVIGATION
+Can you show path,SHOW_PATH
+please erase a.py,DELETE_FILE
+Open home,NAVIGATION
+Please remove a.py,DELETE_FILE
+cd  to  documents,NAVIGATION
+please c0py a.py to notes.txt,COPY_FILE
+Hey  play  music,INVALID
+t0uch test.txt,CREATE_FILE
+hey what files are here,LIST_FILES
+hey open notes.txt,READ_FILE
+change filename from data.csv to data.csv,RENAME_FILE
+can you cd to logs,NAVIGATION
+Please show contents of main.cpp,READ_FILE
+please current directory,SHOW_PATH
+please make a file named report.pdf,CREATE_FILE
+can you remove test.txt,DELETE_FILE
+Hey go to desktop,NAVIGATION
+hey print working directory,SHOW_PATH
+Please  new  file  a.py,CREATE_FILE
+Can  you  tell  me  a  joke,INVALID
+please pwd,SHOW_PATH
+can you make a file named main.cpp,CREATE_FILE
+Can you list all files,LIST_FILES
+please touch report.pdf,CREATE_FILE
+change  filename  from  test.txt  to  documents,RENAME_FILE
+can you go to home,NAVIGATION
+can you erase data.csv,DELETE_FILE
+Hey delete everything,FORBIDDEN
+create file notes.txt,CREATE_FILE
+Please read a.py,READ_FILE
+please  print  working  directory,SHOW_PATH
+can you touch test.txt,CREATE_FILE
+hey move a.py to test.txt,MOVE_FILE
+hey duplicate main.cpp into data,COPY_FILE
+copy  a.py  to  logs,COPY_FILE
+Please erase a.py,DELETE_FILE
+please where am i,SHOW_PATH
+Can you restart computer,FORBIDDEN
+can you delete test.txt,DELETE_FILE
+hey format c drive,FORBIDDEN
+Hey rename test.txt to test.txt,RENAME_FILE
+please  play  music,INVALID
+Go to documents,NAVIGATION
+hey pwd,SHOW_PATH
+Please play music,INVALID
+can you cat test.txt,READ_FILE
+copy test.txt to downloads,COPY_FILE
+can  you  relocate  notes.txt  into  main.cpp,MOVE_FILE
+Hey what is the weather today,INVALID
+shutdown  system,FORBIDDEN
+can you play music,INVALID
+Change filename from data.csv to notes.txt,RENAME_FILE
+what is the weather t0day,INVALID
+can you move test.txt to data.csv,MOVE_FILE
+Please erase main.cpp,DELETE_FILE
+please move test.txt to notes.txt,MOVE_FILE
+Can you move data.csv to downloads,MOVE_FILE
+please  where  am  i,SHOW_PATH
+Hey f0rmat c drive,FORBIDDEN
+Can  you  show  directory  contents,LIST_FILES
+please display rep0rt.pdf,READ_FILE
+can y0u delete test.txt,DELETE_FILE
+hey 0pen report.pdf,READ_FILE
+can you search google for cats,INVALID
+can  you  rm  -rf  /,FORBIDDEN
+can you touch main.cpp,CREATE_FILE
+can you new file a.py,CREATE_FILE
+please create file data.csv,CREATE_FILE
+please  remove  test.txt,DELETE_FILE
+Can you duplicate notes.txt into home,COPY_FILE
+can  you  touch  main.cpp,CREATE_FILE
+Can you delete report.pdf,DELETE_FILE
+Can you search google for cats,INVALID
+can you make a file named test.txt,CREATE_FILE
+Please rename data.csv to documents,RENAME_FILE
+hey create file notes.txt,CREATE_FILE
+Can  you  open  desktop,NAVIGATION
+hey  open  home,NAVIGATION
+please change filename from a.py to data,RENAME_FILE
+Please search google for cats,INVALID
+please change filename from data.csv to home,RENAME_FILE
+hey  create  file  report.pdf,CREATE_FILE
+hey tell me a joke,INVALID
+rename report.pdf to test.txt,RENAME_FILE
+Duplicate  test.txt  int0  desktop,COPY_FILE
+can  you  open  data,NAVIGATION
+please tell me a joke,INVALID
+hey current directory,SHOW_PATH
+erase a.py,DELETE_FILE
+please create file test.txt,CREATE_FILE
+can  you  move  test.txt  to  downloads,MOVE_FILE
+hey delete rep0rt.pdf,DELETE_FILE
+please list files,LIST_FILES
+Display  test.txt,READ_FILE
+Please make a file named report.pdf,CREATE_FILE
+hey tell me a joke,INVALID
+please list files,LIST_FILES
+Switch to home,NAVIGATION
+hey play music,INVALID
+please relocate data.csv into test.txt,MOVE_FILE
+hey  cd  to  downloads,NAVIGATION
+hey duplicate notes.txt into logs,COPY_FILE
+hey list files,LIST_FILES
+show contents of data.csv,READ_FILE
+Can you switch to desktop,NAVIGATION
+touch data.csv,CREATE_FILE
+Hey  search  google  for  cats,INVALID
+g0 to projects,NAVIGATION
+hey move test.txt to documents,MOVE_FILE
+please go to src,NAVIGATION
+hey  relocate  notes.txt  into  test.txt,MOVE_FILE
+hey current directory,SHOW_PATH
+please open src,NAVIGATION
+Can  y0u  current  directory,SHOW_PATH
+Hey  current  directory,SHOW_PATH
+Print  working  directory,SHOW_PATH
+Please make a file named a.py,CREATE_FILE
+can you change filename from test.txt to notes.txt,RENAME_FILE
+touch report.pdf,CREATE_FILE
+please  duplicate  notes.txt  into  test.txt,COPY_FILE
+please relocate a.py into desktop,MOVE_FILE
+open chrome,INVALID
+please  search  g0ogle  for  cats,INVALID
+hey delete everything,FORBIDDEN
+hey  shutdown  system,FORBIDDEN
+please erase data.csv,DELETE_FILE
+Can you open notes.txt,READ_FILE
+please format c drive,FORBIDDEN
+please duplicate data.csv into home,COPY_FILE
+please relocate main.cpp into projects,MOVE_FILE
+relocate  a.py  into  a.py,MOVE_FILE
+Navigate to data,NAVIGATION
+hey 0pen projects,NAVIGATION
+Please delete everything,FORBIDDEN
+Delete  a.py,DELETE_FILE
+cd to src,NAVIGATION
+please pwd,SHOW_PATH
+please rename main.cpp t0 data,RENAME_FILE
+list all files,LIST_FILES
+Please relocate a.py into desktop,MOVE_FILE
+can you remove main.cpp,DELETE_FILE
+Can you play music,INVALID
+Can  you  make  a  file  named  data.csv,CREATE_FILE
+Hey rename data.csv to desktop,RENAME_FILE
+pwd,SHOW_PATH
+hey copy main.cpp to projects,COPY_FILE
+hey show files,LIST_FILES
+can you switch to home,NAVIGATION
+please new file report.pdf,CREATE_FILE
+please sh0w contents of a.py,READ_FILE
+can you touch data.csv,CREATE_FILE
+hey delete main.cpp,DELETE_FILE
+Show directory contents,LIST_FILES
+open notes.txt,READ_FILE
+Hey  enter  src,NAVIGATION
+can you erase a.py,DELETE_FILE
+Create file notes.txt,CREATE_FILE
+can  y0u  touch  a.py,CREATE_FILE
+hey  create  file  main.cpp,CREATE_FILE
+delete report.pdf,DELETE_FILE
+Erase rep0rt.pdf,DELETE_FILE
+Can you rename test.txt to data.csv,RENAME_FILE
+duplicate report.pdf into data,COPY_FILE
+take me to home,NAVIGATION
+delete main.cpp,DELETE_FILE
+Search google for cats,INVALID
+please move a.py to test.txt,MOVE_FILE
+please erase main.cpp,DELETE_FILE
+Can you delete report.pdf,DELETE_FILE
+duplicate report.pdf into a.py,COPY_FILE
+Change filename from test.txt to desktop,RENAME_FILE
+Can  you  show  contents  of  report.pdf,READ_FILE
+Please rename notes.txt to a.py,RENAME_FILE
+hey show directory contents,LIST_FILES
+Hey  new  file  data.csv,CREATE_FILE
+Hey create file data.csv,CREATE_FILE
+take me t0 downloads,NAVIGATION
+please open chrome,INVALID
+erase data.csv,DELETE_FILE
+rm -rf /,FORBIDDEN
+Rm -rf /,FORBIDDEN
+hey enter home,NAVIGATION
+show path,SHOW_PATH
+can you rename notes.txt to report.pdf,RENAME_FILE
+delete  test.txt,DELETE_FILE
+Please what is the weather today,INVALID
+Hey rename a.py to notes.txt,RENAME_FILE
+Can you new file test.txt,CREATE_FILE
+rename notes.txt to test.txt,RENAME_FILE
+duplicate test.txt into projects,COPY_FILE
+Can you cat test.txt,READ_FILE
+Can y0u current directory,SHOW_PATH
+can you touch notes.txt,CREATE_FILE
+Hey enter projects,NAVIGATION
+remove test.txt,DELETE_FILE
+please open chrome,INVALID
+Hey rm -rf /,FORBIDDEN
+please wipe all files,FORBIDDEN
+please show directory contents,LIST_FILES
+list all files,LIST_FILES
+hey play music,INVALID
+please copy report.pdf to desktop,COPY_FILE
+please take me to data,NAVIGATION
+can  you  take  me  to  logs,NAVIGATION
+Show contents of a.py,READ_FILE
+can you remove a.py,DELETE_FILE
+Please relocate notes.txt into desktop,MOVE_FILE
+Can  you  show  files,LIST_FILES
+Can you move notes.txt to logs,MOVE_FILE
+hey display test.txt,READ_FILE
+can you tell me a joke,INVALID
+please navigate to home,NAVIGATION
+Remove a.py,DELETE_FILE
+please open notes.txt,READ_FILE
+please erase report.pdf,DELETE_FILE
+hey copy a.py to logs,COPY_FILE
+Hey  play  music,INVALID
+Copy report.pdf to a.py,COPY_FILE
+Hey  pwd,SHOW_PATH
+Can  you  erase  main.cpp,DELETE_FILE
+What files are here,LIST_FILES
+Please change filename from notes.txt to data,RENAME_FILE
+can you where am i,SHOW_PATH
+print  w0rking  directory,SHOW_PATH
+hey  show  files,LIST_FILES
+hey shutdown system,FORBIDDEN
+hey relocate main.cpp into downloads,MOVE_FILE
+can you what is the weather today,INVALID
+create file data.csv,CREATE_FILE
+please relocate test.txt into report.pdf,MOVE_FILE
+hey restart computer,FORBIDDEN
+pwd,SHOW_PATH
+Can you open main.cpp,READ_FILE
+show path,SHOW_PATH
+Hey change filename from report.pdf to data,RENAME_FILE
+can y0u remove main.cpp,DELETE_FILE
+change  filename  from  report.pdf  to  notes.txt,RENAME_FILE
+can  you  list  files,LIST_FILES
+Remove notes.txt,DELETE_FILE
+hey shutdown system,FORBIDDEN
+please  enter  documents,NAVIGATION
+please cat a.py,READ_FILE
+Hey tell me a joke,INVALID
+hey list all files,LIST_FILES
+can you relocate main.cpp into data,MOVE_FILE
+create file notes.txt,CREATE_FILE
+relocate report.pdf into a.py,MOVE_FILE
+can you what is the weather today,INVALID
+Can you delete main.cpp,DELETE_FILE
+where am i,SHOW_PATH
+Please  show  contents  of  notes.txt,READ_FILE
+hey take me to data,NAVIGATION
+Can  you  format  c  drive,FORBIDDEN
+please  copy  notes.txt  to  main.cpp,COPY_FILE
+Rename data.csv to main.cpp,RENAME_FILE
+can you duplicate data.csv into main.cpp,COPY_FILE
+Erase a.py,DELETE_FILE
+Can y0u list all files,LIST_FILES
+please move test.txt to data,MOVE_FILE
+please what files are here,LIST_FILES
+can you list files,LIST_FILES
+remove report.pdf,DELETE_FILE
+please  move  data.csv  to  src,MOVE_FILE
+Please  copy  a.py  to  data,COPY_FILE
+hey new file main.cpp,CREATE_FILE
+duplicate a.py into report.pdf,COPY_FILE
+Create file data.csv,CREATE_FILE
+copy notes.txt to data.csv,COPY_FILE
+please show contents of main.cpp,READ_FILE
+Can you make a file named report.pdf,CREATE_FILE
+please cd to downloads,NAVIGATION
+Navigate t0 projects,NAVIGATION
+Hey go to desktop,NAVIGATION
+can you switch to home,NAVIGATION
+hey duplicate main.cpp into src,COPY_FILE
+hey go to logs,NAVIGATION
+please create file a.py,CREATE_FILE
+Hey  rm  -rf  /,FORBIDDEN
+Hey new file main.cpp,CREATE_FILE
+please  remove  notes.txt,DELETE_FILE
+new file test.txt,CREATE_FILE
+can you open report.pdf,READ_FILE
+Touch notes.txt,CREATE_FILE
+can you current directory,SHOW_PATH
+can you create file main.cpp,CREATE_FILE
+can you remove data.csv,DELETE_FILE
+Please  copy  test.txt  to  a.py,COPY_FILE
+can you change filename from main.cpp to documents,RENAME_FILE
+delete everything,FORBIDDEN
+hey remove a.py,DELETE_FILE
+Remove report.pdf,DELETE_FILE
+hey take me to documents,NAVIGATION
+navigate to logs,NAVIGATION
+please display main.cpp,READ_FILE
+hey remove report.pdf,DELETE_FILE
+please read report.pdf,READ_FILE
+please  enter  desktop,NAVIGATION
+Cd  to  logs,NAVIGATION
+Open chrome,INVALID
+hey delete report.pdf,DELETE_FILE
+hey list files,LIST_FILES
+Please m0ve main.cpp to a.py,MOVE_FILE
+read report.pdf,READ_FILE
+can  y0u  delete  everything,FORBIDDEN
+Can you take me to data,NAVIGATION
+please show contents of notes.txt,READ_FILE
+please open chrome,INVALID
+Please  rm  -rf  /,FORBIDDEN
+please  sh0w  contents  of  report.pdf,READ_FILE
+rename test.txt to projects,RENAME_FILE
+Please  what  files  are  here,LIST_FILES
+please 0pen projects,NAVIGATION
+hey read main.cpp,READ_FILE
+can  you  move  test.txt  to  projects,MOVE_FILE
+please delete data.csv,DELETE_FILE
+Format c drive,FORBIDDEN
+please show path,SHOW_PATH
+can y0u list files,LIST_FILES
+can you show files,LIST_FILES
+hey  format  c  drive,FORBIDDEN
+hey delete notes.txt,DELETE_FILE
+hey remove a.py,DELETE_FILE
+cd to data,NAVIGATION
+can you move a.py to logs,MOVE_FILE
+hey open main.cpp,READ_FILE
+Can you remove report.pdf,DELETE_FILE
+Please  remove  data.csv,DELETE_FILE
+please display test.txt,READ_FILE
+Hey copy notes.txt to documents,COPY_FILE
+Please wipe all files,FORBIDDEN
+0pen chrome,INVALID
+hey list files,LIST_FILES
+can you where am i,SHOW_PATH
+Hey t0uch data.csv,CREATE_FILE
+can you move test.txt to test.txt,MOVE_FILE
+wipe all files,FORBIDDEN
+Hey what files are here,LIST_FILES
+can you duplicate notes.txt into src,COPY_FILE
+can you navigate to home,NAVIGATION
+Please copy data.csv to src,COPY_FILE
+please list all files,LIST_FILES
+search google for cats,INVALID
+can you touch a.py,CREATE_FILE
+hey relocate report.pdf into data,MOVE_FILE
+Hey pwd,SHOW_PATH
+Copy report.pdf to downloads,COPY_FILE
+hey cd to home,NAVIGATION
+hey  enter  documents,NAVIGATION
+hey search google for cats,INVALID
+can you take me to projects,NAVIGATION
+Can you change filename from data.csv to downloads,RENAME_FILE
+can you open data.csv,READ_FILE
+hey  enter  projects,NAVIGATION
+please  wipe  all  files,FORBIDDEN
+change filename from notes.txt to downloads,RENAME_FILE
+Please remove notes.txt,DELETE_FILE
+Hey rename test.txt to documents,RENAME_FILE
+hey remove a.py,DELETE_FILE
+hey what files are here,LIST_FILES
+List files,LIST_FILES
+hey erase a.py,DELETE_FILE
+please move a.py to projects,MOVE_FILE
+please relocate test.txt into data,MOVE_FILE
+can you rm -rf /,FORBIDDEN
+can you rename data.csv to test.txt,RENAME_FILE
+please restart c0mputer,FORBIDDEN
+please move test.txt to test.txt,MOVE_FILE
+please pwd,SHOW_PATH
+Can y0u erase report.pdf,DELETE_FILE
+hey make a file named notes.txt,CREATE_FILE
+Duplicate n0tes.txt into data,COPY_FILE
+please open desktop,NAVIGATION
+make a file named data.csv,CREATE_FILE
+Hey current directory,SHOW_PATH
+what files are here,LIST_FILES
+can y0u list files,LIST_FILES
+Can you touch a.py,CREATE_FILE
+Can you rename report.pdf to desktop,RENAME_FILE
+can you new file a.py,CREATE_FILE
+Please create file test.txt,CREATE_FILE
+can you show files,LIST_FILES
+please touch test.txt,CREATE_FILE
+current directory,SHOW_PATH
+can you move main.cpp to report.pdf,MOVE_FILE
+Please  relocate  main.cpp  into  downloads,MOVE_FILE
+can you go to projects,NAVIGATION
+please rename notes.txt to home,RENAME_FILE
+Show files,LIST_FILES
+can you relocate notes.txt into report.pdf,MOVE_FILE
+hey display a.py,READ_FILE
+please current directory,SHOW_PATH
+Can you open chrome,INVALID
+can  you  wipe  all  files,FORBIDDEN
+take me to projects,NAVIGATION
+hey show files,LIST_FILES
+can you rename data.csv to data,RENAME_FILE
+Please  create  file  main.cpp,CREATE_FILE
+Duplicate rep0rt.pdf into a.py,COPY_FILE
+hey tell me a joke,INVALID
+Can  you  display  main.cpp,READ_FILE
+rename test.txt to home,RENAME_FILE
+can you copy test.txt to logs,COPY_FILE
+hey touch test.txt,CREATE_FILE
+Print working directory,SHOW_PATH
+Please rel0cate test.txt into main.cpp,MOVE_FILE
+Can you open a.py,READ_FILE
+please open main.cpp,READ_FILE
+hey show path,SHOW_PATH
+erase data.csv,DELETE_FILE
+please rename report.pdf to a.py,RENAME_FILE
+Please delete data.csv,DELETE_FILE
+sh0w contents of report.pdf,READ_FILE
+please delete report.pdf,DELETE_FILE
+display a.py,READ_FILE
+please show contents of notes.txt,READ_FILE
+make a file named notes.txt,CREATE_FILE
+Navigate to src,NAVIGATION
+please display data.csv,READ_FILE
+Please display data.csv,READ_FILE
+duplicate rep0rt.pdf into data.csv,COPY_FILE
+tell me a joke,INVALID
+hey copy report.pdf to test.txt,COPY_FILE
+hey read main.cpp,READ_FILE
+Current directory,SHOW_PATH
+Hey display main.cpp,READ_FILE
+hey list all files,LIST_FILES
+hey open main.cpp,READ_FILE
+Rm -rf /,FORBIDDEN
+can y0u relocate data.csv into src,MOVE_FILE
+please erase main.cpp,DELETE_FILE
+please display a.py,READ_FILE
+Hey switch to projects,NAVIGATION
+please cat report.pdf,READ_FILE
+relocate a.py into downloads,MOVE_FILE
+hey navigate to desktop,NAVIGATION
+can you copy a.py to home,COPY_FILE
+move a.py to notes.txt,MOVE_FILE
+Please change filename from notes.txt to notes.txt,RENAME_FILE
+please pwd,SHOW_PATH
+Please touch a.py,CREATE_FILE
+Pwd,SHOW_PATH
+please print working directory,SHOW_PATH
+Please erase notes.txt,DELETE_FILE
+m0ve data.csv to data,MOVE_FILE
+please change filename from report.pdf to downloads,RENAME_FILE
+Hey relocate data.csv into logs,MOVE_FILE
+Relocate  test.txt  into  desktop,MOVE_FILE
+can you delete everything,FORBIDDEN
+hey format c drive,FORBIDDEN
+can you what is the weather today,INVALID
+Navigate to documents,NAVIGATION
+can you move report.pdf to report.pdf,MOVE_FILE
+can  y0u  copy  report.pdf  to  projects,COPY_FILE
+hey go to documents,NAVIGATION
+move notes.txt to src,MOVE_FILE
+Please duplicate main.cpp into test.txt,COPY_FILE
+hey what is the weather today,INVALID
+Please list all files,LIST_FILES
+Wipe all files,FORBIDDEN
+hey  change  filename  from  a.py  to  home,RENAME_FILE
+Please rename notes.txt to data.csv,RENAME_FILE
+please  move  notes.txt  to  a.py,MOVE_FILE
+play  music,INVALID
+Hey remove notes.txt,DELETE_FILE
+can you show path,SHOW_PATH
+can you cd to projects,NAVIGATION
+can you cd to desktop,NAVIGATION
+hey open home,NAVIGATION
+hey display data.csv,READ_FILE
+Please open report.pdf,READ_FILE
+Hey  navigate  to  downloads,NAVIGATION
+delete report.pdf,DELETE_FILE
+What is the weather today,INVALID
+Please list files,LIST_FILES
+Can you open chrome,INVALID
+can you relocate notes.txt into notes.txt,MOVE_FILE
+Can you current directory,SHOW_PATH
+Can  you  open  report.pdf,READ_FILE
+can  you  cat  notes.txt,READ_FILE
+take me to documents,NAVIGATION
+hey play music,INVALID
+Hey  new  file  test.txt,CREATE_FILE
+Please create file data.csv,CREATE_FILE
+please rename data.csv to a.py,RENAME_FILE
+Please restart computer,FORBIDDEN
+hey play music,INVALID
+Can  you  what  is  the  weather  today,INVALID
+hey change filename from test.txt to logs,RENAME_FILE
+hey remove report.pdf,DELETE_FILE
+Can you what files are here,LIST_FILES
+Rename notes.txt to home,RENAME_FILE
+can you current directory,SHOW_PATH
+hey remove report.pdf,DELETE_FILE
+hey restart computer,FORBIDDEN
+hey search google for cats,INVALID
+can you copy report.pdf to test.txt,COPY_FILE
+relocate main.cpp into main.cpp,MOVE_FILE
+make a file named data.csv,CREATE_FILE
+duplicate a.py into main.cpp,COPY_FILE
+Show directory contents,LIST_FILES
+hey list all files,LIST_FILES
+can you show contents of a.py,READ_FILE
+Open chrome,INVALID
+hey change filename from main.cpp to notes.txt,RENAME_FILE
+Hey move notes.txt to src,MOVE_FILE
+change filename from notes.txt to downloads,RENAME_FILE
+hey touch a.py,CREATE_FILE
+Erase test.txt,DELETE_FILE
+please print working directory,SHOW_PATH
+please make a file named test.txt,CREATE_FILE
+Switch to desktop,NAVIGATION
+show path,SHOW_PATH
+Hey cat main.cpp,READ_FILE
+show contents of notes.txt,READ_FILE
+can you restart computer,FORBIDDEN
