@@ -1,0 +1,801 @@
+text,start_char,end_char
+hey move report.pdf to data quickly,9,19
+hey move notes.txt to data,9,18
+hey relocate notes.txt into desktop now,13,22
+so copy file chanau.py into documents for me,13,22
+can you move data.csv to aa please,13,21
+well copy chanau.py to something for me,10,19
+so relocate data.csv into backup quickly,12,20
+okay relocate notes.txt into where quickly,14,23
+well copy file image.png into where quickly,15,24
+okay copy file chanau.py into aa quickly,15,24
+relocate report.pdf into desktop please,9,19
+okay shift notes.txt to desktop for me,11,20
+so move notes.txt to desktop quickly,8,17
+okay shift image.png to bb for me,11,20
+hey relocate main.py into aa,13,20
+so please copy data.csv into aa,15,23
+hey please copy image.png into project quickly,16,25
+so shift image.png to desktop now,9,18
+hey copy data.csv to something please,9,17
+relocate data.csv into aa please,9,17
+okay shift image.png to documents now,11,20
+okay please copy chanau.py into data quickly,17,26
+well please copy main.py into tmp quickly,17,24
+okay copy file chanau.py into aa quickly,15,24
+move file image.png into tmp quickly,10,19
+well move image.png to data,10,19
+copy chanau.py to desktop quickly,5,14
+so can you move main.py to tmp quickly,16,23
+well copy file data.csv into tmp,15,23
+hey shift main.py to backup quickly,10,17
+hey move file notes.txt into backup for me,14,23
+hey relocate report.pdf into project quickly,13,23
+hey move test123.log to where now,9,20
+so shift notes.txt to desktop,9,18
+okay copy notes.txt to logs please,10,19
+well relocate image.png into where,14,23
+can you move main.py to where now,13,20
+well move main.py to aa now,10,17
+relocate main.py into tmp please,9,16
+so please copy report.pdf into logs for me,15,25
+so move file data.csv into aa please,13,21
+so please copy main.py into backup quickly,15,22
+so can you move main.py to bb quickly,16,23
+hey can you move chanau.py to data please,17,26
+please copy image.png into documents for me,12,21
+move file image.png into desktop,10,19
+so copy file main.py into documents,13,20
+so shift main.py to backup please,9,16
+hey move chanau.py to tmp for me,9,18
+well can you move chanau.py to something for me,18,27
+copy data.csv to downloads quickly,5,13
+well copy data.csv to desktop please,10,18
+hey shift test123.log to logs now,10,21
+can you move test123.log to where for me,13,24
+hey can you move main.py to aa now,17,24
+okay move chanau.py to backup for me,10,19
+so please copy notes.txt into desktop,15,24
+please copy chanau.py into bb now,12,21
+so move a.txt to logs,8,13
+move file notes.txt into bb now,10,19
+so move file report.pdf into data please,13,23
+so move report.pdf to tmp quickly,8,18
+okay move file chanau.py into something quickly,15,24
+hey can you move a.txt to documents please,17,22
+well copy file image.png into bb please,15,24
+copy image.png to downloads for me,5,14
+okay shift notes.txt to aa for me,11,20
+so move a.txt to downloads quickly,8,13
+well move file a.txt into project,15,20
+so please copy image.png into aa quickly,15,24
+hey please copy test123.log into where please,16,27
+hey copy file data.csv into something,14,22
+hey relocate report.pdf into documents now,13,23
+hey move a.txt to logs for me,9,14
+copy a.txt to backup for me,5,10
+hey please copy notes.txt into data,16,25
+okay move file notes.txt into where quickly,15,24
+okay copy file notes.txt into aa for me,15,24
+okay copy file test123.log into documents now,15,26
+well please copy main.py into backup for me,17,24
+hey shift notes.txt to aa,10,19
+hey copy notes.txt to downloads now,9,18
+okay move file notes.txt into desktop please,15,24
+copy file image.png into downloads please,10,19
+so can you move a.txt to aa now,16,21
+okay copy test123.log to project please,10,21
+move file image.png into downloads please,10,19
+okay can you move notes.txt to data please,18,27
+well move a.txt to something now,10,15
+relocate chanau.py into bb for me,9,18
+okay please copy chanau.py into where,17,26
+so move file notes.txt into downloads,13,22
+so move file main.py into downloads for me,13,20
+relocate a.txt into documents for me,9,14
+so move file data.csv into tmp quickly,13,21
+well move file main.py into tmp for me,15,22
+so can you move main.py to downloads,16,23
+move file image.png into bb now,10,19
+hey copy file data.csv into project for me,14,22
+well copy file main.py into desktop please,15,22
+okay relocate main.py into where now,14,21
+move notes.txt to project now,5,14
+so please copy report.pdf into logs please,15,25
+please copy report.pdf into aa for me,12,22
+well shift a.txt to project quickly,11,16
+hey move file image.png into aa for me,14,23
+so copy data.csv to tmp for me,8,16
+well move report.pdf to something quickly,10,20
+hey copy image.png to backup quickly,9,18
+copy a.txt to where quickly,5,10
+please copy chanau.py into something,12,21
+okay shift image.png to project for me,11,20
+so copy image.png to where for me,8,17
+well copy file report.pdf into downloads quickly,15,25
+okay shift notes.txt to bb,11,20
+okay relocate test123.log into backup now,14,25
+well move image.png to desktop for me,10,19
+hey copy file chanau.py into aa now,14,23
+hey relocate notes.txt into where for me,13,22
+hey relocate notes.txt into downloads,13,22
+okay move file test123.log into where,15,26
+okay relocate image.png into logs for me,14,23
+move data.csv to logs,5,13
+okay copy test123.log to bb,10,21
+so shift notes.txt to backup for me,9,18
+hey move a.txt to project,9,14
+so relocate a.txt into backup,12,17
+so relocate test123.log into logs for me,12,23
+okay copy report.pdf to something quickly,10,20
+hey copy data.csv to documents for me,9,17
+copy data.csv to where for me,5,13
+copy file a.txt into aa please,10,15
+so move file report.pdf into tmp for me,13,23
+so copy test123.log to project please,8,19
+so relocate chanau.py into tmp for me,12,21
+okay move file data.csv into bb quickly,15,23
+well copy data.csv to desktop quickly,10,18
+shift a.txt to bb please,6,11
+well copy a.txt to project for me,10,15
+okay shift notes.txt to bb for me,11,20
+okay can you move test123.log to project for me,18,29
+so please copy image.png into documents,15,24
+well copy file notes.txt into bb quickly,15,24
+okay move file image.png into backup please,15,24
+well copy file main.py into something now,15,22
+can you move image.png to desktop,13,22
+well move file a.txt into aa now,15,20
+so relocate main.py into something now,12,19
+so relocate report.pdf into project for me,12,22
+well please copy test123.log into something quickly,17,28
+hey can you move data.csv to downloads quickly,17,25
+well copy file a.txt into logs quickly,15,20
+relocate a.txt into desktop please,9,14
+move file test123.log into bb now,10,21
+hey relocate report.pdf into data quickly,13,23
+so shift image.png to aa quickly,9,18
+so move file chanau.py into documents,13,22
+well move file image.png into tmp,15,24
+well move chanau.py to logs,10,19
+well move a.txt to downloads,10,15
+well copy data.csv to logs now,10,18
+copy test123.log to aa now,5,16
+well copy a.txt to data for me,10,15
+copy main.py to backup,5,12
+relocate notes.txt into aa now,9,18
+so copy file a.txt into bb,13,18
+well can you move image.png to data quickly,18,27
+okay can you move test123.log to something,18,29
+can you move chanau.py to data quickly,13,22
+well copy chanau.py to documents quickly,10,19
+hey move chanau.py to bb quickly,9,18
+well move notes.txt to data quickly,10,19
+well move file chanau.py into downloads please,15,24
+well move report.pdf to project quickly,10,20
+okay copy file test123.log into something,15,26
+well shift test123.log to bb please,11,22
+well move test123.log to bb,10,21
+okay can you move report.pdf to downloads now,18,28
+so copy main.py to desktop quickly,8,15
+okay move chanau.py to project please,10,19
+so copy file image.png into backup,13,22
+so move file chanau.py into logs please,13,22
+so move image.png to bb please,8,17
+okay copy file notes.txt into project quickly,15,24
+well shift image.png to where quickly,11,20
+okay move report.pdf to logs,10,20
+can you move report.pdf to backup quickly,13,23
+okay move file data.csv into data please,15,23
+well copy notes.txt to backup for me,10,19
+okay shift chanau.py to backup quickly,11,20
+so shift notes.txt to bb,9,18
+hey move file test123.log into where for me,14,25
+can you move chanau.py to something,13,22
+hey copy file image.png into project,14,23
+can you move a.txt to data,13,18
+hey move a.txt to tmp quickly,9,14
+so copy file image.png into backup quickly,13,22
+okay move file test123.log into where,15,26
+hey can you move data.csv to aa now,17,25
+okay move file main.py into downloads,15,22
+okay copy test123.log to where now,10,21
+hey move data.csv to tmp for me,9,17
+hey move file main.py into aa for me,14,21
+so move data.csv to aa now,8,16
+well move file test123.log into bb quickly,15,26
+hey please copy main.py into tmp,16,23
+copy file a.txt into downloads please,10,15
+shift chanau.py to project quickly,6,15
+so copy file report.pdf into where now,13,23
+please copy notes.txt into backup for me,12,21
+so copy test123.log to tmp now,8,19
+so shift a.txt to desktop please,9,14
+okay copy file notes.txt into bb,15,24
+well can you move report.pdf to backup quickly,18,28
+well copy data.csv to aa for me,10,18
+hey move test123.log to desktop for me,9,20
+okay copy file test123.log into backup for me,15,26
+okay copy report.pdf to tmp now,10,20
+okay can you move chanau.py to data please,18,27
+okay copy file main.py into bb for me,15,22
+hey move report.pdf to project please,9,19
+move file main.py into documents please,10,17
+okay copy file data.csv into project,15,23
+hey copy test123.log to downloads,9,20
+so move main.py to documents please,8,15
+well relocate notes.txt into something now,14,23
+well copy file chanau.py into backup please,15,24
+well can you move report.pdf to where,18,28
+hey relocate report.pdf into something please,13,23
+copy file data.csv into desktop,10,18
+hey shift image.png to where please,10,19
+well can you move data.csv to backup for me,18,26
+okay shift data.csv to bb please,11,19
+hey copy report.pdf to logs for me,9,19
+okay please copy report.pdf into data quickly,17,27
+so copy file chanau.py into aa quickly,13,22
+well can you move chanau.py to something please,18,27
+well shift main.py to aa,11,18
+well please copy data.csv into desktop please,17,25
+so move a.txt to backup please,8,13
+copy image.png to where quickly,5,14
+hey please copy data.csv into documents for me,16,24
+move file test123.log into desktop quickly,10,21
+well copy data.csv to something quickly,10,18
+so relocate test123.log into data please,12,23
+so can you move report.pdf to documents for me,16,26
+hey copy file test123.log into documents for me,14,25
+okay move file main.py into desktop now,15,22
+so copy report.pdf to where now,8,18
+hey copy data.csv to bb for me,9,17
+hey move image.png to logs for me,9,18
+so copy chanau.py to logs for me,8,17
+so copy chanau.py to downloads quickly,8,17
+so shift image.png to where,9,18
+well relocate data.csv into bb,14,22
+well move main.py to logs for me,10,17
+so copy file report.pdf into data quickly,13,23
+hey move image.png to downloads quickly,9,18
+well move file a.txt into where quickly,15,20
+okay relocate main.py into something quickly,14,21
+please copy report.pdf into tmp please,12,22
+so copy data.csv to bb,8,16
+so copy file notes.txt into where,13,22
+so copy file image.png into project please,13,22
+okay shift a.txt to tmp please,11,16
+hey copy file test123.log into tmp quickly,14,25
+hey copy main.py to data quickly,9,16
+well please copy data.csv into where,17,25
+move file image.png into backup,10,19
+hey copy main.py to downloads for me,9,16
+so copy image.png to aa now,8,17
+copy image.png to logs please,5,14
+shift image.png to something quickly,6,15
+okay move image.png to backup,10,19
+so shift report.pdf to backup,9,19
+okay move file chanau.py into something for me,15,24
+okay can you move data.csv to documents quickly,18,26
+so move file main.py into desktop,13,20
+move report.pdf to tmp please,5,15
+copy report.pdf to documents please,5,15
+hey please copy a.txt into downloads please,16,21
+so relocate report.pdf into bb now,12,22
+move file notes.txt into project please,10,19
+so copy data.csv to bb now,8,16
+well move file a.txt into tmp please,15,20
+well copy file a.txt into logs please,15,20
+well copy test123.log to project now,10,21
+well relocate notes.txt into downloads,14,23
+well shift image.png to where please,11,20
+hey shift image.png to project,10,19
+well please copy data.csv into backup for me,17,25
+hey please copy image.png into data,16,25
+okay move file test123.log into documents for me,15,26
+well please copy a.txt into downloads for me,17,22
+hey shift report.pdf to desktop please,10,20
+so shift a.txt to logs quickly,9,14
+okay copy file a.txt into data for me,15,20
+well copy report.pdf to tmp please,10,20
+so please copy notes.txt into downloads please,15,24
+well move file image.png into aa please,15,24
+well please copy report.pdf into aa now,17,27
+copy file notes.txt into tmp please,10,19
+hey relocate main.py into logs please,13,20
+well copy file test123.log into documents,15,26
+well copy file notes.txt into backup for me,15,24
+hey please copy report.pdf into documents,16,26
+hey copy notes.txt to something please,9,18
+copy file test123.log into backup for me,10,21
+okay copy file notes.txt into desktop now,15,24
+well shift test123.log to desktop please,11,22
+hey copy file report.pdf into documents quickly,14,24
+okay please copy a.txt into downloads for me,17,22
+okay copy test123.log to tmp quickly,10,21
+hey copy file chanau.py into tmp please,14,23
+okay copy file main.py into backup quickly,15,22
+okay move image.png to downloads,10,19
+well relocate a.txt into aa please,14,19
+okay relocate main.py into downloads please,14,21
+okay relocate image.png into downloads for me,14,23
+can you move notes.txt to logs please,13,22
+okay shift test123.log to something for me,11,22
+well shift main.py to data please,11,18
+okay relocate a.txt into something now,14,19
+okay copy file test123.log into aa for me,15,26
+hey shift data.csv to data now,10,18
+hey relocate image.png into desktop quickly,13,22
+so move image.png to documents please,8,17
+hey relocate image.png into desktop please,13,22
+well move file chanau.py into logs now,15,24
+please copy a.txt into where for me,12,17
+okay copy image.png to backup for me,10,19
+move a.txt to downloads for me,5,10
+okay please copy test123.log into bb now,17,28
+so move main.py to downloads quickly,8,15
+well can you move a.txt to documents now,18,23
+okay move file a.txt into documents,15,20
+can you move test123.log to tmp now,13,24
+hey move notes.txt to desktop,9,18
+hey move data.csv to project quickly,9,17
+so can you move chanau.py to backup quickly,16,25
+okay relocate test123.log into documents please,14,25
+so please copy report.pdf into project now,15,25
+so shift main.py to tmp now,9,16
+hey relocate data.csv into backup quickly,13,21
+okay relocate a.txt into bb,14,19
+well can you move main.py to project please,18,25
+okay can you move main.py to something quickly,18,25
+so please copy test123.log into documents for me,15,26
+so copy chanau.py to data please,8,17
+hey copy notes.txt to data please,9,18
+okay move file image.png into tmp now,15,24
+well shift a.txt to bb quickly,11,16
+so can you move image.png to where quickly,16,25
+hey move main.py to documents quickly,9,16
+well shift notes.txt to project for me,11,20
+hey copy chanau.py to backup quickly,9,18
+so please copy notes.txt into aa now,15,24
+okay move file notes.txt into bb now,15,24
+okay move file data.csv into data quickly,15,23
+well move a.txt to documents for me,10,15
+well move file image.png into aa now,15,24
+okay can you move a.txt to tmp now,18,23
+shift main.py to documents please,6,13
+okay shift report.pdf to project,11,21
+please copy data.csv into bb please,12,20
+so copy chanau.py to data for me,8,17
+hey copy file notes.txt into downloads now,14,23
+well please copy data.csv into bb quickly,17,25
+well can you move chanau.py to tmp,18,27
+okay move main.py to project,10,17
+well copy file test123.log into documents now,15,26
+okay can you move image.png to tmp now,18,27
+so please copy chanau.py into bb,15,24
+copy file notes.txt into tmp for me,10,19
+so shift notes.txt to logs for me,9,18
+well copy file main.py into backup quickly,15,22
+hey shift test123.log to desktop now,10,21
+well copy file image.png into desktop please,15,24
+move test123.log to bb for me,5,16
+well copy report.pdf to where quickly,10,20
+so shift image.png to desktop for me,9,18
+so copy test123.log to something,8,19
+well copy file a.txt into logs now,15,20
+okay copy chanau.py to bb for me,10,19
+hey please copy notes.txt into bb,16,25
+move file data.csv into tmp please,10,18
+hey move file notes.txt into project,14,23
+hey can you move test123.log to bb please,17,28
+hey copy file chanau.py into data please,14,23
+okay move a.txt to project please,10,15
+so can you move main.py to where please,16,23
+so move data.csv to documents,8,16
+well move chanau.py to aa quickly,10,19
+move report.pdf to tmp please,5,15
+hey move file a.txt into logs now,14,19
+so move data.csv to where please,8,16
+okay move file notes.txt into logs please,15,24
+copy report.pdf to data now,5,15
+copy main.py to something please,5,12
+okay move chanau.py to downloads,10,19
+hey relocate a.txt into something now,13,18
+well shift notes.txt to downloads,11,20
+okay copy a.txt to where please,10,15
+okay copy report.pdf to bb quickly,10,20
+well shift report.pdf to downloads now,11,21
+move test123.log to data now,5,16
+copy image.png to something for me,5,14
+okay shift report.pdf to logs,11,21
+hey can you move image.png to project now,17,26
+so copy a.txt to tmp please,8,13
+move file notes.txt into project for me,10,19
+hey move test123.log to backup now,9,20
+hey move data.csv to project now,9,17
+hey copy file chanau.py into something please,14,23
+okay shift main.py to project quickly,11,18
+so copy file a.txt into logs for me,13,18
+well copy image.png to logs,10,19
+hey move file report.pdf into data for me,14,24
+hey copy image.png to backup please,9,18
+hey relocate image.png into backup for me,13,22
+hey copy report.pdf to tmp,9,19
+hey copy file test123.log into data for me,14,25
+okay can you move report.pdf to desktop for me,18,28
+hey copy chanau.py to where please,9,18
+well can you move image.png to project now,18,27
+so can you move image.png to aa please,16,25
+so shift chanau.py to logs quickly,9,18
+well copy file main.py into tmp please,15,22
+move file a.txt into documents for me,10,15
+so shift chanau.py to tmp for me,9,18
+shift test123.log to documents quickly,6,17
+hey move file data.csv into something quickly,14,22
+hey move report.pdf to backup quickly,9,19
+please copy a.txt into desktop now,12,17
+hey can you move data.csv to bb for me,17,25
+so move file image.png into backup,13,22
+hey please copy main.py into bb please,16,23
+well can you move a.txt to project for me,18,23
+well move file test123.log into downloads now,15,26
+okay shift notes.txt to downloads please,11,20
+copy file test123.log into documents quickly,10,21
+hey copy image.png to tmp now,9,18
+hey copy file report.pdf into data now,14,24
+well can you move a.txt to backup,18,23
+okay copy file notes.txt into backup now,15,24
+hey can you move report.pdf to backup,17,27
+okay copy main.py to data now,10,17
+so relocate a.txt into project for me,12,17
+move file chanau.py into desktop quickly,10,19
+okay relocate data.csv into data for me,14,22
+shift image.png to downloads now,6,15
+okay move file notes.txt into backup quickly,15,24
+relocate test123.log into tmp now,9,20
+so relocate image.png into project quickly,12,21
+hey copy file data.csv into where quickly,14,22
+well relocate a.txt into where for me,14,19
+shift test123.log to bb now,6,17
+well please copy main.py into project,17,24
+okay copy notes.txt to data please,10,19
+well relocate image.png into desktop please,14,23
+well copy file data.csv into data quickly,15,23
+okay can you move data.csv to something now,18,26
+so can you move notes.txt to aa please,16,25
+hey please copy main.py into desktop for me,16,23
+relocate a.txt into something now,9,14
+so can you move data.csv to where quickly,16,24
+can you move a.txt to desktop please,13,18
+can you move test123.log to logs for me,13,24
+well move file report.pdf into tmp now,15,25
+so copy test123.log to desktop now,8,19
+hey copy file report.pdf into project please,14,24
+hey can you move test123.log to project please,17,28
+okay can you move data.csv to project please,18,26
+so can you move notes.txt to documents please,16,25
+well copy file image.png into aa quickly,15,24
+hey shift a.txt to something for me,10,15
+hey copy file main.py into aa quickly,14,21
+so shift main.py to where for me,9,16
+okay can you move chanau.py to downloads,18,27
+move file test123.log into something please,10,21
+so please copy test123.log into aa now,15,26
+move main.py to backup for me,5,12
+well move a.txt to bb for me,10,15
+hey copy main.py to aa for me,9,16
+okay can you move notes.txt to documents quickly,18,27
+shift image.png to project please,6,15
+hey please copy notes.txt into desktop please,16,25
+hey shift main.py to aa now,10,17
+well please copy main.py into tmp please,17,24
+well shift a.txt to data quickly,11,16
+well copy file chanau.py into downloads please,15,24
+hey move file notes.txt into downloads,14,23
+okay move image.png to backup for me,10,19
+move chanau.py to something,5,14
+so move file notes.txt into aa for me,13,22
+well move a.txt to tmp for me,10,15
+please copy chanau.py into backup please,12,21
+hey relocate chanau.py into documents now,13,22
+hey copy image.png to documents please,9,18
+so please copy notes.txt into documents for me,15,24
+so move main.py to project now,8,15
+well move file main.py into bb quickly,15,22
+please copy notes.txt into logs,12,21
+hey please copy chanau.py into desktop,16,25
+okay move data.csv to aa,10,18
+well copy main.py to backup,10,17
+okay can you move notes.txt to where for me,18,27
+hey shift image.png to where,10,19
+move test123.log to downloads please,5,16
+okay relocate chanau.py into tmp now,14,23
+well shift a.txt to bb quickly,11,16
+hey copy main.py to where,9,16
+can you move main.py to where for me,13,20
+well copy chanau.py to logs,10,19
+okay move notes.txt to logs now,10,19
+okay please copy report.pdf into logs for me,17,27
+so copy report.pdf to where,8,18
+hey shift a.txt to downloads please,10,15
+hey can you move main.py to documents now,17,24
+so can you move data.csv to data now,16,24
+so shift chanau.py to downloads please,9,18
+okay move file image.png into backup quickly,15,24
+okay move file chanau.py into where quickly,15,24
+okay move file report.pdf into documents please,15,25
+so copy file notes.txt into something quickly,13,22
+hey copy file report.pdf into tmp quickly,14,24
+well move file chanau.py into downloads for me,15,24
+shift test123.log to desktop quickly,6,17
+hey move file test123.log into desktop for me,14,25
+so move a.txt to desktop now,8,13
+okay shift notes.txt to backup,11,20
+okay copy file report.pdf into backup please,15,25
+so copy a.txt to project please,8,13
+okay can you move image.png to documents please,18,27
+please copy notes.txt into project for me,12,21
+okay copy file a.txt into project now,15,20
+so move report.pdf to downloads,8,18
+well move file test123.log into project now,15,26
+well relocate report.pdf into tmp,14,24
+so can you move notes.txt to documents now,16,25
+well can you move chanau.py to desktop now,18,27
+can you move a.txt to bb,13,18
+okay shift report.pdf to desktop for me,11,21
+copy chanau.py to logs quickly,5,14
+hey can you move notes.txt to bb quickly,17,26
+relocate main.py into backup please,9,16
+okay move file image.png into downloads,15,24
+okay can you move a.txt to tmp,18,23
+hey copy file main.py into something,14,21
+okay move report.pdf to something quickly,10,20
+okay copy image.png to project now,10,19
+move image.png to where for me,5,14
+okay move a.txt to project quickly,10,15
+so copy image.png to where,8,17
+well copy file image.png into downloads please,15,24
+so please copy chanau.py into desktop please,15,24
+so can you move test123.log to tmp,16,27
+hey shift test123.log to project quickly,10,21
+okay can you move report.pdf to documents now,18,28
+okay copy main.py to project quickly,10,17
+hey copy notes.txt to tmp please,9,18
+so copy file chanau.py into bb for me,13,22
+move file data.csv into downloads please,10,18
+copy report.pdf to downloads for me,5,15
+okay copy chanau.py to data please,10,19
+well please copy chanau.py into data now,17,26
+well can you move a.txt to aa please,18,23
+okay move main.py to logs now,10,17
+hey move data.csv to downloads quickly,9,17
+so copy notes.txt to bb,8,17
+well move file image.png into project please,15,24
+so copy data.csv to aa quickly,8,16
+so please copy image.png into where,15,24
+so shift notes.txt to documents,9,18
+so shift main.py to project now,9,16
+copy file main.py into something,10,17
+okay please copy report.pdf into backup quickly,17,27
+move chanau.py to backup,5,14
+can you move image.png to logs,13,22
+please copy data.csv into aa,12,20
+can you move chanau.py to desktop please,13,22
+well shift test123.log to bb please,11,22
+okay please copy image.png into desktop,17,26
+so copy a.txt to tmp now,8,13
+well copy file report.pdf into desktop for me,15,25
+okay move test123.log to logs now,10,21
+okay copy file chanau.py into data now,15,24
+move report.pdf to logs please,5,15
+well copy file chanau.py into logs quickly,15,24
+shift test123.log to bb quickly,6,17
+well can you move report.pdf to logs for me,18,28
+shift data.csv to documents,6,14
+well please copy report.pdf into backup now,17,27
+hey can you move chanau.py to backup please,17,26
+well please copy main.py into something please,17,24
+well move file chanau.py into desktop now,15,24
+hey move file test123.log into backup quickly,14,25
+copy data.csv to where please,5,13
+please copy chanau.py into bb for me,12,21
+move file report.pdf into something please,10,20
+okay move file notes.txt into something quickly,15,24
+okay copy a.txt to desktop now,10,15
+copy main.py to tmp please,5,12
+okay please copy a.txt into something for me,17,22
+well copy file main.py into logs please,15,22
+okay copy file chanau.py into desktop quickly,15,24
+hey move data.csv to backup,9,17
+relocate main.py into project for me,9,16
+well shift main.py to backup,11,18
+so please copy main.py into data for me,15,22
+well shift notes.txt to aa quickly,11,20
+okay please copy test123.log into desktop now,17,28
+so copy report.pdf to something please,8,18
+well move file report.pdf into desktop quickly,15,25
+so please copy notes.txt into something for me,15,24
+copy chanau.py to tmp,5,14
+okay shift image.png to desktop quickly,11,20
+hey copy chanau.py to logs,9,18
+so can you move main.py to downloads for me,16,23
+move file notes.txt into desktop quickly,10,19
+so shift chanau.py to documents for me,9,18
+so copy file report.pdf into backup,13,23
+so copy data.csv to data now,8,16
+well copy file image.png into data now,15,24
+okay can you move notes.txt to aa for me,18,27
+shift a.txt to project now,6,11
+okay move a.txt to downloads,10,15
+well move data.csv to bb please,10,18
+well please copy notes.txt into aa now,17,26
+so copy file data.csv into bb please,13,21
+so relocate test123.log into aa now,12,23
+okay copy a.txt to logs for me,10,15
+well please copy main.py into tmp,17,24
+okay please copy main.py into data for me,17,24
+well copy report.pdf to something please,10,20
+okay copy a.txt to backup now,10,15
+okay copy file test123.log into backup for me,15,26
+so copy file notes.txt into bb now,13,22
+so move file data.csv into tmp now,13,21
+so relocate data.csv into bb,12,20
+copy file main.py into desktop,10,17
+move data.csv to bb please,5,13
+copy file image.png into aa please,10,19
+copy a.txt to data for me,5,10
+okay shift notes.txt to logs for me,11,20
+well move main.py to backup now,10,17
+okay please copy a.txt into downloads,17,22
+so move chanau.py to bb please,8,17
+okay can you move data.csv to documents quickly,18,26
+well relocate image.png into data now,14,23
+well can you move image.png to tmp,18,27
+hey move test123.log to backup please,9,20
+okay copy image.png to aa quickly,10,19
+okay relocate data.csv into something now,14,22
+hey please copy main.py into logs please,16,23
+please copy data.csv into project for me,12,20
+so relocate main.py into aa please,12,19
+hey copy file report.pdf into data for me,14,24
+okay shift report.pdf to documents,11,21
+copy report.pdf to tmp for me,5,15
+shift test123.log to tmp please,6,17
+hey can you move main.py to project now,17,24
+well shift chanau.py to backup quickly,11,20
+okay copy file a.txt into aa now,15,20
+so shift main.py to data now,9,16
+copy file image.png into something please,10,19
+okay copy image.png to downloads quickly,10,19
+hey shift main.py to aa now,10,17
+well move file notes.txt into aa for me,15,24
+hey move data.csv to data now,9,17
+okay move test123.log to backup for me,10,21
+please copy notes.txt into desktop now,12,21
+so move file image.png into project quickly,13,22
+okay relocate notes.txt into logs for me,14,23
+well move image.png to something,10,19
+well move data.csv to downloads for me,10,18
+hey move main.py to aa,9,16
+so please copy data.csv into downloads quickly,15,23
+well copy file test123.log into something,15,26
+copy test123.log to desktop for me,5,16
+so move chanau.py to bb please,8,17
+well can you move data.csv to something for me,18,26
+so relocate test123.log into project quickly,12,23
+okay please copy data.csv into logs please,17,25
+well relocate image.png into tmp,14,23
+so move file report.pdf into project for me,13,23
+well move file a.txt into where please,15,20
+so shift chanau.py to tmp quickly,9,18
+well move image.png to bb now,10,19
+so please copy main.py into documents,15,22
+okay shift data.csv to downloads now,11,19
+well move file report.pdf into project,15,25
+well move report.pdf to something quickly,10,20
+so please copy test123.log into downloads please,15,26
+so please copy test123.log into desktop for me,15,26
+hey copy test123.log to desktop now,9,20
+so copy file image.png into tmp now,13,22
+hey can you move test123.log to logs please,17,28
+okay move file chanau.py into downloads quickly,15,24
+well please copy data.csv into tmp quickly,17,25
+hey copy report.pdf to project please,9,19
+relocate image.png into documents quickly,9,18
+okay relocate main.py into logs,14,21
+copy main.py to logs now,5,12
+so please copy report.pdf into desktop for me,15,25
+okay move image.png to data please,10,19
+hey copy file notes.txt into bb,14,23
+can you move chanau.py to downloads for me,13,22
+so move data.csv to project please,8,16
+okay relocate test123.log into downloads for me,14,25
+hey relocate chanau.py into documents for me,13,22
+move file notes.txt into backup quickly,10,19
+shift chanau.py to downloads please,6,15
+okay copy data.csv to something,10,18
+well shift image.png to bb,11,20
+well copy file main.py into project please,15,22
+well move file data.csv into desktop for me,15,23
+okay shift a.txt to backup quickly,11,16
+hey please copy notes.txt into project quickly,16,25
+can you move a.txt to tmp now,13,18
+move main.py to desktop quickly,5,12
+so shift notes.txt to where,9,18
+hey move file image.png into project please,14,23
+so move a.txt to documents quickly,8,13
+so shift test123.log to bb quickly,9,20
+well shift image.png to desktop now,11,20
+copy image.png to project now,5,14
+hey copy report.pdf to logs quickly,9,19
+well relocate report.pdf into desktop for me,14,24
+hey relocate test123.log into logs,13,24
+so shift main.py to tmp please,9,16
+can you move chanau.py to data,13,22
+so move file a.txt into bb,13,18
+copy file data.csv into desktop now,10,18
+shift notes.txt to backup now,6,15
+so can you move chanau.py to logs now,16,25
+hey shift chanau.py to data,10,19
+hey shift data.csv to where quickly,10,18
+so please copy notes.txt into downloads,15,24
+relocate test123.log into something please,9,20
+well shift chanau.py to desktop please,11,20
+well copy test123.log to project please,10,21
+well copy data.csv to backup quickly,10,18
+so please copy test123.log into backup please,15,26
+so move notes.txt to backup,8,17
+please copy test123.log into where for me,12,23
+copy file data.csv into project please,10,18
+hey please copy test123.log into aa for me,16,27
+so copy file chanau.py into downloads,13,22
+hey relocate data.csv into aa now,13,21
+can you move chanau.py to desktop now,13,22
+well copy file chanau.py into aa quickly,15,24
+move file image.png into logs for me,10,19
+okay relocate data.csv into logs please,14,22
+please copy image.png into desktop,12,21
+copy notes.txt to tmp for me,5,14
+so copy file chanau.py into logs for me,13,22
+okay relocate data.csv into backup for me,14,22
+shift report.pdf to where,6,16
+hey shift a.txt to documents for me,10,15
+okay can you move image.png to project for me,18,27
+so relocate report.pdf into bb quickly,12,22
+okay move file main.py into aa please,15,22
+copy file main.py into bb please,10,17
+hey can you move notes.txt to downloads,17,26
+well copy file report.pdf into data please,15,25
+hey relocate main.py into data please,13,20
+move file image.png into logs now,10,19
+well can you move report.pdf to desktop for me,18,28
+well copy main.py to backup,10,17
+well shift chanau.py to desktop for me,11,20
+okay move file report.pdf into documents now,15,25
+okay please copy image.png into desktop for me,17,26
+okay shift chanau.py to where quickly,11,20
+so copy report.pdf to where quickly,8,18
+so relocate data.csv into logs now,12,20
+so can you move chanau.py to tmp for me,16,25
+okay relocate data.csv into logs quickly,14,22
+relocate image.png into tmp for me,9,18
+so move a.txt to tmp please,8,13
+shift image.png to project quickly,6,15
+so please copy main.py into backup for me,15,22
+well move file data.csv into tmp,15,23
+okay copy file data.csv into aa please,15,23
+okay move file notes.txt into bb quickly,15,24
+okay copy main.py to bb now,10,17
+well please copy main.py into something quickly,17,24
+hey move image.png to aa,9,18
+move notes.txt to something now,5,14
+copy file report.pdf into logs quickly,10,20
+so move image.png to desktop please,8,17
+well can you move a.txt to project quickly,18,23
+hey move file notes.txt into downloads quickly,14,23
+well copy file main.py into something quickly,15,22
+move file data.csv into logs now,10,18
+hey move image.png to downloads,9,18
+so copy data.csv to data for me,8,16
+well relocate main.py into desktop quickly,14,21
+hey please copy data.csv into something quickly,16,24
+okay move file main.py into data,15,22

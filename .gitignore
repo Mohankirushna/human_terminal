@@ -46,3 +46,5 @@ hcmd.egg-info/
 terminal/
 intent_model/
 navigation_span_model/
+dst_span_model/
+src_span_model/
