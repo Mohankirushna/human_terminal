@@ -45,3 +45,4 @@ Thumbs.db
 hcmd.egg-info/
 terminal/
 intent_model/
+navigation_span_model/

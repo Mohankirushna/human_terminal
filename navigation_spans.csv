@@ -1,0 +1,501 @@
+text,start_char,end_char
+well lets go to videos please,16,22
+lets go to foo-bar now,11,18
+so could you please open tmp now,25,28
+okay lets go to project please,16,23
+so take me to tmp,14,17
+hey could you please open aa now,26,28
+so switch to my_folder please,13,22
+could you please open aa for me,22,24
+take me into where now,13,18
+so go to pictures quickly,9,17
+well open xyz folder please,10,13
+well please take me to aa please,23,25
+hey open abc_def for me,9,16
+okay go ahead and open project for me please,23,30
+so lets go to project please,14,21
+well open cc quickly,10,12
+navigate to logs please,12,16
+hey switch to downloads for me,14,23
+okay take me into where for me,18,23
+so i want to move to aa,21,23
+well switch to bb please,15,17
+navigate to aa quickly,12,14
+well could you please open backup now,27,33
+hey go to something quickly,10,19
+well could you please open videos for me,27,33
+hey could you please open my_folder quickly,26,35
+lets go from current to aa now,24,26
+hey take me to xyz please,15,18
+so could you please open bb quickly,25,27
+hey lets go from current to project,28,35
+okay please take me to videos now,23,29
+well lets go from current to downloads for me,29,38
+well go ahead and open there for me quickly,23,28
+okay please take me to where,23,28
+okay navigate to desktop,17,24
+hey switch to bb,14,16
+okay lets go to bb,16,18
+well go to test123 please,11,18
+hey open backup,9,15
+well open backup,10,16
+okay go to home now,11,15
+well please take me to something for me,23,32
+okay could you please open aa for me,27,29
+hey please take me to logs please,22,26
+okay open foo-bar now,10,17
+open home folder,5,9
+okay i want to move to home now,23,27
+well open there for me,10,15
+well switch to pictures for me,15,23
+hey lets go to data,15,19
+so lets go from current to test123 please,27,34
+okay navigate to bb quickly,17,19
+so navigate to project quickly,15,22
+navigate to something please,12,21
+okay lets go from current to bb now,29,31
+so switch to here,13,17
+so go ahead and open foo-bar for me quickly,21,28
+so navigate to foo-bar now,15,22
+open test123 folder,5,12
+hey go ahead and open documents for me,22,31
+well please take me to my_folder now,23,32
+okay i want to move to xyz,23,26
+okay i want to move to here for me,23,27
+well take me into aa now,18,20
+so go to where quickly,9,14
+so could you please open there,25,30
+okay switch to xyz,15,18
+well switch to data for me,15,19
+okay i want to move to my_folder please,23,32
+okay switch to data please,15,19
+open home folder,5,9
+okay open videos now,10,16
+well take me into data please,18,22
+well navigate to aa quickly,17,19
+take me into foo-bar for me,13,20
+okay navigate to here,17,21
+go to project please,6,13
+okay i want to move to xyz,23,26
+well take me into cc please,18,20
+open xyz quickly,5,8
+hey go ahead and open my_folder for me now,22,31
+so lets go from current to here quickly,27,31
+well go ahead and open something for me,23,32
+so could you please open xyz quickly,25,28
+well go ahead and open home for me please,23,27
+so switch to foo-bar please,13,20
+okay navigate to cc now,17,19
+lets go to pictures,11,19
+well open tmp folder now,10,13
+so go to documents now,9,18
+well take me to xyz for me,16,19
+so take me into cc quickly,16,18
+so take me to xyz quickly,14,17
+okay navigate to tmp for me,17,20
+okay lets go to cc please,16,18
+so go ahead and open where for me,21,26
+well please take me to here please,23,27
+lets go from current to my_folder quickly,24,33
+hey take me to bb,15,17
+okay open tmp folder for me,10,13
+so take me into there quickly,16,21
+so switch to data please,13,17
+so lets go from current to my_folder,27,36
+take me to tmp for me,11,14
+go ahead and open my_folder for me for me,18,27
+so take me to backup now,14,20
+hey lets go to pictures please,15,23
+hey i want to move to downloads now,22,31
+well take me into bb please,18,20
+okay take me to documents please,16,25
+okay please take me to bb for me,23,25
+please take me to aa quickly,18,20
+well lets go to logs for me,16,20
+well take me into documents please,18,27
+well open backup folder for me,10,16
+hey take me to something please,15,24
+lets go to abc_def please,11,18
+okay lets go to my_folder now,16,25
+okay switch to aa quickly,15,17
+hey go to home please,10,14
+hey switch to my_folder for me,14,23
+well go to desktop quickly,11,18
+go to xyz quickly,6,9
+so go to desktop,9,16
+so go to bb now,9,11
+hey i want to move to downloads now,22,31
+well please take me to logs please,23,27
+hey go to xyz now,10,13
+hey open logs folder quickly,9,13
+hey take me to xyz quickly,15,18
+okay open test123 for me,10,17
+take me to tmp now,11,14
+so open logs folder quickly,8,12
+so could you please open desktop please,25,32
+okay could you please open project for me,27,34
+okay lets go to abc_def quickly,16,23
+well open aa folder quickly,10,12
+okay open there folder now,10,15
+so take me into desktop please,16,23
+okay take me into xyz now,18,21
+well lets go from current to home quickly,29,33
+so navigate to here quickly,15,19
+hey i want to move to foo-bar,22,29
+hey open here quickly,9,13
+well open abc_def,10,17
+lets go from current to aa for me,24,26
+well please take me to pictures now,23,31
+so take me into logs quickly,16,20
+well lets go to something quickly,16,25
+hey i want to move to home now,22,26
+hey take me into something,17,26
+please take me to bb quickly,18,20
+hey take me into desktop for me,17,24
+well take me into videos,18,24
+okay go ahead and open there for me now,23,28
+take me to my_folder quickly,11,20
+hey go to data now,10,14
+hey lets go to documents for me,15,24
+well open documents folder please,10,19
+hey navigate to logs quickly,16,20
+okay go to xyz quickly,11,14
+well open documents folder now,10,19
+okay lets go to foo-bar for me,16,23
+so switch to my_folder please,13,22
+okay lets go to test123,16,23
+so lets go from current to data for me,27,31
+hey navigate to test123 for me,16,23
+hey take me to here,15,19
+so go to project please,9,16
+hey take me into downloads now,17,26
+so take me into cc,16,18
+i want to move to documents,18,27
+so lets go to cc now,14,16
+so lets go from current to foo-bar now,27,34
+so open tmp please,8,11
+well open videos,10,16
+okay lets go from current to foo-bar please,29,36
+well lets go from current to where,29,34
+so open pictures folder please,8,16
+well take me to home quickly,16,20
+okay open videos,10,16
+so could you please open xyz please,25,28
+okay navigate to foo-bar please,17,24
+lets go to logs please,11,15
+take me to abc_def now,11,18
+navigate to something quickly,12,21
+hey could you please open project,26,33
+take me into tmp please,13,16
+hey navigate to here quickly,16,20
+lets go to project,11,18
+hey navigate to desktop please,16,23
+well could you please open data for me,27,31
+lets go to videos please,11,17
+well go ahead and open something for me now,23,32
+hey take me into where quickly,17,22
+hey switch to foo-bar now,14,21
+so please take me to test123 for me,21,28
+please take me to where,18,23
+okay go to test123 for me,11,18
+well take me into desktop,18,25
+okay lets go from current to documents for me,29,38
+okay i want to move to videos now,23,29
+so go ahead and open cc for me quickly,21,23
+hey go ahead and open cc for me,22,24
+okay switch to bb for me,15,17
+well take me to project now,16,23
+okay open where folder,10,15
+well go to there now,11,16
+i want to move to videos quickly,18,24
+hey switch to foo-bar now,14,21
+could you please open something,22,31
+so could you please open documents quickly,25,34
+hey take me into something,17,26
+so go ahead and open tmp for me now,21,24
+take me into aa,13,15
+hey lets go from current to data,28,32
+navigate to downloads,12,21
+so go ahead and open bb for me,21,23
+so could you please open foo-bar quickly,25,32
+hey go ahead and open downloads for me,22,31
+go to where,6,11
+hey navigate to here for me,16,20
+so switch to there now,13,18
+take me into there now,13,18
+could you please open documents quickly,22,31
+hey go ahead and open xyz for me please,22,25
+hey take me to data for me,15,19
+switch to something quickly,10,19
+open where quickly,5,10
+open data for me,5,9
+go to here,6,10
+okay lets go to bb please,16,18
+okay navigate to desktop now,17,24
+navigate to data now,12,16
+hey i want to move to cc quickly,22,24
+hey open aa for me,9,11
+hey take me into aa quickly,17,19
+okay go ahead and open aa for me quickly,23,25
+go ahead and open cc for me please,18,20
+so open backup please,8,14
+okay navigate to backup quickly,17,23
+so navigate to desktop please,15,22
+hey open cc folder for me,9,11
+okay lets go to data please,16,20
+hey take me into videos now,17,23
+well could you please open pictures please,27,35
+hey open home,9,13
+well go ahead and open backup for me,23,29
+open bb folder now,5,7
+well please take me to project for me,23,30
+so navigate to there please,15,20
+hey go ahead and open test123 for me please,22,29
+so open logs quickly,8,12
+okay open test123 folder quickly,10,17
+well go to data please,11,15
+open pictures for me,5,13
+okay please take me to test123 now,23,30
+open project quickly,5,12
+okay open bb folder for me,10,12
+well go to documents for me,11,20
+okay i want to move to foo-bar please,23,30
+hey navigate to something for me,16,25
+so please take me to videos now,21,27
+open there please,5,10
+well go ahead and open bb for me please,23,25
+hey switch to abc_def,14,21
+hey i want to move to cc for me,22,24
+navigate to aa please,12,14
+okay go to bb now,11,13
+well go to foo-bar please,11,18
+well take me into logs quickly,18,22
+hey lets go to abc_def please,15,22
+well switch to backup now,15,21
+hey lets go to videos quickly,15,21
+okay go ahead and open aa for me please,23,25
+please take me to tmp quickly,18,21
+okay i want to move to bb please,23,25
+so go ahead and open desktop for me now,21,28
+hey take me into bb now,17,19
+switch to test123 now,10,17
+so lets go to bb quickly,14,16
+well go to bb quickly,11,13
+well go ahead and open there for me please,23,28
+go to videos quickly,6,12
+take me to project for me,11,18
+hey take me into data,17,21
+hey open aa for me,9,11
+open bb,5,7
+hey go ahead and open aa for me for me,22,24
+hey take me into my_folder for me,17,26
+okay open where,10,15
+okay open where for me,10,15
+okay open here now,10,14
+well please take me to backup please,23,29
+lets go to home quickly,11,15
+well take me to logs for me,16,20
+so please take me to something for me,21,30
+so switch to xyz,13,16
+so go to xyz now,9,12
+so go ahead and open project for me,21,28
+hey go to where,10,15
+open project for me,5,12
+well take me into something for me,18,27
+navigate to foo-bar,12,19
+so go to logs now,9,13
+well navigate to pictures,17,25
+hey lets go from current to desktop now,28,35
+hey go ahead and open abc_def for me please,22,29
+okay switch to backup please,15,21
+well please take me to data quickly,23,27
+open bb folder please,5,7
+so lets go to project,14,21
+so could you please open xyz,25,28
+so take me to something for me,14,23
+so could you please open my_folder,25,34
+well take me into backup,18,24
+okay go ahead and open xyz for me please,23,26
+okay go ahead and open project for me,23,30
+hey open data for me,9,13
+okay navigate to abc_def,17,24
+take me to aa,11,13
+so navigate to there for me,15,20
+well please take me to backup please,23,29
+well go to my_folder,11,20
+okay lets go to backup quickly,16,22
+okay take me into tmp quickly,18,21
+well take me to there please,16,21
+please take me to logs for me,18,22
+hey i want to move to backup please,22,28
+so lets go from current to project,27,34
+navigate to project now,12,19
+hey switch to foo-bar quickly,14,21
+hey lets go from current to here,28,32
+hey take me into there now,17,22
+so navigate to downloads for me,15,24
+okay switch to data,15,19
+okay go ahead and open videos for me quickly,23,29
+okay lets go from current to pictures now,29,37
+hey i want to move to tmp,22,25
+so lets go to cc,14,16
+so please take me to bb now,21,23
+go to downloads for me,6,15
+lets go from current to cc please,24,26
+well could you please open videos,27,33
+well switch to project now,15,22
+well lets go to logs quickly,16,20
+go to data,6,10
+could you please open xyz now,22,25
+well lets go from current to something please,29,38
+okay lets go from current to videos,29,35
+okay please take me to where for me,23,28
+well go ahead and open desktop for me for me,23,30
+hey lets go to downloads,15,24
+okay lets go to logs quickly,16,20
+so lets go from current to downloads for me,27,36
+hey go to desktop quickly,10,17
+please take me to tmp for me,18,21
+so i want to move to my_folder quickly,21,30
+well go ahead and open desktop for me quickly,23,30
+hey could you please open desktop quickly,26,33
+lets go to something,11,20
+okay lets go from current to data,29,33
+so please take me to cc quickly,21,23
+so take me into test123 for me,16,23
+so navigate to my_folder quickly,15,24
+please take me to bb for me,18,20
+go ahead and open tmp for me now,18,21
+okay take me into downloads,18,27
+well please take me to where now,23,28
+so lets go from current to where for me,27,32
+hey take me to aa please,15,17
+so lets go to cc now,14,16
+okay lets go from current to logs now,29,33
+well navigate to backup,17,23
+open tmp for me,5,8
+okay could you please open logs for me,27,31
+take me to foo-bar,11,18
+so lets go to here now,14,18
+okay take me into xyz please,18,21
+okay go ahead and open test123 for me please,23,30
+well take me to home for me,16,20
+could you please open home please,22,26
+so take me into pictures now,16,24
+so please take me to something for me,21,30
+hey lets go from current to pictures,28,36
+well switch to logs please,15,19
+okay switch to xyz now,15,18
+so go ahead and open my_folder for me for me,21,30
+go to xyz quickly,6,9
+navigate to videos,12,18
+take me into where quickly,13,18
+well i want to move to videos please,23,29
+well lets go to tmp for me,16,19
+okay open home folder for me,10,14
+so open project folder quickly,8,15
+hey i want to move to test123 now,22,29
+okay navigate to bb quickly,17,19
+okay lets go to tmp please,16,19
+well could you please open project quickly,27,34
+well go to videos now,11,17
+hey open videos folder quickly,9,15
+okay take me into documents for me,18,27
+okay lets go to foo-bar now,16,23
+hey navigate to desktop,16,23
+so take me into my_folder please,16,25
+well open logs folder quickly,10,14
+okay open abc_def,10,17
+hey go ahead and open home for me please,22,26
+so open backup folder please,8,14
+well go ahead and open abc_def for me please,23,30
+well open where please,10,15
+go to there quickly,6,11
+well i want to move to test123 quickly,23,30
+okay go to home quickly,11,15
+i want to move to data for me,18,22
+well please take me to bb quickly,23,25
+open desktop for me,5,12
+so open downloads quickly,8,17
+okay lets go to here please,16,20
+hey i want to move to documents please,22,31
+lets go from current to documents for me,24,33
+navigate to bb,12,14
+hey take me to aa for me,15,17
+hey lets go to abc_def now,15,22
+okay take me to tmp,16,19
+so take me into logs,16,20
+so open data please,8,12
+so take me to aa for me,14,16
+hey go ahead and open logs for me for me,22,26
+well i want to move to documents,23,32
+well lets go to aa now,16,18
+okay i want to move to documents,23,32
+well open where folder quickly,10,15
+well lets go from current to xyz,29,32
+so open downloads folder now,8,17
+so lets go from current to videos now,27,33
+could you please open documents for me,22,31
+hey navigate to test123 quickly,16,23
+hey open data for me,9,13
+open my_folder folder please,5,14
+so go ahead and open documents for me,21,30
+well lets go to documents please,16,25
+open there folder now,5,10
+go ahead and open backup for me please,18,24
+well i want to move to data,23,27
+so open here folder now,8,12
+open backup,5,11
+hey lets go from current to xyz now,28,31
+lets go from current to videos please,24,30
+okay open videos folder for me,10,16
+so switch to bb quickly,13,15
+switch to data please,10,14
+well lets go to test123 quickly,16,23
+okay switch to logs,15,19
+so go to foo-bar for me,9,16
+open foo-bar quickly,5,12
+okay lets go from current to aa please,29,31
+so go to aa now,9,11
+so lets go to here quickly,14,18
+okay navigate to project quickly,17,24
+well take me to my_folder,16,25
+okay open aa for me,10,12
+switch to documents now,10,19
+so go to cc now,9,11
+hey lets go from current to backup for me,28,34
+okay please take me to videos quickly,23,29
+okay could you please open tmp now,27,30
+hey take me into downloads for me,17,26
+okay take me into aa now,18,20
+so lets go to home quickly,14,18
+hey take me to backup for me,15,21
+so open foo-bar quickly,8,15
+well could you please open where please,27,32
+okay take me into downloads for me,18,27
+okay take me into cc for me,18,20
+okay go ahead and open logs for me please,23,27
+so take me into pictures,16,24
+i want to move to pictures quickly,18,26
+okay navigate to desktop now,17,24
+okay could you please open here please,27,31
+okay go to xyz,11,14
+okay could you please open backup quickly,27,33
+so open here quickly,8,12
+hey take me into abc_def quickly,17,24
+okay go ahead and open pictures for me,23,31
+so switch to xyz,13,16
+okay open cc for me,10,12
+well lets go to cc quickly,16,18
+well open pictures please,10,18
+please take me to tmp,18,21
+well lets go to something for me,16,25
+well lets go from current to foo-bar,29,36
+so navigate to pictures,15,23
+okay could you please open desktop,27,34
+lets go to something quickly,11,20
+well lets go from current to backup now,29,35
+so lets go from current to data now,27,31
+so please take me to backup now,21,27
+hey lets go to cc please,15,17
+hey lets go to where,15,20
