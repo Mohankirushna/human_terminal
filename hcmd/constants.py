@@ -1,4 +1,16 @@
 from enum import Enum, auto
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
+
+INTENT_MODEL_PATH = os.path.join(PROJECT_ROOT, "intent_model")
+NAVIGATION_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "navigation_span_model")
+SRC_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "src_span_model")
+DST_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "dst_span_model")
+
+INTENT_CONF_THRESHOLD = 0.55
+SPAN_CONF_THRESHOLD = 0.60
 
 class OS(Enum):
     WINDOWS = "windows"
