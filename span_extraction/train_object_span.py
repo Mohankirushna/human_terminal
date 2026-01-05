@@ -6,8 +6,8 @@ from torch.optim import AdamW
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
-import os
 import copy
+import os
 
 MODEL_NAME = "distilbert-base-uncased"
 BATCH_SIZE = 16
@@ -16,11 +16,12 @@ LR = 3e-5
 MAX_LEN = 64
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-EARLY_STOPPING_PATIENCE = 5
+EARLY_STOPPING_PATIENCE = 3
 LR_PATIENCE = 2
-LR_FACTOR = 0.05
+LR_FACTOR = 0.5
 
-CSV_PATH = os.path.join("..", "navigation_spans.csv") if not os.path.exists("navigation_spans.csv") else "navigation_spans.csv"
+CSV_PATH = "object_spans.csv"
+OUT_DIR = "object_span_model"
 
 df = pd.read_csv(CSV_PATH)
 train_df, val_df = train_test_split(df, test_size=0.2, random_state=42)
@@ -75,7 +76,6 @@ model = AutoModelForQuestionAnswering.from_pretrained(MODEL_NAME)
 model.to(DEVICE)
 
 optimizer = AdamW(model.parameters(), lr=LR)
-
 scheduler = ReduceLROnPlateau(
     optimizer,
     mode="min",
@@ -84,7 +84,7 @@ scheduler = ReduceLROnPlateau(
 )
 
 best_val_loss = float("inf")
-best_model_state = None
+best_state = None
 epochs_no_improve = 0
 
 for epoch in range(EPOCHS):
@@ -116,7 +116,7 @@ for epoch in range(EPOCHS):
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss
-        best_model_state = copy.deepcopy(model.state_dict())
+        best_state = copy.deepcopy(model.state_dict())
         epochs_no_improve = 0
     else:
         epochs_no_improve += 1
@@ -125,6 +125,9 @@ for epoch in range(EPOCHS):
         print("Early stopping triggered")
         break
 
-model.load_state_dict(best_model_state)
-model.save_pretrained("navigation_span_model")
-tokenizer.save_pretrained("navigation_span_model")
+model.load_state_dict(best_state)
+os.makedirs(OUT_DIR, exist_ok=True)
+model.save_pretrained(OUT_DIR)
+tokenizer.save_pretrained(OUT_DIR)
+
+print("Object span model saved to", OUT_DIR)

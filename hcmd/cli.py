@@ -1,94 +1,110 @@
 import sys
-from hcmd.core.executor import CommandExecutor
-from hcmd.core.nlp import interpret
-from hcmd.core.detector import get_os
-from hcmd.constants import OS
-
 import os
 
-def normalize_path(path, os_type):
-    if os_type == OS.WINDOWS:
+from hcmd.core.executor import CommandExecutor
+from hcmd.core.context_resolver import resolve_context
+from hcmd.core.nlp import interpret
+from hcmd.constants import OS
+from hcmd.core.context import SystemContext
+from hcmd.core.safety import validate_command
+
+def normalize_path(path: str, ctx: SystemContext) -> str | None:
+    if not path:
+        return None
+
+    if ctx.os_type == OS.WINDOWS:
         known = {
             "downloads": os.path.join(os.environ["USERPROFILE"], "Downloads"),
             "documents": os.path.join(os.environ["USERPROFILE"], "Documents"),
             "desktop": os.path.join(os.environ["USERPROFILE"], "Desktop"),
         }
-
         p = known.get(path.lower(), path)
-
         if not os.path.isabs(p):
             p = os.path.abspath(p)
-
         return p
 
-    if path.lower() == "downloads":
-        return os.path.expanduser("~/Downloads")
-    if path.lower() == "documents":
-        return os.path.expanduser("~/Documents")
-    if path.lower() == "desktop":
-        return os.path.expanduser("~/Desktop")
-
-    return path
+    known = {
+        "downloads": os.path.expanduser("~/Downloads"),
+        "documents": os.path.expanduser("~/Documents"),
+        "desktop": os.path.expanduser("~/Desktop"),
+    }
+    return known.get(path.lower(), path)
 
 
-def build_command(intent, data, os_type):
-    print("DEBUG: Building command for intent =", intent)
+def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
+    os_type = ctx.os_type
+
     if intent == "LIST_FILES":
-        if os_type == OS.WINDOWS:
-            return "Get-ChildItem"
-        return "ls -la"
+        return "Get-ChildItem" if os_type == OS.WINDOWS else "ls -la"
 
     if intent == "PWD":
-        if os_type == OS.WINDOWS:
-            return "Get-Location"
-        return "pwd"
+        return "Get-Location" if os_type == OS.WINDOWS else "pwd"
 
     if intent == "NAVIGATION":
-        path = data["path"]
-        return f"cd {path}"
+        raw = data.get("path")
+        path = normalize_path(raw, ctx)
+        if not path:
+            return None
+        if not os.path.isabs(path):
+            path = os.path.join(ctx.cwd, path)
+        return f'cd "{path}"'
 
     if intent == "MOVE_FILE":
-        src = normalize_path(data["src"], os_type)
-        dst = normalize_path(data["dst"], os_type)
-        print("DEBUG:")
-        print("  intent = MOVE_FILE")
-        print("  raw src =", data["src"])
-        print("  raw dst =", data["dst"])
-        print("  resolved src =", src)
-        print("  resolved dst =", dst)
+        src = normalize_path(data.get("src"), ctx)
+        dst = normalize_path(data.get("dst"), ctx)
+        if not src or not dst:
+            return None
+        if os.path.isdir(dst):
+            dst = os.path.join(dst, os.path.basename(src))
         if os_type == OS.WINDOWS:
             return f'cmd /c move "{src}" "{dst}"'
         return f'mv "{src}" "{dst}"'
 
-
     if intent == "COPY_FILE":
-        src = normalize_path(data["src"], os_type)
-        dst = normalize_path(data["dst"], os_type)
+        src = normalize_path(data.get("src"), ctx)
+        dst = normalize_path(data.get("dst"), ctx)
+        if not src or not dst:
+            return None
+        if os.path.isdir(dst):
+            dst = os.path.join(dst, os.path.basename(src))
         if os_type == OS.WINDOWS:
             return f'cmd /c copy "{src}" "{dst}"'
         return f'cp "{src}" "{dst}"'
 
-
     if intent == "CREATE_FILE":
-        name = data.get("name")
+        name = data.get("path")
         if not name:
             return None
         if os_type == OS.WINDOWS:
-            return f"New-Item -ItemType File {name}"
-        return f"touch {name}"
+            return f'New-Item -ItemType File "{name}"'
+        return f'touch "{name}"'
 
     if intent == "CREATE_DIR":
-        name = data.get("name")
+        name = data.get("path")
         if not name:
             return None
         if os_type == OS.WINDOWS:
-            return f"New-Item -ItemType Directory {name}"
-        return f"mkdir {name}"
+            return f'New-Item -ItemType Directory "{name}"'
+        return f'mkdir "{name}"'
+
+    if intent == "DELETE_FILE":
+        target = normalize_path(data.get("path"), ctx)
+        if not target:
+            return None
+        if os_type == OS.WINDOWS:
+            return f'del "{target}"'
+        return f'rm "{target}"'
+
+    if intent == "GIT_STATUS":
+        return "git status" if ctx.is_git_repo else None
+
+    if intent == "GIT_BRANCH":
+        return "git branch --show-current" if ctx.is_git_repo else None
 
     return None
 
 
-def main():
+def main() -> int:
     if len(sys.argv) < 2:
         print("Usage: hcmd <natural language command>")
         return 1
@@ -100,13 +116,21 @@ def main():
         print(f"ERROR: {result.get('reason')}")
         return 1
 
-    os_type = get_os()
+    ctx = resolve_context()
     intent = result["intent"]
 
-    cmd = build_command(intent, result, os_type)
+    cmd = build_command(intent, result, ctx)
     if not cmd:
-        print("ERROR: Unsupported intent")
+        print("ERROR: Unsupported or invalid command in current context")
         return 1
+
+    safety = validate_command(intent, cmd, ctx)
+    if not safety.safe:
+        print(f"WARNING: {safety.warning}")
+        ans = input("Proceed? [y/N]: ").strip().lower()
+        if ans != "y":
+            print("Aborted by user")
+            return 1
 
     executor = CommandExecutor()
     success, output = executor.execute(cmd)
@@ -120,12 +144,14 @@ def main():
 
     return 0
 
+
 def run():
     try:
         sys.exit(main())
     except KeyboardInterrupt:
         print("\nOperation cancelled by user")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     run()

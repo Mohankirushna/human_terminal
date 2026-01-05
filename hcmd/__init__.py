@@ -7,11 +7,10 @@ A command-line tool that converts natural language instructions into terminal co
 __version__ = "0.1.0"
 
 # Import core components
-from .core import detector, generator, executor, validator
+from .core import detector, executor, validator
 
 # Re-export commonly used functions and classes
 from .core.detector import get_os, get_shell, get_system_directory
-from .core.generator import CommandGenerator
 from .core.executor import CommandExecutor
 from .core.validator import validate
 

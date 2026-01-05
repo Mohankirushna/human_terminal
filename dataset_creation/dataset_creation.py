@@ -1,148 +1,198 @@
 import csv
 import random
+import string
+
+# -------------------------
+# Random name generators
+# -------------------------
+
+FILE_EXTENSIONS = ["py", "txt", "csv", "json", "md", "log", "pdf", "yaml"]
+
+def rand_word(min_len=3, max_len=8):
+    return "".join(random.choices(string.ascii_lowercase, k=random.randint(min_len, max_len)))
+
+def rand_file():
+    base = rand_word()
+    if random.random() < 0.5:
+        base += f"_{random.randint(1,99)}"
+    return f"{base}.{random.choice(FILE_EXTENSIONS)}"
+
+def rand_dir():
+    base = rand_word()
+    if random.random() < 0.4:
+        base += "_" + random.choice(["src", "data", "logs", "backup"])
+    if random.random() < 0.3:
+        base += str(random.randint(1,5))
+    return base
+
+# -------------------------
+# Intents (expanded)
+# -------------------------
 
 INTENTS = {
     "NAVIGATION": {
-        "count": 300,
+        "count": 450,
         "templates": [
             "go to {dir}",
-            "cd to {dir}",
-            "open {dir}",
             "navigate to {dir}",
-            "take me to {dir}",
-            "switch to {dir}",
+            "open {dir}",
             "enter {dir}",
+            "switch to {dir}",
+            "cd {dir}",
+            "take me to {dir}",
+            "move into {dir}",
         ],
     },
     "LIST_FILES": {
-        "count": 250,
+        "count": 400,
         "templates": [
             "list files",
             "show files",
             "list all files",
-            "show directory contents",
+            "ls",
+            "ls -l",
             "what files are here",
+            "show directory contents",
         ],
     },
-    "SHOW_PATH": {
-        "count": 200,
+    "PWD": {
+        "count": 350,
         "templates": [
             "where am i",
             "current directory",
-            "print working directory",
-            "show path",
             "pwd",
+            "print working directory",
+            "show current path",
         ],
     },
     "CREATE_FILE": {
-        "count": 250,
+        "count": 450,
         "templates": [
             "create file {file}",
             "make a file named {file}",
             "new file {file}",
             "touch {file}",
+            "generate file {file}",
         ],
     },
-    "READ_FILE": {
-        "count": 250,
+    "CREATE_DIR": {
+        "count": 350,
         "templates": [
-            "show contents of {file}",
-            "open {file}",
-            "read {file}",
-            "display {file}",
-            "cat {file}",
+            "create directory {dir}",
+            "make folder {dir}",
+            "new directory {dir}",
+            "mkdir {dir}",
         ],
     },
     "DELETE_FILE": {
-        "count": 250,
+        "count": 450,
         "templates": [
             "delete {file}",
             "remove {file}",
             "erase {file}",
+            "rm {file}",
         ],
     },
     "COPY_FILE": {
-        "count": 200,
+        "count": 350,
         "templates": [
             "copy {src} to {dst}",
             "duplicate {src} into {dst}",
+            "cp {src} {dst}",
         ],
     },
     "MOVE_FILE": {
-        "count": 200,
+        "count": 350,
         "templates": [
             "move {src} to {dst}",
             "relocate {src} into {dst}",
+            "mv {src} {dst}",
         ],
     },
     "RENAME_FILE": {
-        "count": 200,
+        "count": 300,
         "templates": [
             "rename {src} to {dst}",
             "change filename from {src} to {dst}",
         ],
     },
+    "GIT_STATUS": {
+        "count": 300,
+        "templates": [
+            "git status",
+            "show git status",
+            "any git changes",
+            "repository status",
+        ],
+    },
+    "GIT_BRANCH": {
+        "count": 300,
+        "templates": [
+            "git branch",
+            "current git branch",
+            "which branch am i on",
+        ],
+    },
     "INVALID": {
-        "count": 200,
+        "count": 400,
         "templates": [
             "tell me a joke",
-            "open chrome",
             "play music",
+            "open chrome",
             "search google for cats",
             "what is the weather today",
         ],
     },
     "FORBIDDEN": {
-        "count": 150,
+        "count": 300,
         "templates": [
-            "format c drive",
             "delete everything",
-            "shutdown system",
-            "restart computer",
             "rm -rf /",
+            "format c drive",
+            "shutdown system",
             "wipe all files",
         ],
     },
 }
 
-DIRS = [
-    "downloads", "documents", "desktop", "home",
-    "projects", "src", "data", "logs"
-]
+# -------------------------
+# Noise
+# -------------------------
 
-FILES = [
-    "test.txt", "notes.txt", "a.py", "main.cpp",
-    "data.csv", "report.pdf"
-]
-
-FILLERS = ["", "please ", "can you ", "hey "]
+FILLERS = ["", "please ", "can you ", "hey ", "could you ", "quickly "]
+SUFFIXES = ["", " now", " asap", " please"]
 
 def add_noise(text: str) -> str:
-    if random.random() < 0.3:
+    if random.random() < 0.25:
         text = text.capitalize()
     if random.random() < 0.2:
         text = text.replace(" ", "  ")
-    if random.random() < 0.1:
-        text = text.replace("o", "0", 1)
+    if random.random() < 0.15:
+        text = text.replace("e", "3", 1)
+    if random.random() < 0.15:
+        text += random.choice(SUFFIXES)
     return text
 
-def fill(template):
+def fill(template: str) -> str:
     base = template.format(
-        dir=random.choice(DIRS),
-        file=random.choice(FILES),
-        src=random.choice(FILES),
-        dst=random.choice(FILES + DIRS),
+        dir=rand_dir(),
+        file=rand_file(),
+        src=rand_file(),
+        dst=random.choice([rand_file(), rand_dir()]),
     )
     base = random.choice(FILLERS) + base
     return add_noise(base.strip())
+
+# -------------------------
+# Dataset generation
+# -------------------------
 
 def generate_dataset(output_path="intent_dataset.csv"):
     samples = []
 
     for label, cfg in INTENTS.items():
         for _ in range(cfg["count"]):
-            template = random.choice(cfg["templates"])
-            samples.append((fill(template), label))
+            samples.append((fill(random.choice(cfg["templates"])), label))
 
     random.shuffle(samples)
 

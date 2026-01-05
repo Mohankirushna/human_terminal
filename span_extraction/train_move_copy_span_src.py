@@ -16,9 +16,9 @@ LR = 3e-5
 MAX_LEN = 64
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-EARLY_STOPPING_PATIENCE = 3
+EARLY_STOPPING_PATIENCE = 5
 LR_PATIENCE = 2
-LR_FACTOR = 0.5
+LR_FACTOR = 0.05
 
 CSV_PATH = "move_src_spans.csv"
 OUT_DIR = "src_span_model"
