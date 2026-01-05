@@ -32,6 +32,7 @@ def normalize_path(path, os_type):
 
 
 def build_command(intent, data, os_type):
+    print("DEBUG: Building command for intent =", intent)
     if intent == "LIST_FILES":
         if os_type == OS.WINDOWS:
             return "Get-ChildItem"

@@ -9,8 +9,8 @@ NAVIGATION_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "navigation_span_model")
 SRC_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "src_span_model")
 DST_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "dst_span_model")
 
-INTENT_CONF_THRESHOLD = 0.55
-SPAN_CONF_THRESHOLD = 0.60
+INTENT_CONF_THRESHOLD = 0.30
+SPAN_CONF_THRESHOLD = 0.25
 
 class OS(Enum):
     WINDOWS = "windows"
