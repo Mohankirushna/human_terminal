@@ -11,12 +11,12 @@ from ..constants import (
     SRC_SPAN_MODEL_PATH,
     DST_SPAN_MODEL_PATH,
     OBJECT_SPAN_MODEL_PATH,
+    RENAME_SPAN_MODEL_PATH,
     INTENT_CONF_THRESHOLD,
     SPAN_CONF_THRESHOLD
 )
 
 from hcmd.core.intent_rules import rule_intent
-
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -53,10 +53,12 @@ object_model = AutoModelForQuestionAnswering.from_pretrained(
     OBJECT_SPAN_MODEL_PATH
 ).to(DEVICE)
 
-nav_model.eval()
-src_model.eval()
-dst_model.eval()
-object_model.eval()
+rename_model = AutoModelForQuestionAnswering.from_pretrained(
+    RENAME_SPAN_MODEL_PATH
+).to(DEVICE)
+
+for m in (nav_model, src_model, dst_model, object_model, rename_model):
+    m.eval()
 
 
 # ----------------------------
@@ -98,14 +100,13 @@ def _extract_span(text: str, model):
 # MAIN INTERPRETER
 # ----------------------------
 def interpret(text: str) -> dict:
-    # ---- Rule-based intent short-circuit (intent ONLY)
     rule = rule_intent(text)
+
     if rule:
         intent = rule
         intent_conf = 1.0
     else:
         inputs = intent_tokenizer(text, return_tensors="pt").to(DEVICE)
-
         with torch.no_grad():
             logits = intent_model(**inputs).logits
 
@@ -125,13 +126,13 @@ def interpret(text: str) -> dict:
 
     # ---- NAVIGATION
     if intent == "NAVIGATION":
-        span, conf = _extract_span(text, nav_model)
+        path, conf = _extract_span(text, nav_model)
         if conf < SPAN_CONF_THRESHOLD:
             return {"ok": False, "reason": "Low navigation span confidence"}
-        result["path"] = span
+        result["path"] = path
 
     # ---- MOVE / COPY
-    if intent in ("MOVE_FILE", "COPY_FILE"):
+    elif intent in ("MOVE_FILE", "COPY_FILE"):
         src, src_conf = _extract_span(text, src_model)
         dst, dst_conf = _extract_span(text, dst_model)
 
@@ -141,13 +142,25 @@ def interpret(text: str) -> dict:
         result["src"] = src
         result["dst"] = dst
 
-    # ---- CREATE / DELETE / MKDIR
-    if intent in ("DELETE_FILE", "CREATE_FILE", "CREATE_DIR"):
-        obj, obj_conf = _extract_span(text, object_model)
+    # ---- RENAME
+    elif intent == "RENAME_FILE":
+        src, src_conf = _extract_span(text, rename_model)
+        dst, dst_conf = _extract_span(text, rename_model)
 
+        if src_conf < SPAN_CONF_THRESHOLD or dst_conf < SPAN_CONF_THRESHOLD:
+            return {"ok": False, "reason": "Low rename confidence"}
+
+        if src == dst:
+            return {"ok": False, "reason": "Rename source and destination identical"}
+
+        result["src"] = src
+        result["dst"] = dst
+
+    # ---- CREATE / DELETE / MKDIR
+    elif intent in ("DELETE_FILE", "CREATE_FILE", "CREATE_DIR"):
+        obj, obj_conf = _extract_span(text, object_model)
         if obj_conf < SPAN_CONF_THRESHOLD:
             return {"ok": False, "reason": "Low object span confidence"}
-
         result["path"] = obj
 
     return result

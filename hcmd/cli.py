@@ -100,6 +100,16 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
 
     if intent == "GIT_BRANCH":
         return "git branch --show-current" if ctx.is_git_repo else None
+    if intent == "RENAME_FILE":
+        src = normalize_path(data.get("src"), ctx)
+        dst = normalize_path(data.get("dst"), ctx)
+
+        if not src or not dst:
+            return None
+
+        if ctx.os_type == OS.WINDOWS:
+            return f'Rename-Item "{src}" "{dst}"'
+        return f'mv "{src}" "{dst}"'
 
     return None
 

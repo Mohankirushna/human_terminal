@@ -17,6 +17,7 @@ class SystemContext:
     docker_running: bool = False
     docker_containers: List[str] = field(default_factory=list)
 
+
 def empty_context(os_type: OS) -> SystemContext:
     return SystemContext(
         os_type=os_type,

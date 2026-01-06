@@ -9,8 +9,25 @@ NAVIGATION_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "navigation_span_model")
 SRC_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "src_span_model")
 DST_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "dst_span_model")
 OBJECT_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "object_span_model")
+RENAME_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "rename_span_model")
 INTENT_CONF_THRESHOLD = 0.30
 SPAN_CONF_THRESHOLD = 0.25
+
+INTENTS = {
+    "NAVIGATION",
+    "LIST_FILES",
+    "PWD",
+    "CREATE_FILE",
+    "CREATE_DIR",
+    "DELETE_FILE",
+    "COPY_FILE",
+    "MOVE_FILE",
+    "RENAME_FILE",
+    "READ_FILE",
+    "GIT_STATUS",
+    "GIT_BRANCH",
+}
+
 
 class OS(Enum):
     WINDOWS = "windows"
