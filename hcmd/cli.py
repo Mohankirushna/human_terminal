@@ -15,7 +15,7 @@ from hcmd.core.pattern_executor import resolve_pattern
 # --------------------------------------------------
 # Path normalization
 # --------------------------------------------------
-def normalize_path(path: str, ctx: SystemContext) -> str | None:
+def normalize_path(path: str | None, ctx: SystemContext) -> str | None:
     if not path:
         return None
 
@@ -26,9 +26,7 @@ def normalize_path(path: str, ctx: SystemContext) -> str | None:
             "desktop": os.path.join(os.environ["USERPROFILE"], "Desktop"),
         }
         p = known.get(path.lower(), path)
-        if not os.path.isabs(p):
-            p = os.path.abspath(p)
-        return p
+        return os.path.abspath(p)
 
     known = {
         "downloads": os.path.expanduser("~/Downloads"),
@@ -39,7 +37,7 @@ def normalize_path(path: str, ctx: SystemContext) -> str | None:
 
 
 # --------------------------------------------------
-# Command builder (SINGLE TARGET ONLY)
+# Command builder (single-target only)
 # --------------------------------------------------
 def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
     os_type = ctx.os_type
@@ -52,9 +50,7 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
 
     if intent == "NAVIGATION":
         path = normalize_path(data.get("path"), ctx)
-        if not path:
-            return None
-        return f'cd "{path}"'
+        return f'cd "{path}"' if path else None
 
     if intent == "MOVE_FILE":
         src = normalize_path(data.get("src"), ctx)
@@ -64,7 +60,7 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
         if os.path.isdir(dst):
             dst = os.path.join(dst, os.path.basename(src))
         return (
-            f'cmd /c move "{src}" "{dst}"'
+            f'Move-Item "{src}" "{dst}"'
             if os_type == OS.WINDOWS
             else f'mv "{src}" "{dst}"'
         )
@@ -77,36 +73,34 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
         if os.path.isdir(dst):
             dst = os.path.join(dst, os.path.basename(src))
         return (
-            f'cmd /c copy "{src}" "{dst}"'
+            f'Copy-Item "{src}" "{dst}"'
             if os_type == OS.WINDOWS
             else f'cp "{src}" "{dst}"'
         )
 
     if intent == "CREATE_FILE":
         name = data.get("path")
-        if not name:
-            return None
         return (
             f'New-Item -ItemType File "{name}"'
-            if os_type == OS.WINDOWS
-            else f'touch "{name}"'
+            if name and os_type == OS.WINDOWS
+            else f'touch "{name}"' if name else None
         )
 
     if intent == "CREATE_DIR":
         name = data.get("path")
-        if not name:
-            return None
         return (
             f'New-Item -ItemType Directory "{name}"'
-            if os_type == OS.WINDOWS
-            else f'mkdir "{name}"'
+            if name and os_type == OS.WINDOWS
+            else f'mkdir "{name}"' if name else None
         )
 
     if intent == "DELETE_FILE":
         target = normalize_path(data.get("path"), ctx)
-        if not target:
-            return None
-        return f'del "{target}"' if os_type == OS.WINDOWS else f'rm "{target}"'
+        return (
+            f'del "{target}"'
+            if target and os_type == OS.WINDOWS
+            else f'rm "{target}"' if target else None
+        )
 
     if intent == "RENAME_FILE":
         src = normalize_path(data.get("src"), ctx)
@@ -140,7 +134,7 @@ def main() -> int:
     ctx = resolve_context()
     intent = result["intent"]
 
-    # ---------- Ambiguity ----------
+    # -------- Ambiguity (Phase 7.1) --------
     clarification = detect_ambiguity(intent, result, ctx)
     if isinstance(clarification, ClarificationRequest):
         print(f"CLARIFICATION REQUIRED: {clarification.reason}")
@@ -151,13 +145,18 @@ def main() -> int:
         if not choice.isdigit():
             return 1
 
-        resolved = clarification.options[int(choice) - 1]
-        if intent in ("DELETE_FILE", "READ_FILE"):
+        idx = int(choice) - 1
+        if idx < 0 or idx >= len(clarification.options):
+            print("Invalid selection")
+            return 1
+
+        resolved = clarification.options[idx]
+        if intent == "DELETE_FILE":
             result["path"] = resolved
         else:
             result["src"] = resolved
 
-    # ---------- Pattern execution (Phase 7.3) ----------
+    # -------- Pattern execution (Phase 7.3) --------
     if "pattern" in result:
         files = resolve_pattern(result["pattern"], ctx)
         if not files:
@@ -170,13 +169,27 @@ def main() -> int:
                 return 1
 
         executor = CommandExecutor()
+
         for f in files:
-            per_cmd = build_command(intent, {**result, "path": f, "src": f}, ctx)
+            per_cmd = build_command(
+                intent,
+                {**result, "path": f, "src": f},
+                ctx
+            )
+
+            if not per_cmd:
+                continue
+
+            safety = validate_command(intent, per_cmd, ctx)
+            if not safety.safe:
+                print(f"SKIPPED {f}: {safety.warning}")
+                continue
+
             executor.execute(per_cmd)
 
         return 0
 
-    # ---------- Normal execution ----------
+    # -------- Normal execution --------
     cmd = build_command(intent, result, ctx)
     if not cmd:
         print("ERROR: Unsupported or invalid command")
@@ -188,7 +201,14 @@ def main() -> int:
             return 1
 
     executor = CommandExecutor()
-    executor.execute(cmd)
+    success, output = executor.execute(cmd)
+
+    if not success:
+        print(f"ERROR: {output}")
+        return 1
+
+    if output:
+        print(output)
 
     memory.last_intent = intent
     memory.last_path = result.get("path") or memory.last_path
