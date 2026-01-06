@@ -42,5 +42,10 @@ def validate_command(intent: str, cmd: str, ctx: SystemContext) -> SafetyResult:
             safe=False,
             warning="Navigating from root directory"
         )
+    if intent == "DELETE_FILE" and "&&" in cmd:
+        return SafetyResult(
+            safe=False,
+            warning="This will delete multiple files"
+        )
 
     return SafetyResult(safe=True)

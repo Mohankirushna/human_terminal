@@ -17,6 +17,8 @@ from ..constants import (
 )
 
 from hcmd.core.intent_rules import rule_intent
+from hcmd.core.memory import memory
+from hcmd.core.patterns import detect_pattern
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -123,6 +125,11 @@ def interpret(text: str) -> dict:
         "intent": intent,
         "confidence": intent_conf
     }
+    if intent in ("DELETE_FILE", "MOVE_FILE", "COPY_FILE"):
+        pattern = detect_pattern(text)
+        if pattern:
+            result["pattern"] = pattern
+            return result
 
     # ---- NAVIGATION
     if intent == "NAVIGATION":
@@ -162,5 +169,15 @@ def interpret(text: str) -> dict:
         if obj_conf < SPAN_CONF_THRESHOLD:
             return {"ok": False, "reason": "Low object span confidence"}
         result["path"] = obj
+        # ---- PHASE 7.2: memory resolution ----
+    if intent in ("DELETE_FILE", "READ_FILE", "RENAME_FILE"):
+        if not result.get("path") and memory.last_path:
+            result["path"] = memory.last_path
+
+    if intent in ("MOVE_FILE", "COPY_FILE", "RENAME_FILE"):
+        if not result.get("src") and memory.last_src:
+            result["src"] = memory.last_src
+        if not result.get("dst") and memory.last_dst:
+            result["dst"] = memory.last_dst
 
     return result
