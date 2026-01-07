@@ -55,6 +55,7 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
     if intent == "MOVE_FILE":
         src = normalize_path(data.get("src"), ctx)
         dst = normalize_path(data.get("dst"), ctx)
+        print(src, dst)
         if not src or not dst:
             return None
         if os.path.isdir(dst):
@@ -68,7 +69,6 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
     if intent == "COPY_FILE":
         src = normalize_path(data.get("src"), ctx)
         dst = normalize_path(data.get("dst"), ctx)
-        print(src, dst)
         if not src or not dst:
             return None
         if os.path.isdir(dst):

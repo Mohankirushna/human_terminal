@@ -57,28 +57,22 @@ char_aug = nac.RandomCharAug(
 # -------------------------
 
 INTENTS = {
+
+    # =====================
+    # NAVIGATION
+    # =====================
     "NAVIGATION": {
-        "count": 450,
+        "count": 500,
         "templates": [
             "go to {dir}",
             "navigate to {dir}",
-            "open {dir}",
             "enter {dir}",
-            "switch to {dir}",
             "cd {dir}",
+            "switch to {dir}",
             "move into {dir}",
         ],
     },
-    "LIST_FILES": {
-        "count": 400,
-        "templates": [
-            "list files",
-            "show files",
-            "list all files",
-            "ls",
-            "show directory contents",
-        ],
-    },
+
     "PWD": {
         "count": 350,
         "templates": [
@@ -88,26 +82,44 @@ INTENTS = {
             "print working directory",
         ],
     },
-    "CREATE_FILE": {
+
+    "LIST_FILES": {
         "count": 450,
         "templates": [
+            "list files",
+            "show files",
+            "dir",
+            "ls",
+            "list all files",
+            "show directory contents",
+        ],
+    },
+
+    # =====================
+    # FILE OPERATIONS
+    # =====================
+    "CREATE_FILE": {
+        "count": 500,
+        "templates": [
             "create file {file}",
-            "make a file named {file}",
+            "make file {file}",
             "new file {file}",
             "touch {file}",
         ],
     },
+
     "CREATE_DIR": {
-        "count": 350,
+        "count": 400,
         "templates": [
             "create directory {dir}",
             "make folder {dir}",
-            "new directory {dir}",
             "mkdir {dir}",
+            "new directory {dir}",
         ],
     },
+
     "DELETE_FILE": {
-        "count": 450,
+        "count": 500,
         "templates": [
             "delete {file}",
             "remove {file}",
@@ -115,51 +127,203 @@ INTENTS = {
             "rm {file}",
         ],
     },
+
     "COPY_FILE": {
-        "count": 350,
+        "count": 400,
         "templates": [
             "copy {src} to {dst}",
-            "copy file {src} to {dst}",
             "duplicate {src} into {dst}",
-            "duplicate file {src} into {dst}",
             "cp {src} {dst}",
         ],
     },
+
     "MOVE_FILE": {
-        "count": 350,
+        "count": 400,
         "templates": [
             "move {src} to {dst}",
-            "move file {src} to {dst}",
             "relocate {src} into {dst}",
-            "relocate file {src} into {dst}",
             "mv {src} {dst}",
         ],
     },
+
     "RENAME_FILE": {
-        "count": 300,
+        "count": 350,
         "templates": [
             "rename {src} to {dst}",
             "change filename from {src} to {dst}",
         ],
     },
-    "GIT_STATUS": {
+
+    # =====================
+    # SYSTEM / CMD
+    # =====================
+    "SYSTEM_INFO": {
+        "count": 350,
+        "templates": [
+            "system info",
+            "show system info",
+            "whoami",
+            "hostname",
+            "ver",
+        ],
+    },
+
+    "PROCESS_LIST": {
+        "count": 350,
+        "templates": [
+            "list processes",
+            "show running processes",
+            "tasklist",
+        ],
+    },
+
+    "PROCESS_KILL": {
         "count": 300,
+        "templates": [
+            "kill process {file}",
+            "terminate process {file}",
+            "taskkill {file}",
+        ],
+    },
+
+    "NETWORK_INFO": {
+        "count": 350,
+        "templates": [
+            "ip config",
+            "show ip address",
+            "network configuration",
+            "ipconfig",
+        ],
+    },
+
+    "ENV_VAR": {
+        "count": 300,
+        "templates": [
+            "show environment variables",
+            "list env",
+            "set variable",
+            "echo %path%",
+        ],
+    },
+
+    # =====================
+    # GIT — CORE
+    # =====================
+    "GIT_STATUS": {
+        "count": 400,
         "templates": [
             "git status",
             "show git status",
             "any git changes",
         ],
     },
+
     "GIT_BRANCH": {
-        "count": 300,
+        "count": 400,
         "templates": [
             "git branch",
+            "list branches",
             "current git branch",
-            "which branch am i on",
         ],
     },
-    "UNKNOWN": {
+
+    "GIT_CHECKOUT": {
+        "count": 350,
+        "templates": [
+            "git checkout {dir}",
+            "switch branch to {dir}",
+            "change branch to {dir}",
+        ],
+    },
+
+    "GIT_ADD": {
         "count": 400,
+        "templates": [
+            "git add {file}",
+            "stage {file}",
+            "add file to git",
+        ],
+    },
+
+    "GIT_COMMIT": {
+        "count": 400,
+        "templates": [
+            "git commit",
+            "commit changes",
+            "save git changes",
+        ],
+    },
+
+    "GIT_LOG": {
+        "count": 350,
+        "templates": [
+            "git log",
+            "show commit history",
+            "git history",
+        ],
+    },
+
+    "GIT_PULL": {
+        "count": 350,
+        "templates": [
+            "git pull",
+            "pull latest changes",
+            "update from remote",
+        ],
+    },
+
+    "GIT_PUSH": {
+        "count": 350,
+        "templates": [
+            "git push",
+            "push changes",
+            "upload commits",
+        ],
+    },
+
+    "GIT_CLONE": {
+        "count": 300,
+        "templates": [
+            "git clone {dir}",
+            "clone repository",
+            "copy git repo",
+        ],
+    },
+
+    "GIT_RESET": {
+        "count": 300,
+        "templates": [
+            "git reset",
+            "reset git changes",
+            "undo git add",
+        ],
+    },
+
+    "GIT_STASH": {
+        "count": 300,
+        "templates": [
+            "git stash",
+            "stash changes",
+            "save work temporarily",
+        ],
+    },
+
+    # =====================
+    # SAFETY
+    # =====================
+    "FORBIDDEN": {
+        "count": 400,
+        "templates": [
+            "delete everything",
+            "rm -rf /",
+            "format c drive",
+            "shutdown system",
+            "erase disk",
+        ],
+    },
+
+    "UNKNOWN": {
+        "count": 500,
         "templates": [
             "open chrome",
             "play music",
@@ -167,16 +331,8 @@ INTENTS = {
             "search google",
         ],
     },
-    "FORBIDDEN": {
-        "count": 300,
-        "templates": [
-            "delete everything",
-            "rm -rf /",
-            "format c drive",
-            "shutdown system",
-        ],
-    },
 }
+
 
 # -------------------------
 # Controlled augmentation

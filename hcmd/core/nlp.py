@@ -22,23 +22,18 @@ from hcmd.core.patterns import detect_pattern
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# ----------------------------
-# Load INTENT model
-# ----------------------------
+# --------------------------------------------------
+# Load models
+# --------------------------------------------------
+
 intent_tokenizer = AutoTokenizer.from_pretrained(INTENT_MODEL_PATH)
 intent_model = AutoModelForSequenceClassification.from_pretrained(
     INTENT_MODEL_PATH
 ).to(DEVICE)
 intent_model.eval()
 
-# ----------------------------
-# Load SPAN tokenizer
-# ----------------------------
 span_tokenizer = AutoTokenizer.from_pretrained(NAVIGATION_SPAN_MODEL_PATH)
 
-# ----------------------------
-# Load SPAN models
-# ----------------------------
 nav_model = AutoModelForQuestionAnswering.from_pretrained(
     NAVIGATION_SPAN_MODEL_PATH
 ).to(DEVICE)
@@ -63,9 +58,10 @@ for m in (nav_model, src_model, dst_model, object_model, rename_model):
     m.eval()
 
 
-# ----------------------------
+# --------------------------------------------------
 # Span extraction helper
-# ----------------------------
+# --------------------------------------------------
+
 def _extract_span(text: str, model):
     inputs = span_tokenizer(
         text,
@@ -87,7 +83,7 @@ def _extract_span(text: str, model):
     end_idx = torch.argmax(end_probs).item()
 
     if end_idx < start_idx:
-        return "", 0.0
+        return None, 0.0
 
     start_char = offsets[start_idx][0]
     end_char = offsets[end_idx][1]
@@ -98,10 +94,19 @@ def _extract_span(text: str, model):
     return span_text, confidence
 
 
-# ----------------------------
+# --------------------------------------------------
 # MAIN INTERPRETER
-# ----------------------------
+# --------------------------------------------------
+
 def interpret(text: str) -> dict:
+    """
+    Deterministic hybrid NLP interpreter:
+    - Rule intent OR ML intent
+    - ALWAYS run span extraction
+    - Pattern detection does NOT short-circuit spans
+    """
+
+    # ---------- INTENT ----------
     rule = rule_intent(text)
 
     if rule:
@@ -125,52 +130,60 @@ def interpret(text: str) -> dict:
         "intent": intent,
         "confidence": intent_conf
     }
+
+    # ---------- PATTERN DETECTION (non-blocking) ----------
     if intent in ("DELETE_FILE", "MOVE_FILE", "COPY_FILE"):
         pattern = detect_pattern(text)
-        if pattern:
-            result["pattern"] = pattern
-            return result
 
-    # ---- NAVIGATION
+        if pattern:
+            # If detect_pattern returns a dict, extract the actual pattern
+            if isinstance(pattern, dict):
+                pattern = pattern.get("pattern")
+
+            # ONLY treat as pattern if wildcard characters exist
+            if isinstance(pattern, str) and any(ch in pattern for ch in ("*", "?")):
+                result["pattern"] = pattern
+
+
+    # ---------- NAVIGATION ----------
     if intent == "NAVIGATION":
         path, conf = _extract_span(text, nav_model)
-        if conf < SPAN_CONF_THRESHOLD:
+        if conf >= SPAN_CONF_THRESHOLD:
+            result["path"] = path
+        else:
             return {"ok": False, "reason": "Low navigation span confidence"}
-        result["path"] = path
 
-    # ---- MOVE / COPY
+    # ---------- MOVE / COPY ----------
     elif intent in ("MOVE_FILE", "COPY_FILE"):
         src, src_conf = _extract_span(text, src_model)
         dst, dst_conf = _extract_span(text, dst_model)
 
-        if src_conf < SPAN_CONF_THRESHOLD or dst_conf < SPAN_CONF_THRESHOLD:
-            return {"ok": False, "reason": "Low src/dst confidence"}
+        if src_conf >= SPAN_CONF_THRESHOLD:
+            result["src"] = src
+        if dst_conf >= SPAN_CONF_THRESHOLD:
+            result["dst"] = dst
 
-        result["src"] = src
-        result["dst"] = dst
-
-    # ---- RENAME
+    # ---------- RENAME ----------
     elif intent == "RENAME_FILE":
         src, src_conf = _extract_span(text, rename_model)
         dst, dst_conf = _extract_span(text, rename_model)
 
-        if src_conf < SPAN_CONF_THRESHOLD or dst_conf < SPAN_CONF_THRESHOLD:
-            return {"ok": False, "reason": "Low rename confidence"}
+        if src_conf >= SPAN_CONF_THRESHOLD:
+            result["src"] = src
+        if dst_conf >= SPAN_CONF_THRESHOLD:
+            result["dst"] = dst
 
-        if src == dst:
+        if result.get("src") == result.get("dst"):
             return {"ok": False, "reason": "Rename source and destination identical"}
 
-        result["src"] = src
-        result["dst"] = dst
-
-    # ---- CREATE / DELETE / MKDIR
+    # ---------- CREATE / DELETE ----------
     elif intent in ("DELETE_FILE", "CREATE_FILE", "CREATE_DIR"):
         obj, obj_conf = _extract_span(text, object_model)
-        if obj_conf < SPAN_CONF_THRESHOLD:
-            return {"ok": False, "reason": "Low object span confidence"}
-        result["path"] = obj
-        # ---- PHASE 7.2: memory resolution ----
-    if intent in ("DELETE_FILE", "READ_FILE", "RENAME_FILE"):
+        if obj_conf >= SPAN_CONF_THRESHOLD:
+            result["path"] = obj
+
+    # ---------- MEMORY FALLBACK ----------
+    if intent in ("DELETE_FILE", "RENAME_FILE"):
         if not result.get("path") and memory.last_path:
             result["path"] = memory.last_path
 
