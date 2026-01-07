@@ -45,8 +45,12 @@ Thumbs.db
 hcmd.egg-info/
 terminal/
 intent_model/
-navigation_span_model/
+directory_span_model/
 dst_span_model/
 src_span_model/
 object_span_model/
 rename_span_model/
+git_add_model/
+git_checkout_model/
+git_clone_model/
+navigation_span_model/

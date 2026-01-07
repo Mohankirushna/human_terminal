@@ -103,6 +103,14 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
             else f'rm "{target}"' if target else None
         )
 
+    if intent == "DELETE_DIR":
+        target = normalize_path(data.get("path"), ctx)
+        return (
+            f'Remove-Item -Recurse -Force "{target}"'
+            if target and os_type == OS.WINDOWS
+            else f'rm -r "{target}"' if target else None
+        )
+
     if intent == "RENAME_FILE":
         src = normalize_path(data.get("src"), ctx)
         dst = normalize_path(data.get("dst"), ctx)
@@ -113,7 +121,61 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
             if os_type == OS.WINDOWS
             else f'mv "{src}" "{dst}"'
         )
+        # ---------- SYSTEM ----------
+    if intent == "SYSTEM_INFO":
+        return (
+            "systeminfo"
+            if os_type == OS.WINDOWS
+            else "uname -a"
+        )
 
+    if intent == "PROCESS_LIST":
+        return (
+            "tasklist"
+            if os_type == OS.WINDOWS
+            else "ps aux"
+        )
+
+    if intent == "NETWORK_INFO":
+        return (
+            "ipconfig"
+            if os_type == OS.WINDOWS
+            else "ifconfig"
+        )
+
+    # ---------- GIT (no span required) ----------
+    if intent == "GIT_STATUS":
+        return "git status"
+
+    if intent == "GIT_BRANCH":
+        return "git branch"
+
+    if intent == "GIT_LOG":
+        return "git log --oneline --decorate --graph"
+
+    if intent == "GIT_PULL":
+        return "git pull"
+
+    if intent == "GIT_PUSH":
+        return "git push"
+    
+    if intent == "GIT_RESET":
+        return "git reset"
+
+    if intent == "GIT_STASH":
+        return "git stash"
+    if intent == "GIT_CLONE":
+        repo, conf = data.get("repo"), data.get("repo_confidence", 0)
+        if conf >= 0.3 and repo:
+            return f"git clone {repo}"
+    if intent == "GIT_ADD":
+        path, conf = data.get("path"), data.get("path_confidence", 0)
+        if conf >= 0.3 and path:
+            return f"git add {path}"
+    if intent == "GIT_CHECKOUT":
+        branch, conf = data.get("branch"), data.get("branch_confidence", 0)
+        if conf >= 0.3 and branch:
+            return f"git checkout {branch}"
     return None
 
 

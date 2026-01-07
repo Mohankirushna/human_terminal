@@ -13,7 +13,10 @@ from ..constants import (
     OBJECT_SPAN_MODEL_PATH,
     RENAME_SPAN_MODEL_PATH,
     INTENT_CONF_THRESHOLD,
-    SPAN_CONF_THRESHOLD
+    SPAN_CONF_THRESHOLD,
+    GIT_ADD_MODEL_PATH,
+    GIT_CHECKOUT_MODEL_PATH,
+    GIT_CLONE_MODEL_PATH
 )
 
 from hcmd.core.intent_rules import rule_intent
@@ -53,6 +56,21 @@ object_model = AutoModelForQuestionAnswering.from_pretrained(
 rename_model = AutoModelForQuestionAnswering.from_pretrained(
     RENAME_SPAN_MODEL_PATH
 ).to(DEVICE)
+
+git_add_model = AutoModelForQuestionAnswering.from_pretrained(
+    GIT_ADD_MODEL_PATH
+).to(DEVICE)
+
+git_checkout_model = AutoModelForQuestionAnswering.from_pretrained(
+    GIT_CHECKOUT_MODEL_PATH
+).to(DEVICE)
+
+git_clone_model = AutoModelForQuestionAnswering.from_pretrained(
+    GIT_CLONE_MODEL_PATH
+).to(DEVICE)
+
+for m in (git_add_model, git_checkout_model, git_clone_model):
+    m.eval()
 
 for m in (nav_model, src_model, dst_model, object_model, rename_model):
     m.eval()
@@ -177,15 +195,48 @@ def interpret(text: str) -> dict:
             return {"ok": False, "reason": "Rename source and destination identical"}
 
     # ---------- CREATE / DELETE ----------
-    elif intent in ("DELETE_FILE", "CREATE_FILE", "CREATE_DIR"):
+    elif intent in ("CREATE_DIR",):
+        path, conf = _extract_span(text, nav_model)
+        if conf >= SPAN_CONF_THRESHOLD:
+            result["path"] = path
+        else:
+            return {"ok": False, "reason": "Low directory span confidence"}
+
+    elif intent in ("DELETE_DIR",):
+        path, conf = _extract_span(text, nav_model)
+        if conf >= SPAN_CONF_THRESHOLD:
+            result["path"] = path
+        else:
+            return {"ok": False, "reason": "Low directory span confidence"}
+
+    elif intent in ("DELETE_FILE", "CREATE_FILE"):
         obj, obj_conf = _extract_span(text, object_model)
         if obj_conf >= SPAN_CONF_THRESHOLD:
             result["path"] = obj
+    elif intent == "GIT_ADD":
+        path, conf = _extract_span(text, git_add_model)
+        if conf >= SPAN_CONF_THRESHOLD:
+            result["path"] = path
+        else :
+            return {"ok": False, "reason": "Low git add span confidence"}
+    elif intent == "GIT_CHECKOUT":
+        branch, conf = _extract_span(text, git_checkout_model)
+        if conf >= SPAN_CONF_THRESHOLD:
+            result["branch"] = branch
+        else :
+            return {"ok": False, "reason": "Low git checkout span confidence"}
+    elif intent == "GIT_CLONE":
+        repo, conf = _extract_span(text, git_clone_model)
+        if conf >= SPAN_CONF_THRESHOLD:
+            result["repo"] = repo_url
+        else :
+            return {"ok": False, "reason": "Low git clone span confidence"}
 
     # ---------- MEMORY FALLBACK ----------
-    if intent in ("DELETE_FILE", "RENAME_FILE"):
+    if intent in ("DELETE_FILE", "DELETE_DIR", "RENAME_FILE"):
         if not result.get("path") and memory.last_path:
             result["path"] = memory.last_path
+
 
     if intent in ("MOVE_FILE", "COPY_FILE", "RENAME_FILE"):
         if not result.get("src") and memory.last_src:

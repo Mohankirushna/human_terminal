@@ -20,7 +20,7 @@ EARLY_STOPPING_PATIENCE = 5
 LR_PATIENCE = 2
 LR_FACTOR = 0.05
 
-CSV_PATH = os.path.join("..", "navigation_spans.csv") if not os.path.exists("navigation_spans.csv") else "navigation_spans.csv"
+CSV_PATH = os.path.join("..", "directory_spans.csv") if not os.path.exists("directory_spans.csv") else "directory_spans.csv"
 
 df = pd.read_csv(CSV_PATH)
 train_df, val_df = train_test_split(df, test_size=0.2, random_state=42)
@@ -126,5 +126,5 @@ for epoch in range(EPOCHS):
         break
 
 model.load_state_dict(best_model_state)
-model.save_pretrained("navigation_span_model")
-tokenizer.save_pretrained("navigation_span_model")
+model.save_pretrained("directory_span_model")
+tokenizer.save_pretrained("directory_span_model")
