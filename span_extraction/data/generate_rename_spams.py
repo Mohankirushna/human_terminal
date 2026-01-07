@@ -1,6 +1,11 @@
 import csv
 import random
 import string
+import nlpaug.augmenter.word as naw
+
+# -----------------------------
+# Random generators
+# -----------------------------
 
 EXTENSIONS = [
     "txt", "csv", "py", "js", "md", "json",
@@ -12,23 +17,27 @@ DIR_NAMES = [
     "project", "old", "new", "v1", "v2"
 ]
 
-PREFIX_NOISE = [
-    "",
-    "hey ",
-    "okay ",
-    "so ",
-    "well ",
-    "can you ",
-    "please ",
-]
+def rand_word(min_len=3, max_len=8):
+    return "".join(
+        random.choices(string.ascii_lowercase, k=random.randint(min_len, max_len))
+    )
 
-SUFFIX_NOISE = [
-    "",
-    " please",
-    " now",
-    " for me",
-    " quickly",
-]
+def random_filename():
+    return f"{rand_word()}.{random.choice(EXTENSIONS)}"
+
+def maybe_path(name):
+    if random.random() < 0.4:
+        return f"{random.choice(DIR_NAMES)}/{name}"
+    return name
+
+def maybe_quotes(name):
+    if random.random() < 0.3:
+        return f'"{name}"'
+    return name
+
+# -----------------------------
+# Templates
+# -----------------------------
 
 TEMPLATES = [
     "rename {src} to {dst}",
@@ -41,42 +50,76 @@ TEMPLATES = [
     "could you rename {src} as {dst}",
 ]
 
-def random_filename():
-    name = "".join(random.choices(string.ascii_lowercase, k=random.randint(3, 8)))
-    ext = random.choice(EXTENSIONS)
-    return f"{name}.{ext}"
+PREFIX_NOISE = ["", "hey ", "please ", "can you ", "okay "]
+SUFFIX_NOISE = ["", " please", " now", " for me"]
 
-def maybe_path(name):
-    if random.random() < 0.4:
-        return f"{random.choice(DIR_NAMES)}/{name}"
-    return name
+# -----------------------------
+# NLP augmenters (SAFE)
+# -----------------------------
 
-def maybe_quotes(name):
-    if random.random() < 0.3:
-        return f'"{name}"'
-    return name
+syn_aug = naw.SynonymAug(aug_src="wordnet", aug_p=0.25)
+del_aug = naw.RandomWordAug(action="delete", aug_p=0.08)
 
-def add_noise(text: str) -> str:
-    if random.random() < 0.2:
-        text = text.replace(" ", "  ")
-    if random.random() < 0.1:
-        text = text.capitalize()
-    return text
+# -----------------------------
+# Span-safe augmentation
+# -----------------------------
+
+def augment_outside_spans(text, spans):
+    tokens = text.split()
+    new_tokens = []
+    char_idx = 0
+
+    def protected(start, end):
+        for s, e in spans:
+            if start < e and end > s:
+                return True
+        return False
+
+    for tok in tokens:
+        start = text.find(tok, char_idx)
+        end = start + len(tok)
+        char_idx = end
+
+        if protected(start, end):
+            new_tokens.append(tok)
+            continue
+
+        if random.random() < 0.3:
+            tok = syn_aug.augment(tok)[0]
+        if random.random() < 0.2:
+            tok = del_aug.augment(tok)[0]
+
+        new_tokens.append(tok)
+
+    return " ".join(new_tokens)
+
+# -----------------------------
+# Sentence generation
+# -----------------------------
 
 def generate_sentence():
-    src_name = maybe_path(random_filename())
-    dst_name = maybe_path(random_filename())
-
-    src = maybe_quotes(src_name)
-    dst = maybe_quotes(dst_name)
+    src = maybe_quotes(maybe_path(random_filename()))
+    dst = maybe_quotes(maybe_path(random_filename()))
 
     template = random.choice(TEMPLATES)
     prefix = random.choice(PREFIX_NOISE)
     suffix = random.choice(SUFFIX_NOISE)
 
-    sentence = (prefix + template.format(src=src, dst=dst) + suffix).strip()
-    sentence = add_noise(sentence)
+    base_sentence = (prefix + template.format(src=src, dst=dst) + suffix).strip()
 
+    # Compute spans BEFORE augmentation
+    src_start = base_sentence.index(src)
+    src_end = src_start + len(src)
+
+    dst_start = base_sentence.index(dst)
+    dst_end = dst_start + len(dst)
+
+    sentence = augment_outside_spans(
+        base_sentence,
+        [(src_start, src_end), (dst_start, dst_end)]
+    )
+
+    # Recompute spans AFTER augmentation
     src_start = sentence.index(src)
     src_end = src_start + len(src)
 
@@ -85,7 +128,11 @@ def generate_sentence():
 
     return sentence, src_start, src_end, dst_start, dst_end
 
-def main(n_samples=2000, out_path="rename_spans.csv"):
+# -----------------------------
+# Main
+# -----------------------------
+
+def main(n_samples=2500, out_path="rename_spans.csv"):
     rows = []
 
     for _ in range(n_samples):
@@ -94,10 +141,12 @@ def main(n_samples=2000, out_path="rename_spans.csv"):
 
     with open(out_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow(["text", "src_start", "src_end", "dst_start", "dst_end"])
+        writer.writerow(
+            ["text", "src_start", "src_end", "dst_start", "dst_end"]
+        )
         writer.writerows(rows)
 
-    print(f"Generated {len(rows)} diversified rename span samples → {out_path}")
+    print(f"Generated {len(rows)} SAFE + NLP-AUGMENTED rename span samples → {out_path}")
 
 if __name__ == "__main__":
     main()

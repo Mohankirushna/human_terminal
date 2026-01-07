@@ -1,12 +1,13 @@
 import csv
 import random
 import string
+import nlpaug.augmenter.word as naw
 
 # -----------------------------
-# Random name generators
+# File / directory generators
 # -----------------------------
 
-FILE_EXTS = ["py", "txt", "csv", "json", "log", "pdf", "png"]
+FILE_EXTS = ["py", "txt", "csv", "json", "md", "log", "pdf"]
 
 def rand_word(min_len=3, max_len=8):
     return "".join(
@@ -15,22 +16,20 @@ def rand_word(min_len=3, max_len=8):
 
 def rand_file():
     base = rand_word()
-    if random.random() < 0.4:
-        base += f"_{random.randint(1, 99)}"
-    if random.random() < 0.2:
-        base = f"img{random.randint(1, 999)}"
+    if random.random() < 0.5:
+        base += f"_{random.randint(1,99)}"
     return f"{base}.{random.choice(FILE_EXTS)}"
 
 def rand_dir():
     base = rand_word()
     if random.random() < 0.4:
-        base += "_" + random.choice(["data", "logs", "backup", "src"])
+        base += "_" + random.choice(["src", "data", "logs", "backup"])
     if random.random() < 0.3:
-        base += str(random.randint(1, 5))
+        base += str(random.randint(1,5))
     return base
 
 # -----------------------------
-# Templates & noise
+# Templates
 # -----------------------------
 
 TEMPLATES = [
@@ -39,43 +38,51 @@ TEMPLATES = [
     "move file {src} into {dst}",
     "copy file {src} into {dst}",
     "relocate {src} under {dst}",
-    "shift {src} into {dst}",
     "transfer {src} to {dst}",
-    "can you move {src} to {dst}",
-    "please copy {src} into {dst}",
     "mv {src} {dst}",
     "cp {src} {dst}",
 ]
 
-NOISE_PREFIX = ["", "hey ", "okay ", "so ", "well ", "pls "]
-NOISE_SUFFIX = ["", " please", " now", " quickly", " asap", " for me"]
-
 # -----------------------------
-# Safe noise (never touches spans)
+# NLP augmenters (SAFE)
 # -----------------------------
 
-def add_noise_safe(text, src_span, dst_span):
-    chars = list(text)
+syn_aug = naw.SynonymAug(aug_src="wordnet", aug_p=0.25)
+del_aug = naw.RandomWordAug(action="delete", aug_p=0.08)
+
+# -----------------------------
+# Span-safe augmentation
+# -----------------------------
+
+def augment_outside_spans(text, src_span, dst_span):
+    tokens = text.split()
+    new_tokens = []
 
     s_s, s_e = src_span
     d_s, d_e = dst_span
+    char_idx = 0
 
-    for i in range(len(chars)):
-        if s_s <= i < s_e or d_s <= i < d_e:
+    def protected(start, end):
+        return (start < s_e and end > s_s) or (start < d_e and end > d_s)
+
+    for tok in tokens:
+        start = text.find(tok, char_idx)
+        end = start + len(tok)
+        char_idx = end
+
+        if protected(start, end):
+            new_tokens.append(tok)
             continue
 
-        if random.random() < 0.02 and chars[i] == "o":
-            chars[i] = "0"
+        if random.random() < 0.3:
+            tok = syn_aug.augment(tok)[0]
 
-    noisy = "".join(chars)
+        if random.random() < 0.2:
+            tok = del_aug.augment(tok)[0]
 
-    if random.random() < 0.3:
-        noisy = noisy.capitalize()
+        new_tokens.append(tok)
 
-    if random.random() < 0.25:
-        noisy = noisy.replace(" ", "  ")
-
-    return noisy
+    return " ".join(new_tokens)
 
 # -----------------------------
 # Sentence generation
@@ -83,30 +90,28 @@ def add_noise_safe(text, src_span, dst_span):
 
 def generate_sentence(src, dst):
     template = random.choice(TEMPLATES)
-    prefix = random.choice(NOISE_PREFIX)
-    suffix = random.choice(NOISE_SUFFIX)
+    base = template.format(src=src, dst=dst)
 
-    base_sentence = prefix + template.format(src=src, dst=dst) + suffix
-
-    # Calculate spans BEFORE noise
-    src_start = base_sentence.index(src)
+    src_start = base.index(src)
     src_end = src_start + len(src)
 
-    dst_start = base_sentence.index(dst)
+    dst_start = base.index(dst)
     dst_end = dst_start + len(dst)
 
-    # Apply safe noise
-    sentence = add_noise_safe(
-        base_sentence,
+    sentence = augment_outside_spans(
+        base,
         (src_start, src_end),
-        (dst_start, dst_end),
+        (dst_start, dst_end)
     )
 
-    # Safety check (optional but recommended)
-    assert src in sentence
-    assert dst in sentence
+    # recompute spans
+    src_start = sentence.index(src)
+    src_end = src_start + len(src)
 
-    return sentence.strip(), src_start, src_end, dst_start, dst_end
+    dst_start = sentence.index(dst)
+    dst_end = dst_start + len(dst)
+
+    return sentence, src_start, src_end, dst_start, dst_end
 
 # -----------------------------
 # Main
@@ -116,7 +121,7 @@ def main():
     src_rows = []
     dst_rows = []
 
-    for _ in range(1500):
+    for _ in range(2500):
         src = rand_file()
         dst = rand_dir()
 
@@ -135,7 +140,7 @@ def main():
         writer.writerow(["text", "start_char", "end_char"])
         writer.writerows(dst_rows)
 
-    print("Generated SAFE & DIVERSE MOVE/COPY span datasets")
+    print("Generated MOVE/COPY src & dst span datasets")
 
 if __name__ == "__main__":
     main()

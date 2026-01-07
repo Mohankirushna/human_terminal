@@ -68,6 +68,7 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
     if intent == "COPY_FILE":
         src = normalize_path(data.get("src"), ctx)
         dst = normalize_path(data.get("dst"), ctx)
+        print(src, dst)
         if not src or not dst:
             return None
         if os.path.isdir(dst):
@@ -136,13 +137,22 @@ def main() -> int:
 
     # -------- Ambiguity (Phase 7.1) --------
     clarification = detect_ambiguity(intent, result, ctx)
+
     if isinstance(clarification, ClarificationRequest):
+        # Case 1: no options → missing information
+        if not clarification.options:
+            print(f"ERROR: {clarification.reason}")
+            print("Please rephrase the command with more detail.")
+            return 1
+
+        # Case 2: real ambiguity → show menu
         print(f"CLARIFICATION REQUIRED: {clarification.reason}")
         for i, opt in enumerate(clarification.options, 1):
             print(f"{i}) {opt}")
 
         choice = input("Select option number: ").strip()
         if not choice.isdigit():
+            print("Invalid selection")
             return 1
 
         idx = int(choice) - 1
@@ -151,7 +161,8 @@ def main() -> int:
             return 1
 
         resolved = clarification.options[idx]
-        if intent == "DELETE_FILE":
+
+        if intent in ("DELETE_FILE", "READ_FILE"):
             result["path"] = resolved
         else:
             result["src"] = resolved

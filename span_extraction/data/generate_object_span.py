@@ -1,6 +1,7 @@
 import csv
 import random
 import string
+import nlpaug.augmenter.word as naw
 
 # -----------------------------
 # Random name generators
@@ -12,26 +13,26 @@ FILE_EXTENSIONS = [
 ]
 
 def random_word(min_len=3, max_len=8):
-    length = random.randint(min_len, max_len)
-    return ''.join(random.choices(string.ascii_lowercase, k=length))
+    return "".join(
+        random.choices(string.ascii_lowercase, k=random.randint(min_len, max_len))
+    )
 
 def random_file_name():
     base = random_word()
     if random.random() < 0.5:
         base += f"_{random.randint(1, 99)}"
-    ext = random.choice(FILE_EXTENSIONS)
-    return f"{base}.{ext}"
+    return f"{base}.{random.choice(FILE_EXTENSIONS)}"
 
 def random_dir_name():
     base = random_word()
     if random.random() < 0.4:
-        base += f"_{random.choice(['backup', 'data', 'src', 'build'])}"
+        base += "_" + random.choice(["backup", "data", "src", "build"])
     if random.random() < 0.3:
-        base += f"{random.randint(1, 5)}"
+        base += str(random.randint(1, 5))
     return base
 
 # -----------------------------
-# Templates and noise
+# Templates
 # -----------------------------
 
 TEMPLATES = [
@@ -50,8 +51,45 @@ TEMPLATES = [
     "i want to delete {obj}",
 ]
 
-NOISE_PREFIX = ["", "hey ", "okay ", "so "]
-NOISE_SUFFIX = ["", " please", " now", " quickly"]
+# -----------------------------
+# NLP augmenters (SAFE)
+# -----------------------------
+
+syn_aug = naw.SynonymAug(aug_src="wordnet", aug_p=0.25)
+del_aug = naw.RandomWordAug(action="delete", aug_p=0.08)
+
+# -----------------------------
+# Span-safe augmentation
+# -----------------------------
+
+def augment_outside_span(text, span):
+    tokens = text.split()
+    new_tokens = []
+
+    s_start, s_end = span
+    char_idx = 0
+
+    def protected(start, end):
+        return start < s_end and end > s_start
+
+    for tok in tokens:
+        start = text.find(tok, char_idx)
+        end = start + len(tok)
+        char_idx = end
+
+        if protected(start, end):
+            new_tokens.append(tok)
+            continue
+
+        if random.random() < 0.3:
+            tok = syn_aug.augment(tok)[0]
+
+        if random.random() < 0.2:
+            tok = del_aug.augment(tok)[0]
+
+        new_tokens.append(tok)
+
+    return " ".join(new_tokens)
 
 # -----------------------------
 # Sentence generation
@@ -59,14 +97,18 @@ NOISE_SUFFIX = ["", " please", " now", " quickly"]
 
 def generate_sentence(obj):
     template = random.choice(TEMPLATES)
-    prefix = random.choice(NOISE_PREFIX)
-    suffix = random.choice(NOISE_SUFFIX)
+    sentence = template.format(obj=obj)
 
-    sentence = prefix + template.format(obj=obj) + suffix
     start = sentence.index(obj)
     end = start + len(obj)
 
-    return sentence.strip(), start, end
+    sentence = augment_outside_span(sentence, (start, end))
+
+    # Recompute span after augmentation
+    start = sentence.index(obj)
+    end = start + len(obj)
+
+    return sentence, start, end
 
 # -----------------------------
 # Main
@@ -75,8 +117,13 @@ def generate_sentence(obj):
 def main():
     rows = []
 
-    for _ in range(6000):
-        obj = random_file_name() if random.random() < 0.6 else random_dir_name()
+    for _ in range(7000):
+        obj = (
+            random_file_name()
+            if random.random() < 0.6
+            else random_dir_name()
+        )
+
         text, start, end = generate_sentence(obj)
         rows.append([text, start, end])
 
@@ -85,7 +132,7 @@ def main():
         writer.writerow(["text", "start_char", "end_char"])
         writer.writerows(rows)
 
-    print(f"Generated {len(rows)} object span samples")
+    print(f"Generated {len(rows)} SAFE + NLP-AUGMENTED object span samples")
 
 if __name__ == "__main__":
     main()

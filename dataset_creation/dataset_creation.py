@@ -1,6 +1,15 @@
+import nltk
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('averaged_perceptron_tagger_eng')
+
 import csv
 import random
 import string
+import nlpaug.augmenter.word as naw
+import nlpaug.augmenter.char as nac
 
 # -------------------------
 # Random name generators
@@ -13,7 +22,7 @@ def rand_word(min_len=3, max_len=8):
 
 def rand_file():
     base = rand_word()
-    if random.random() < 0.5:
+    if random.random() < 0.4:
         base += f"_{random.randint(1,99)}"
     return f"{base}.{random.choice(FILE_EXTENSIONS)}"
 
@@ -26,7 +35,25 @@ def rand_dir():
     return base
 
 # -------------------------
-# Intents (expanded)
+# NLP Augmenters (SAFE SET)
+# -------------------------
+
+# Synonym replacement (WordNet) – safest
+syn_aug = naw.SynonymAug(aug_src="wordnet", aug_p=0.25)
+
+# Random word deletion (very low prob)
+del_aug = naw.RandomWordAug(action="delete", aug_p=0.08)
+
+# Minor character noise (typos)
+char_aug = nac.RandomCharAug(
+    action="substitute",
+    aug_char_p=0.05
+)
+
+
+
+# -------------------------
+# Intents
 # -------------------------
 
 INTENTS = {
@@ -39,7 +66,6 @@ INTENTS = {
             "enter {dir}",
             "switch to {dir}",
             "cd {dir}",
-            "take me to {dir}",
             "move into {dir}",
         ],
     },
@@ -50,8 +76,6 @@ INTENTS = {
             "show files",
             "list all files",
             "ls",
-            "ls -l",
-            "what files are here",
             "show directory contents",
         ],
     },
@@ -62,7 +86,6 @@ INTENTS = {
             "current directory",
             "pwd",
             "print working directory",
-            "show current path",
         ],
     },
     "CREATE_FILE": {
@@ -72,7 +95,6 @@ INTENTS = {
             "make a file named {file}",
             "new file {file}",
             "touch {file}",
-            "generate file {file}",
         ],
     },
     "CREATE_DIR": {
@@ -97,7 +119,9 @@ INTENTS = {
         "count": 350,
         "templates": [
             "copy {src} to {dst}",
+            "copy file {src} to {dst}",
             "duplicate {src} into {dst}",
+            "duplicate file {src} into {dst}",
             "cp {src} {dst}",
         ],
     },
@@ -105,7 +129,9 @@ INTENTS = {
         "count": 350,
         "templates": [
             "move {src} to {dst}",
+            "move file {src} to {dst}",
             "relocate {src} into {dst}",
+            "relocate file {src} into {dst}",
             "mv {src} {dst}",
         ],
     },
@@ -122,7 +148,6 @@ INTENTS = {
             "git status",
             "show git status",
             "any git changes",
-            "repository status",
         ],
     },
     "GIT_BRANCH": {
@@ -133,14 +158,13 @@ INTENTS = {
             "which branch am i on",
         ],
     },
-    "INVALID": {
+    "UNKNOWN": {
         "count": 400,
         "templates": [
-            "tell me a joke",
-            "play music",
             "open chrome",
-            "search google for cats",
-            "what is the weather today",
+            "play music",
+            "tell me a joke",
+            "search google",
         ],
     },
     "FORBIDDEN": {
@@ -150,27 +174,21 @@ INTENTS = {
             "rm -rf /",
             "format c drive",
             "shutdown system",
-            "wipe all files",
         ],
     },
 }
 
 # -------------------------
-# Noise
+# Controlled augmentation
 # -------------------------
 
-FILLERS = ["", "please ", "can you ", "hey ", "could you ", "quickly "]
-SUFFIXES = ["", " now", " asap", " please"]
-
-def add_noise(text: str) -> str:
-    if random.random() < 0.25:
-        text = text.capitalize()
-    if random.random() < 0.2:
-        text = text.replace(" ", "  ")
+def augment_text(text: str) -> str:
+    if random.random() < 0.35:
+        text = syn_aug.augment(text)
     if random.random() < 0.15:
-        text = text.replace("e", "3", 1)
-    if random.random() < 0.15:
-        text += random.choice(SUFFIXES)
+        text = del_aug.augment(text)
+    if random.random() < 0.10:
+        text = char_aug.augment(text)
     return text
 
 def fill(template: str) -> str:
@@ -180,8 +198,7 @@ def fill(template: str) -> str:
         src=rand_file(),
         dst=random.choice([rand_file(), rand_dir()]),
     )
-    base = random.choice(FILLERS) + base
-    return add_noise(base.strip())
+    return augment_text(base)
 
 # -------------------------
 # Dataset generation

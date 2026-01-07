@@ -1,6 +1,7 @@
 import csv
 import random
 import string
+import nlpaug.augmenter.word as naw
 
 # -----------------------------
 # Directory generators
@@ -40,46 +41,55 @@ def rand_path():
 
 TEMPLATES = [
     "go to {dir}",
-    "lets go to {dir}",
-    "lets go from current to {dir}",
-    "take me to {dir}",
-    "take me into {dir}",
-    "open {dir}",
-    "open {dir} folder",
     "navigate to {dir}",
+    "open {dir}",
+    "take me to {dir}",
     "switch to {dir}",
     "cd {dir}",
-    "could you please open {dir}",
-    "go ahead and open {dir} for me",
+    "please go to {dir}",
+    "could you open {dir}",
     "i want to move to {dir}",
-    "please take me to {dir}",
 ]
 
-NOISE_PREFIX = ["", "hey ", "okay ", "so ", "well ", "pls "]
-NOISE_SUFFIX = ["", " please", " now", " quickly", " for me", " asap"]
-
 # -----------------------------
-# Safe noise
+# NLP augmenters (SAFE)
 # -----------------------------
 
-def add_noise_safe(text, start, end):
-    chars = list(text)
+syn_aug = naw.SynonymAug(aug_src="wordnet", aug_p=0.25)
+del_aug = naw.RandomWordAug(action="delete", aug_p=0.08)
 
-    for i in range(len(chars)):
-        if start <= i < end:
+# -----------------------------
+# Span-safe augmentation
+# -----------------------------
+
+def augment_outside_span(text, span):
+    tokens = text.split()
+    new_tokens = []
+
+    s_start, s_end = span
+    char_idx = 0
+
+    def protected(start, end):
+        return start < s_end and end > s_start
+
+    for tok in tokens:
+        start = text.find(tok, char_idx)
+        end = start + len(tok)
+        char_idx = end
+
+        if protected(start, end):
+            new_tokens.append(tok)
             continue
-        if random.random() < 0.02 and chars[i] == "o":
-            chars[i] = "0"
 
-    noisy = "".join(chars)
+        if random.random() < 0.3:
+            tok = syn_aug.augment(tok)[0]
 
-    if random.random() < 0.3:
-        noisy = noisy.capitalize()
+        if random.random() < 0.2:
+            tok = del_aug.augment(tok)[0]
 
-    if random.random() < 0.25:
-        noisy = noisy.replace(" ", "  ")
+        new_tokens.append(tok)
 
-    return noisy
+    return " ".join(new_tokens)
 
 # -----------------------------
 # Sentence generation
@@ -87,18 +97,16 @@ def add_noise_safe(text, start, end):
 
 def generate_sentence(dir_name):
     template = random.choice(TEMPLATES)
-    prefix = random.choice(NOISE_PREFIX)
-    suffix = random.choice(NOISE_SUFFIX)
+    base = template.format(dir=dir_name)
 
-    base_sentence = prefix + template.format(dir=dir_name) + suffix
-
-    start = base_sentence.index(dir_name)
+    start = base.index(dir_name)
     end = start + len(dir_name)
 
-    sentence = add_noise_safe(base_sentence, start, end).strip()
+    sentence = augment_outside_span(base, (start, end))
 
-    # Safety check
-    assert dir_name in sentence
+    # recompute span after augmentation
+    start = sentence.index(dir_name)
+    end = start + len(dir_name)
 
     return sentence, start, end
 
@@ -109,8 +117,8 @@ def generate_sentence(dir_name):
 def main():
     rows = []
 
-    for _ in range(1500):
-        d = random.choice(SYSTEM_DIRS) if random.random() < 0.3 else rand_path()
+    for _ in range(2000):
+        d = random.choice(SYSTEM_DIRS) if random.random() < 0.35 else rand_path()
         text, start, end = generate_sentence(d)
         rows.append([text, start, end])
 
@@ -119,7 +127,7 @@ def main():
         writer.writerow(["text", "start_char", "end_char"])
         writer.writerows(rows)
 
-    print(f"Generated {len(rows)} safe, diverse navigation span samples")
+    print(f"Generated {len(rows)} navigation span samples")
 
 if __name__ == "__main__":
     main()
