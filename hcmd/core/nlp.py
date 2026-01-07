@@ -1,3 +1,11 @@
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message=".*weights_only=False.*",
+    category=FutureWarning
+)
+
 import torch
 from transformers import (
     AutoTokenizer,

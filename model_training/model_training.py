@@ -16,7 +16,7 @@ EPOCHS = 20
 LR = 2e-5
 MAX_LEN = 64
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+print(f"Using device: {DEVICE}")
 EARLY_STOPPING_PATIENCE = 3
 LR_PATIENCE = 2
 LR_FACTOR = 0.5
@@ -28,7 +28,7 @@ label2id = {l: i for i, l in enumerate(labels)}
 id2label = {i: l for l, i in label2id.items()}
 df["label_id"] = df["label"].map(label2id)
 
-with open("label_map.json", "w") as f:
+with open("../label_map.json", "w") as f:
     json.dump({"label2id": label2id, "id2label": id2label}, f)
 
 train_df, val_df = train_test_split(
@@ -147,5 +147,5 @@ print(classification_report(
     target_names=[id2label[i] for i in range(len(labels))]
 ))
 
-model.save_pretrained("intent_model")
-tokenizer.save_pretrained("intent_model")
+model.save_pretrained("../intent_model")
+tokenizer.save_pretrained("../intent_model")

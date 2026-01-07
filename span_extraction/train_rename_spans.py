@@ -28,7 +28,7 @@ CSV_PATH = "rename_spans.csv"
 OUT_DIR = "rename_span_model"
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+print(f"Using device: {DEVICE}")
 # --------------------------------------------------
 # LOAD DATA
 # --------------------------------------------------
