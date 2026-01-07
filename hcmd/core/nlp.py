@@ -4,6 +4,8 @@ from transformers import (
     AutoModelForSequenceClassification,
     AutoModelForQuestionAnswering
 )
+from hcmd.core.rename_model import DualSpanQA
+
 
 from ..constants import (
     INTENT_MODEL_PATH,
@@ -53,9 +55,12 @@ object_model = AutoModelForQuestionAnswering.from_pretrained(
     OBJECT_SPAN_MODEL_PATH
 ).to(DEVICE)
 
-rename_model = AutoModelForQuestionAnswering.from_pretrained(
-    RENAME_SPAN_MODEL_PATH
-).to(DEVICE)
+rename_model = DualSpanQA("distilbert-base-uncased").to(DEVICE)
+rename_model.load_state_dict(
+    torch.load(f"{RENAME_SPAN_MODEL_PATH}/pytorch_model.bin", map_location=DEVICE)
+)
+rename_model.eval()
+
 
 git_add_model = AutoModelForQuestionAnswering.from_pretrained(
     GIT_ADD_MODEL_PATH
@@ -72,7 +77,7 @@ git_clone_model = AutoModelForQuestionAnswering.from_pretrained(
 for m in (git_add_model, git_checkout_model, git_clone_model):
     m.eval()
 
-for m in (nav_model, src_model, dst_model, object_model, rename_model):
+for m in (nav_model, src_model, dst_model, object_model):
     m.eval()
 
 
@@ -111,6 +116,38 @@ def _extract_span(text: str, model):
 
     return span_text, confidence
 
+def _extract_rename_spans(text: str, model):
+    enc = span_tokenizer(
+        text,
+        return_tensors="pt",
+        return_offsets_mapping=True,
+        truncation=True
+    )
+
+    offsets = enc.pop("offset_mapping")[0]
+    enc = {k: v.to(DEVICE) for k, v in enc.items()}
+
+    with torch.no_grad():
+        out = model(**enc)
+
+    def decode(start_logits, end_logits):
+        start_probs = torch.softmax(start_logits, dim=-1)[0]
+        end_probs   = torch.softmax(end_logits, dim=-1)[0]
+
+        s = torch.argmax(start_probs).item()
+        e = torch.argmax(end_probs).item()
+
+        if e < s:
+            return None, 0.0
+
+        text_span = text[offsets[s][0]:offsets[e][1]].strip()
+        conf = (start_probs[s] * end_probs[e]).item()
+        return text_span, conf
+
+    src, src_conf = decode(out["src_start_logits"], out["src_end_logits"])
+    dst, dst_conf = decode(out["dst_start_logits"], out["dst_end_logits"])
+
+    return src, src_conf, dst, dst_conf
 
 # --------------------------------------------------
 # MAIN INTERPRETER
@@ -183,16 +220,18 @@ def interpret(text: str) -> dict:
 
     # ---------- RENAME ----------
     elif intent == "RENAME_FILE":
-        src, src_conf = _extract_span(text, rename_model)
-        dst, dst_conf = _extract_span(text, rename_model)
+        src, src_conf, dst, dst_conf = _extract_rename_spans(text, rename_model)
 
         if src_conf >= SPAN_CONF_THRESHOLD:
             result["src"] = src
         if dst_conf >= SPAN_CONF_THRESHOLD:
             result["dst"] = dst
 
-        if result.get("src") == result.get("dst"):
-            return {"ok": False, "reason": "Rename source and destination identical"}
+        # This check is now a true safety guard, not a hack
+        if result.get("src") and result.get("dst"):
+            if result["src"] == result["dst"]:
+                return {"ok": False, "reason": "Rename source and destination identical"}
+
 
     # ---------- CREATE / DELETE ----------
     elif intent in ("CREATE_DIR",):
@@ -228,12 +267,12 @@ def interpret(text: str) -> dict:
     elif intent == "GIT_CLONE":
         repo, conf = _extract_span(text, git_clone_model)
         if conf >= SPAN_CONF_THRESHOLD:
-            result["repo"] = repo_url
+            result["repo"] = repo
         else :
             return {"ok": False, "reason": "Low git clone span confidence"}
 
     # ---------- MEMORY FALLBACK ----------
-    if intent in ("DELETE_FILE", "DELETE_DIR", "RENAME_FILE"):
+    if intent in ("DELETE_FILE", "DELETE_DIR"):
         if not result.get("path") and memory.last_path:
             result["path"] = memory.last_path
 
