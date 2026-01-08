@@ -181,17 +181,23 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
     if intent == "GIT_STASH":
         return "git stash"
     if intent == "GIT_CLONE":
-        repo, conf = data.get("repo"), data.get("repo_confidence", 0)
-        if conf >= 0.3 and repo:
-            return f"git clone {repo}"
+        repo = data.get("repo")
+        if not repo:
+            return None
+        return f'git clone "{repo}"'
+
     if intent == "GIT_ADD":
-        path, conf = data.get("path"), data.get("path_confidence", 0)
-        if conf >= 0.3 and path:
-            return f"git add {path}"
+        path = data.get("path")
+        if not path:
+            return None
+        return f'git add "{path}"'
+
     if intent == "GIT_CHECKOUT":
-        branch, conf = data.get("branch"), data.get("branch_confidence", 0)
-        if conf >= 0.3 and branch:
-            return f"git checkout {branch}"
+        branch = data.get("branch")
+        if not branch:
+            return None
+        return f'git checkout "{branch}"'
+
     return None
 
 
