@@ -7,12 +7,7 @@ RULE_INTENTS = {
         r"^\s*list\s*$",
         r"^\s*list files\s*$",
         r"^\s*show files\s*$",
-    ],
-    "PWD": [
-        r"^\s*pwd\s*$",
-        r"^\s*where am i\s*$",
-        r"^\s*current directory\s*$",
-    ],
+    ]
 }
 def rule_intent(text: str) -> Optional[str]:
     t = text.lower().strip()

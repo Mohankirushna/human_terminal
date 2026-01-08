@@ -1,0 +1,801 @@
+text,start_char,end_char
+end process python,12,18
+stop explorer,5,13
+kill process node,13,17
+terminate cmd,10,13
+end process java,12,16
+terminate python,10,16
+end process notepad,12,19
+stop python,5,11
+stop node,5,9
+end process notepad,12,19
+taskkill chrome,9,15
+end process explorer,12,20
+end process node,12,16
+terminate explorer,10,18
+stop python,5,11
+kill process python,13,19
+end process notepad,12,19
+end process code,12,16
+stop chrome,5,11
+end process python,12,18
+terminate cmd,10,13
+taskkill powershell,9,19
+terminate node,10,14
+end process java,12,16
+taskkill explorer,9,17
+terminate chrome,10,16
+end process python,12,18
+kill process node,13,17
+stop notepad,5,12
+end process explorer,12,20
+kill process code,13,17
+taskkill chrome,9,15
+end process powershell,12,22
+stop node,5,9
+terminate node,10,14
+kill process explorer,13,21
+end process java,12,16
+kill process python,13,19
+stop java,5,9
+taskkill powershell,9,19
+terminate explorer,10,18
+kill process explorer,13,21
+end process powershell,12,22
+end process cmd,12,15
+end process node,12,16
+terminate chrome,10,16
+stop powershell,5,15
+kill process python,13,19
+taskkill node,9,13
+end process cmd,12,15
+kill process python,13,19
+stop 1426,5,9
+stop powershell,5,15
+kill process explorer,13,21
+terminate chrome,10,16
+kill process java,13,17
+terminate chrome,10,16
+terminate explorer,10,18
+kill process 996,13,16
+kill process 5316,13,17
+kill process python,13,19
+stop code,5,9
+terminate cmd,10,13
+end process explorer,12,20
+terminate python,10,16
+taskkill cmd,9,12
+stop node,5,9
+stop 4335,5,9
+end process java,12,16
+terminate notepad,10,17
+kill process chrome,13,19
+terminate code,10,14
+stop chrome,5,11
+end process cmd,12,15
+end process explorer,12,20
+taskkill python,9,15
+end process 2414,12,16
+kill process chrome,13,19
+taskkill powershell,9,19
+taskkill java,9,13
+kill process 5887,13,17
+end process cmd,12,15
+terminate cmd,10,13
+kill process java,13,17
+terminate explorer,10,18
+terminate chrome,10,16
+stop node,5,9
+end process java,12,16
+kill process java,13,17
+kill process cmd,13,16
+end process java,12,16
+end process code,12,16
+stop java,5,9
+kill process code,13,17
+end process explorer,12,20
+stop powershell,5,15
+taskkill 1331,9,13
+terminate code,10,14
+stop explorer,5,13
+taskkill python,9,15
+taskkill cmd,9,12
+stop 5487,5,9
+stop node,5,9
+taskkill java,9,13
+kill process explorer,13,21
+taskkill notepad,9,16
+end process explorer,12,20
+end process code,12,16
+terminate powershell,10,20
+terminate java,10,14
+end process python,12,18
+stop powershell,5,15
+kill process powershell,13,23
+taskkill code,9,13
+terminate notepad,10,17
+stop chrome,5,11
+stop notepad,5,12
+end process node,12,16
+kill process python,13,19
+terminate cmd,10,13
+end process chrome,12,18
+taskkill code,9,13
+end process python,12,18
+stop java,5,9
+stop 8920,5,9
+stop cmd,5,8
+kill process 7253,13,17
+kill process node,13,17
+kill process node,13,17
+stop notepad,5,12
+taskkill 9883,9,13
+taskkill java,9,13
+end process node,12,16
+taskkill 9641,9,13
+kill process explorer,13,21
+terminate 138,10,13
+kill process cmd,13,16
+taskkill chrome,9,15
+kill process chrome,13,19
+kill process powershell,13,23
+taskkill java,9,13
+taskkill code,9,13
+taskkill python,9,15
+terminate 3149,10,14
+terminate powershell,10,20
+stop cmd,5,8
+kill process explorer,13,21
+stop java,5,9
+kill process 4550,13,17
+stop powershell,5,15
+end process explorer,12,20
+kill process 4895,13,17
+taskkill notepad,9,16
+taskkill code,9,13
+terminate powershell,10,20
+stop code,5,9
+taskkill explorer,9,17
+terminate python,10,16
+terminate node,10,14
+stop notepad,5,12
+kill process 698,13,16
+kill process node,13,17
+taskkill chrome,9,15
+end process python,12,18
+taskkill explorer,9,17
+end process java,12,16
+end process explorer,12,20
+taskkill notepad,9,16
+taskkill notepad,9,16
+kill process explorer,13,21
+taskkill code,9,13
+end process powershell,12,22
+taskkill powershell,9,19
+kill process cmd,13,16
+taskkill java,9,13
+kill process 6527,13,17
+taskkill node,9,13
+kill process explorer,13,21
+taskkill python,9,15
+stop explorer,5,13
+taskkill chrome,9,15
+stop powershell,5,15
+end process notepad,12,19
+kill process explorer,13,21
+stop 8981,5,9
+kill process java,13,17
+kill process notepad,13,20
+taskkill java,9,13
+taskkill java,9,13
+taskkill code,9,13
+taskkill 8625,9,13
+terminate python,10,16
+taskkill explorer,9,17
+kill process code,13,17
+end process code,12,16
+terminate cmd,10,13
+stop powershell,5,15
+stop powershell,5,15
+stop cmd,5,8
+taskkill chrome,9,15
+end process java,12,16
+kill process cmd,13,16
+terminate 4145,10,14
+kill process code,13,17
+end process code,12,16
+terminate java,10,14
+end process cmd,12,15
+kill process node,13,17
+kill process java,13,17
+kill process notepad,13,20
+stop code,5,9
+taskkill notepad,9,16
+terminate node,10,14
+kill process chrome,13,19
+end process python,12,18
+terminate code,10,14
+stop powershell,5,15
+taskkill python,9,15
+end process 4640,12,16
+taskkill python,9,15
+taskkill code,9,13
+kill process java,13,17
+terminate chrome,10,16
+terminate code,10,14
+taskkill java,9,13
+terminate python,10,16
+taskkill explorer,9,17
+taskkill node,9,13
+kill process notepad,13,20
+kill process node,13,17
+end process code,12,16
+end process notepad,12,19
+kill process java,13,17
+stop cmd,5,8
+stop powershell,5,15
+end process python,12,18
+taskkill explorer,9,17
+terminate java,10,14
+taskkill chrome,9,15
+taskkill node,9,13
+stop 6542,5,9
+stop 7841,5,9
+stop notepad,5,12
+taskkill chrome,9,15
+end process cmd,12,15
+stop powershell,5,15
+taskkill 5412,9,13
+stop powershell,5,15
+terminate notepad,10,17
+stop notepad,5,12
+end process java,12,16
+end process 7034,12,16
+kill process code,13,17
+taskkill notepad,9,16
+stop code,5,9
+stop notepad,5,12
+kill process code,13,17
+stop 883,5,8
+kill process java,13,17
+stop node,5,9
+kill process python,13,19
+end process node,12,16
+kill process powershell,13,23
+taskkill notepad,9,16
+kill process powershell,13,23
+terminate cmd,10,13
+stop cmd,5,8
+end process 7574,12,16
+taskkill explorer,9,17
+end process explorer,12,20
+terminate cmd,10,13
+kill process code,13,17
+terminate chrome,10,16
+terminate powershell,10,20
+terminate java,10,14
+stop node,5,9
+kill process notepad,13,20
+taskkill python,9,15
+stop java,5,9
+stop chrome,5,11
+end process code,12,16
+end process node,12,16
+terminate code,10,14
+stop 9611,5,9
+end process python,12,18
+taskkill node,9,13
+terminate java,10,14
+terminate python,10,16
+terminate code,10,14
+kill process cmd,13,16
+kill process code,13,17
+end process code,12,16
+stop code,5,9
+terminate notepad,10,17
+kill process notepad,13,20
+terminate explorer,10,18
+terminate python,10,16
+stop notepad,5,12
+taskkill python,9,15
+terminate 1713,10,14
+terminate chrome,10,16
+terminate node,10,14
+kill process java,13,17
+stop explorer,5,13
+end process code,12,16
+stop cmd,5,8
+terminate node,10,14
+end process cmd,12,15
+terminate powershell,10,20
+taskkill node,9,13
+stop notepad,5,12
+end process python,12,18
+end process 3225,12,16
+stop chrome,5,11
+end process notepad,12,19
+taskkill powershell,9,19
+kill process node,13,17
+terminate java,10,14
+end process node,12,16
+end process explorer,12,20
+kill process cmd,13,16
+stop chrome,5,11
+end process powershell,12,22
+kill process node,13,17
+kill process node,13,17
+taskkill notepad,9,16
+end process node,12,16
+end process cmd,12,15
+terminate code,10,14
+terminate java,10,14
+end process notepad,12,19
+stop powershell,5,15
+taskkill chrome,9,15
+kill process 7382,13,17
+terminate cmd,10,13
+taskkill cmd,9,12
+kill process cmd,13,16
+terminate python,10,16
+stop code,5,9
+stop java,5,9
+kill process powershell,13,23
+stop node,5,9
+stop powershell,5,15
+stop 9026,5,9
+stop powershell,5,15
+terminate python,10,16
+end process java,12,16
+end process java,12,16
+taskkill code,9,13
+kill process cmd,13,16
+kill process 8272,13,17
+kill process python,13,19
+stop code,5,9
+stop notepad,5,12
+kill process code,13,17
+end process java,12,16
+taskkill cmd,9,12
+taskkill chrome,9,15
+stop node,5,9
+stop powershell,5,15
+stop code,5,9
+kill process 6550,13,17
+taskkill node,9,13
+stop cmd,5,8
+end process code,12,16
+kill process 4331,13,17
+taskkill notepad,9,16
+taskkill powershell,9,19
+kill process code,13,17
+stop cmd,5,8
+terminate python,10,16
+terminate node,10,14
+end process node,12,16
+end process notepad,12,19
+kill process powershell,13,23
+stop explorer,5,13
+stop code,5,9
+stop chrome,5,11
+terminate java,10,14
+stop chrome,5,11
+taskkill cmd,9,12
+terminate 6160,10,14
+end process python,12,18
+terminate code,10,14
+taskkill python,9,15
+terminate 2887,10,14
+taskkill cmd,9,12
+taskkill java,9,13
+end process 3828,12,16
+stop node,5,9
+terminate code,10,14
+end process powershell,12,22
+taskkill explorer,9,17
+end process powershell,12,22
+terminate cmd,10,13
+stop cmd,5,8
+end process powershell,12,22
+end process java,12,16
+terminate node,10,14
+end process chrome,12,18
+kill process chrome,13,19
+kill process 6654,13,17
+kill process chrome,13,19
+end process node,12,16
+taskkill 3254,9,13
+end process node,12,16
+terminate code,10,14
+end process node,12,16
+taskkill java,9,13
+end process code,12,16
+terminate code,10,14
+kill process node,13,17
+stop cmd,5,8
+kill process node,13,17
+kill process notepad,13,20
+end process code,12,16
+stop notepad,5,12
+taskkill code,9,13
+stop java,5,9
+kill process java,13,17
+stop chrome,5,11
+stop chrome,5,11
+terminate cmd,10,13
+kill process chrome,13,19
+kill process code,13,17
+stop code,5,9
+taskkill 2705,9,13
+taskkill cmd,9,12
+terminate notepad,10,17
+kill process 5667,13,17
+terminate code,10,14
+kill process explorer,13,21
+taskkill notepad,9,16
+kill process powershell,13,23
+kill process code,13,17
+stop chrome,5,11
+kill process 1639,13,17
+end process node,12,16
+terminate notepad,10,17
+terminate java,10,14
+end process node,12,16
+stop explorer,5,13
+kill process java,13,17
+end process 9308,12,16
+taskkill cmd,9,12
+kill process code,13,17
+terminate python,10,16
+end process cmd,12,15
+taskkill powershell,9,19
+end process explorer,12,20
+stop node,5,9
+end process chrome,12,18
+terminate python,10,16
+terminate 4595,10,14
+stop explorer,5,13
+taskkill code,9,13
+taskkill node,9,13
+kill process explorer,13,21
+terminate explorer,10,18
+stop java,5,9
+terminate node,10,14
+terminate node,10,14
+end process 9699,12,16
+stop code,5,9
+stop chrome,5,11
+stop cmd,5,8
+taskkill notepad,9,16
+taskkill cmd,9,12
+end process explorer,12,20
+stop python,5,11
+end process code,12,16
+kill process code,13,17
+kill process java,13,17
+terminate 9815,10,14
+stop 9318,5,9
+terminate notepad,10,17
+stop node,5,9
+terminate java,10,14
+end process chrome,12,18
+stop cmd,5,8
+kill process notepad,13,20
+kill process explorer,13,21
+stop python,5,11
+end process java,12,16
+taskkill node,9,13
+terminate powershell,10,20
+taskkill cmd,9,12
+taskkill cmd,9,12
+end process notepad,12,19
+end process code,12,16
+kill process explorer,13,21
+stop cmd,5,8
+end process notepad,12,19
+end process 4653,12,16
+stop chrome,5,11
+end process code,12,16
+terminate notepad,10,17
+stop code,5,9
+kill process chrome,13,19
+kill process node,13,17
+stop notepad,5,12
+end process powershell,12,22
+terminate notepad,10,17
+end process chrome,12,18
+stop python,5,11
+end process java,12,16
+terminate 4786,10,14
+stop 8633,5,9
+end process node,12,16
+kill process code,13,17
+kill process explorer,13,21
+taskkill node,9,13
+end process 5489,12,16
+end process chrome,12,18
+stop chrome,5,11
+kill process explorer,13,21
+taskkill code,9,13
+taskkill chrome,9,15
+taskkill node,9,13
+kill process python,13,19
+taskkill 8614,9,13
+kill process powershell,13,23
+taskkill chrome,9,15
+terminate chrome,10,16
+taskkill chrome,9,15
+kill process 8287,13,17
+end process cmd,12,15
+stop node,5,9
+terminate 3440,10,14
+end process notepad,12,19
+end process python,12,18
+terminate 4458,10,14
+end process powershell,12,22
+stop cmd,5,8
+end process powershell,12,22
+end process notepad,12,19
+taskkill node,9,13
+stop explorer,5,13
+stop node,5,9
+taskkill cmd,9,12
+taskkill notepad,9,16
+kill process cmd,13,16
+kill process java,13,17
+stop python,5,11
+end process powershell,12,22
+end process powershell,12,22
+terminate 940,10,13
+terminate notepad,10,17
+kill process powershell,13,23
+kill process 4123,13,17
+end process code,12,16
+end process notepad,12,19
+kill process 8530,13,17
+end process chrome,12,18
+stop 3176,5,9
+taskkill 3617,9,13
+end process powershell,12,22
+taskkill explorer,9,17
+kill process code,13,17
+end process code,12,16
+stop powershell,5,15
+stop chrome,5,11
+taskkill 3478,9,13
+kill process powershell,13,23
+kill process explorer,13,21
+terminate python,10,16
+terminate notepad,10,17
+terminate notepad,10,17
+end process 8725,12,16
+taskkill chrome,9,15
+kill process code,13,17
+end process python,12,18
+kill process 7734,13,17
+terminate 2895,10,14
+end process python,12,18
+end process chrome,12,18
+terminate notepad,10,17
+end process explorer,12,20
+taskkill node,9,13
+kill process cmd,13,16
+taskkill cmd,9,12
+end process code,12,16
+stop node,5,9
+terminate code,10,14
+stop code,5,9
+kill process notepad,13,20
+kill process 2453,13,17
+kill process 535,13,16
+terminate notepad,10,17
+end process 2187,12,16
+stop java,5,9
+end process python,12,18
+taskkill cmd,9,12
+stop 9826,5,9
+stop node,5,9
+kill process code,13,17
+end process powershell,12,22
+kill process explorer,13,21
+stop cmd,5,8
+taskkill powershell,9,19
+kill process notepad,13,20
+terminate python,10,16
+end process node,12,16
+stop notepad,5,12
+taskkill cmd,9,12
+stop code,5,9
+taskkill 1633,9,13
+kill process notepad,13,20
+stop node,5,9
+end process cmd,12,15
+end process java,12,16
+end process chrome,12,18
+kill process java,13,17
+terminate code,10,14
+taskkill node,9,13
+kill process powershell,13,23
+kill process chrome,13,19
+stop cmd,5,8
+kill process 759,13,16
+terminate node,10,14
+kill process chrome,13,19
+kill process chrome,13,19
+kill process cmd,13,16
+taskkill node,9,13
+stop python,5,11
+stop node,5,9
+terminate 5795,10,14
+kill process 2149,13,17
+taskkill powershell,9,19
+stop node,5,9
+end process chrome,12,18
+terminate explorer,10,18
+taskkill code,9,13
+kill process python,13,19
+end process code,12,16
+end process python,12,18
+stop notepad,5,12
+terminate node,10,14
+kill process notepad,13,20
+kill process node,13,17
+stop 2628,5,9
+stop powershell,5,15
+stop explorer,5,13
+kill process python,13,19
+terminate chrome,10,16
+taskkill explorer,9,17
+taskkill node,9,13
+stop node,5,9
+end process chrome,12,18
+stop chrome,5,11
+stop chrome,5,11
+taskkill code,9,13
+terminate python,10,16
+kill process python,13,19
+taskkill java,9,13
+taskkill powershell,9,19
+stop code,5,9
+end process 2520,12,16
+taskkill notepad,9,16
+stop explorer,5,13
+terminate code,10,14
+terminate explorer,10,18
+end process explorer,12,20
+stop code,5,9
+end process cmd,12,15
+kill process explorer,13,21
+taskkill notepad,9,16
+kill process powershell,13,23
+stop python,5,11
+terminate powershell,10,20
+kill process cmd,13,16
+terminate explorer,10,18
+taskkill powershell,9,19
+end process notepad,12,19
+stop chrome,5,11
+taskkill cmd,9,12
+kill process java,13,17
+end process node,12,16
+stop notepad,5,12
+stop notepad,5,12
+taskkill python,9,15
+stop notepad,5,12
+terminate explorer,10,18
+end process 8379,12,16
+end process powershell,12,22
+terminate java,10,14
+kill process cmd,13,16
+kill process explorer,13,21
+taskkill python,9,15
+taskkill node,9,13
+stop java,5,9
+taskkill node,9,13
+stop notepad,5,12
+end process 5268,12,16
+stop notepad,5,12
+taskkill 4729,9,13
+stop node,5,9
+end process explorer,12,20
+kill process java,13,17
+end process node,12,16
+kill process node,13,17
+terminate code,10,14
+terminate explorer,10,18
+end process node,12,16
+kill process 2932,13,17
+end process notepad,12,19
+taskkill explorer,9,17
+stop node,5,9
+end process 1876,12,16
+end process chrome,12,18
+kill process python,13,19
+end process explorer,12,20
+taskkill powershell,9,19
+kill process powershell,13,23
+terminate python,10,16
+kill process python,13,19
+taskkill explorer,9,17
+kill process 732,13,16
+stop 5671,5,9
+taskkill 8242,9,13
+end process cmd,12,15
+stop notepad,5,12
+terminate python,10,16
+stop python,5,11
+taskkill notepad,9,16
+terminate powershell,10,20
+stop cmd,5,8
+terminate notepad,10,17
+stop python,5,11
+kill process node,13,17
+kill process java,13,17
+end process explorer,12,20
+kill process cmd,13,16
+terminate 802,10,13
+stop explorer,5,13
+taskkill java,9,13
+terminate powershell,10,20
+taskkill chrome,9,15
+kill process cmd,13,16
+kill process cmd,13,16
+stop java,5,9
+taskkill cmd,9,12
+terminate explorer,10,18
+terminate powershell,10,20
+end process node,12,16
+kill process chrome,13,19
+kill process 1290,13,17
+kill process java,13,17
+end process chrome,12,18
+taskkill explorer,9,17
+taskkill powershell,9,19
+taskkill java,9,13
+kill process java,13,17
+end process chrome,12,18
+end process notepad,12,19
+kill process notepad,13,20
+end process java,12,16
+end process cmd,12,15
+stop powershell,5,15
+kill process notepad,13,20
+terminate explorer,10,18
+kill process 5185,13,17
+kill process explorer,13,21
+kill process notepad,13,20
+stop code,5,9
+stop chrome,5,11
+stop java,5,9
+taskkill notepad,9,16
+stop code,5,9
+kill process 8876,13,17
+stop powershell,5,15
+taskkill node,9,13
+taskkill java,9,13
+stop explorer,5,13
+stop chrome,5,11
+taskkill java,9,13
+stop 3000,5,9
+terminate node,10,14
+terminate code,10,14
+stop cmd,5,8
+stop code,5,9
+stop chrome,5,11
+terminate cmd,10,13
+terminate java,10,14
+kill process python,13,19
+taskkill notepad,9,16
+terminate code,10,14
+taskkill chrome,9,15
+terminate 8091,10,14
+taskkill node,9,13
+terminate cmd,10,13
+kill process java,13,17
+stop 5068,5,9
+kill process code,13,17
+end process node,12,16
+stop chrome,5,11
+kill process 4013,13,17
+terminate code,10,14
+taskkill python,9,15
+terminate cmd,10,13

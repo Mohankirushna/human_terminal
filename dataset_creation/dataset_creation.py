@@ -117,7 +117,7 @@ INTENTS = {
             "new directory {dir}",
         ],
     },
-    
+
     "DELETE_DIR": {
         "count": 400,
         "templates": [
@@ -134,6 +134,8 @@ INTENTS = {
         "count": 500,
         "templates": [
             "delete {file}",
+            "delete file {file}",
+            "delete {file} file",
             "remove {file}",
             "erase {file}",
             "rm {file}",

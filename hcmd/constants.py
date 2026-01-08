@@ -13,6 +13,7 @@ RENAME_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "rename_span_model")
 GIT_ADD_MODEL_PATH = os.path.join(PROJECT_ROOT, "git_add_model")
 GIT_CHECKOUT_MODEL_PATH = os.path.join(PROJECT_ROOT, "git_checkout_model")
 GIT_CLONE_MODEL_PATH = os.path.join(PROJECT_ROOT, "git_clone_model")
+TARGET_SPAN_MODEL_PATH = os.path.join(PROJECT_ROOT, "process_target_span_model")
 
 INTENT_CONF_THRESHOLD = 0.30
 SPAN_CONF_THRESHOLD = 0.25

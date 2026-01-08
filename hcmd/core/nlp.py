@@ -19,6 +19,7 @@ from ..constants import (
     INTENT_MODEL_PATH,
     NAVIGATION_SPAN_MODEL_PATH,
     SRC_SPAN_MODEL_PATH,
+    TARGET_SPAN_MODEL_PATH,
     DST_SPAN_MODEL_PATH,
     OBJECT_SPAN_MODEL_PATH,
     RENAME_SPAN_MODEL_PATH,
@@ -44,6 +45,11 @@ intent_model = AutoModelForSequenceClassification.from_pretrained(
     INTENT_MODEL_PATH
 ).to(DEVICE)
 intent_model.eval()
+target_model = AutoModelForQuestionAnswering.from_pretrained(
+    TARGET_SPAN_MODEL_PATH
+).to(DEVICE)
+
+target_model.eval()
 
 span_tokenizer = AutoTokenizer.from_pretrained(NAVIGATION_SPAN_MODEL_PATH)
 
@@ -279,6 +285,12 @@ def interpret(text: str) -> dict:
             result["repo"] = repo
         else :
             return {"ok": False, "reason": "Low git clone span confidence"}
+    elif intent == "PROCESS_KILL":
+        target, conf = _extract_span(text, target_model)
+        if conf >= SPAN_CONF_THRESHOLD:
+            result["target"] = target
+        else:
+            return {"ok": False, "reason": "Low process target span confidence"}
 
     # ---------- MEMORY FALLBACK ----------
     if intent in ("DELETE_FILE", "DELETE_DIR"):

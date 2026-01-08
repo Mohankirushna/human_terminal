@@ -17,7 +17,7 @@ DANGEROUS_PATHS = {
 }
 
 def validate_command(intent: str, cmd: str, ctx: SystemContext) -> SafetyResult:
-    if intent in ("DELETE_FILE", "MOVE_FILE", "COPY_FILE"):
+    if intent in ("DELETE_FILE", "MOVE_FILE", "COPY_FILE","PROCESS_KILL"):
         for p in DANGEROUS_PATHS:
             if p in cmd:
                 return SafetyResult(

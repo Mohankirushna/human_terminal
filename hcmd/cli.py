@@ -142,6 +142,22 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
             if os_type == OS.WINDOWS
             else "ifconfig"
         )
+    if intent == "PROCESS_KILL":
+        target = data.get("target")
+        if not target:
+            return None
+
+        if ctx.os_type == OS.WINDOWS:
+            if target.isdigit():
+                return f'taskkill /PID {target} /F'
+            else:
+                return f'taskkill /IM {target}.exe /F'
+
+        # Linux / macOS
+        if target.isdigit():
+            return f'kill {target}'
+        else:
+            return f'killall {target}'
 
     # ---------- GIT (no span required) ----------
     if intent == "GIT_STATUS":
