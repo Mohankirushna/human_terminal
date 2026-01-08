@@ -197,7 +197,6 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
         if not branch:
             return None
         return f'git checkout "{branch}"'
-
     return None
 
 
@@ -218,9 +217,17 @@ def main() -> int:
 
     ctx = resolve_context()
     intent = result["intent"]
-
+    if intent in ("DELETE_FILE", "DELETE_DIR") and not result.get("path"):
+        if memory.last_path:
+            result["path"] = memory.last_path
     # -------- Ambiguity (Phase 7.1) --------
-    clarification = detect_ambiguity(intent, result, ctx)
+    clarification = None
+
+    if not (intent in ("DELETE_FILE", "DELETE_DIR") and result.get("path") == memory.last_path):
+        if not result.get("from_pronoun"):
+            clarification = detect_ambiguity(intent, result, ctx)
+
+
 
     if isinstance(clarification, ClarificationRequest):
         # Case 1: no options → missing information
@@ -304,12 +311,19 @@ def main() -> int:
 
     if output:
         print(output)
+    if intent in ("CREATE_FILE", "CREATE_DIR"):
+        memory.last_path = result.get("path")
 
-    memory.last_intent = intent
-    memory.last_path = result.get("path") or memory.last_path
-    memory.last_src = result.get("src") or memory.last_src
-    memory.last_dst = result.get("dst") or memory.last_dst
+    elif intent in ("DELETE_FILE", "DELETE_DIR"):
+        memory.last_path = result.get("path")
 
+    elif intent in ("MOVE_FILE", "COPY_FILE", "RENAME_FILE"):
+        memory.last_src = result.get("src")
+        memory.last_dst = result.get("dst")
+
+    elif intent.startswith("GIT_"):
+        memory.last_git_intent = intent
+    memory.save()
     return 0
 
 

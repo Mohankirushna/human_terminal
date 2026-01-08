@@ -7,13 +7,14 @@ warnings.filterwarnings(
 )
 
 import torch
+import subprocess
+import re
 from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
     AutoModelForQuestionAnswering
 )
 from hcmd.core.rename_model import DualSpanQA
-
 
 from ..constants import (
     INTENT_MODEL_PATH,
@@ -43,31 +44,29 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 intent_tokenizer = AutoTokenizer.from_pretrained(INTENT_MODEL_PATH)
 intent_model = AutoModelForSequenceClassification.from_pretrained(
     INTENT_MODEL_PATH
-).to(DEVICE)
-intent_model.eval()
-target_model = AutoModelForQuestionAnswering.from_pretrained(
-    TARGET_SPAN_MODEL_PATH
-).to(DEVICE)
-
-target_model.eval()
+).to(DEVICE).eval()
 
 span_tokenizer = AutoTokenizer.from_pretrained(NAVIGATION_SPAN_MODEL_PATH)
 
 nav_model = AutoModelForQuestionAnswering.from_pretrained(
     NAVIGATION_SPAN_MODEL_PATH
-).to(DEVICE)
+).to(DEVICE).eval()
 
 src_model = AutoModelForQuestionAnswering.from_pretrained(
     SRC_SPAN_MODEL_PATH
-).to(DEVICE)
+).to(DEVICE).eval()
 
 dst_model = AutoModelForQuestionAnswering.from_pretrained(
     DST_SPAN_MODEL_PATH
-).to(DEVICE)
+).to(DEVICE).eval()
 
 object_model = AutoModelForQuestionAnswering.from_pretrained(
     OBJECT_SPAN_MODEL_PATH
-).to(DEVICE)
+).to(DEVICE).eval()
+
+target_model = AutoModelForQuestionAnswering.from_pretrained(
+    TARGET_SPAN_MODEL_PATH
+).to(DEVICE).eval()
 
 rename_model = DualSpanQA("distilbert-base-uncased").to(DEVICE)
 rename_model.load_state_dict(
@@ -75,29 +74,32 @@ rename_model.load_state_dict(
 )
 rename_model.eval()
 
-
 git_add_model = AutoModelForQuestionAnswering.from_pretrained(
     GIT_ADD_MODEL_PATH
-).to(DEVICE)
+).to(DEVICE).eval()
 
 git_checkout_model = AutoModelForQuestionAnswering.from_pretrained(
     GIT_CHECKOUT_MODEL_PATH
-).to(DEVICE)
+).to(DEVICE).eval()
 
 git_clone_model = AutoModelForQuestionAnswering.from_pretrained(
     GIT_CLONE_MODEL_PATH
-).to(DEVICE)
-
-for m in (git_add_model, git_checkout_model, git_clone_model):
-    m.eval()
-
-for m in (nav_model, src_model, dst_model, object_model):
-    m.eval()
-
+).to(DEVICE).eval()
 
 # --------------------------------------------------
-# Span extraction helper
+# Helpers
 # --------------------------------------------------
+
+def in_git_repo():
+    try:
+        subprocess.check_output(
+            ["git", "rev-parse", "--is-inside-work-tree"],
+            stderr=subprocess.DEVNULL
+        )
+        return True
+    except Exception:
+        return False
+
 
 def _extract_span(text: str, model):
     inputs = span_tokenizer(
@@ -116,19 +118,16 @@ def _extract_span(text: str, model):
     start_probs = torch.softmax(out.start_logits, dim=-1)[0]
     end_probs = torch.softmax(out.end_logits, dim=-1)[0]
 
-    start_idx = torch.argmax(start_probs).item()
-    end_idx = torch.argmax(end_probs).item()
+    s = torch.argmax(start_probs).item()
+    e = torch.argmax(end_probs).item()
 
-    if end_idx < start_idx:
+    if e < s:
         return None, 0.0
 
-    start_char = offsets[start_idx][0]
-    end_char = offsets[end_idx][1]
+    span = text[offsets[s][0]:offsets[e][1]].strip()
+    conf = (start_probs[s] * end_probs[e]).item()
+    return span, conf
 
-    span_text = text[start_char:end_char].strip()
-    confidence = (start_probs[start_idx] * end_probs[end_idx]).item()
-
-    return span_text, confidence
 
 def _extract_rename_spans(text: str, model):
     enc = span_tokenizer(
@@ -144,164 +143,152 @@ def _extract_rename_spans(text: str, model):
     with torch.no_grad():
         out = model(**enc)
 
-    def decode(start_logits, end_logits):
-        start_probs = torch.softmax(start_logits, dim=-1)[0]
-        end_probs   = torch.softmax(end_logits, dim=-1)[0]
-
-        s = torch.argmax(start_probs).item()
-        e = torch.argmax(end_probs).item()
-
+    def decode(start, end):
+        s = torch.argmax(start).item()
+        e = torch.argmax(end).item()
         if e < s:
             return None, 0.0
-
-        text_span = text[offsets[s][0]:offsets[e][1]].strip()
-        conf = (start_probs[s] * end_probs[e]).item()
-        return text_span, conf
+        span = text[offsets[s][0]:offsets[e][1]].strip()
+        conf = (torch.softmax(start, -1)[0][s] *
+                torch.softmax(end, -1)[0][e]).item()
+        return span, conf
 
     src, src_conf = decode(out["src_start_logits"], out["src_end_logits"])
     dst, dst_conf = decode(out["dst_start_logits"], out["dst_end_logits"])
-
     return src, src_conf, dst, dst_conf
+
 
 # --------------------------------------------------
 # MAIN INTERPRETER
 # --------------------------------------------------
 
 def interpret(text: str) -> dict:
-    """
-    Deterministic hybrid NLP interpreter:
-    - Rule intent OR ML intent
-    - ALWAYS run span extraction
-    - Pattern detection does NOT short-circuit spans
-    """
-    
-    # ---------- INTENT ----------
-    rule = rule_intent(text)
+    t = text.lower().strip()
 
-    if rule:
-        intent = rule
-        intent_conf = 1.0
+    # ---------- HARD PRONOUN DELETE (Phase 8) ----------
+    if t in ("delete it", "remove it", "erase it"):
+        if memory.last_path:
+            intent = "DELETE_FILE"
+            intent_conf = 1.0
+            result = {
+                "ok": True,
+                "intent": intent,
+                "confidence": intent_conf,
+                "path": memory.last_path,
+                "from_pronoun": True   # 🔑 ADD THIS
+            }
+            return result
+        else:
+            return {"ok": False, "reason": "Nothing to delete"}
+
     else:
-        inputs = intent_tokenizer(text, return_tensors="pt").to(DEVICE)
-        with torch.no_grad():
-            logits = intent_model(**inputs).logits
+        intent = None
+        intent_conf = 0.0
 
-        probs = torch.softmax(logits, dim=-1)[0]
-        intent_id = torch.argmax(probs).item()
-        intent_conf = probs[intent_id].item()
-        intent = intent_model.config.id2label[intent_id]
+        # ---------- RULE INTENT ----------
+        rule = rule_intent(text)
+        if rule:
+            intent = rule
+            intent_conf = 1.0
 
-        if intent_conf < INTENT_CONF_THRESHOLD:
-            return {"ok": False, "reason": "Low intent confidence"}
+        # ---------- GIT FOLLOW-UPS (Phase 8) ----------
+        elif in_git_repo() and memory.last_git_intent and "git" not in t:
+            if re.search(r"\bbranch\b", t):
+                intent = "GIT_BRANCH"
+                intent_conf = 1.0
+            elif re.search(r"\bcheckout\b", t):
+                intent = "GIT_CHECKOUT"
+                intent_conf = 1.0
+            elif re.search(r"\badd\b", t):
+                intent = "GIT_ADD"
+                intent_conf = 1.0
+            elif re.search(r"\bcommit\b", t):
+                intent = "GIT_COMMIT"
+                intent_conf = 1.0
+
+        # ---------- ML FALLBACK ----------
+        if intent is None:
+            inputs = intent_tokenizer(text, return_tensors="pt").to(DEVICE)
+            with torch.no_grad():
+                logits = intent_model(**inputs).logits
+
+            probs = torch.softmax(logits, dim=-1)[0]
+            idx = torch.argmax(probs).item()
+            intent_conf = probs[idx].item()
+            intent = intent_model.config.id2label[idx]
+
+            if intent_conf < INTENT_CONF_THRESHOLD:
+                return {"ok": False, "reason": "Low intent confidence"}
 
     result = {
         "ok": True,
         "intent": intent,
         "confidence": intent_conf
     }
+
     print("DEBUG INTENT:", intent)
 
-    # ---------- PATTERN DETECTION (non-blocking) ----------
+    # ---------- PATTERNS ----------
     if intent in ("DELETE_FILE", "MOVE_FILE", "COPY_FILE"):
         pattern = detect_pattern(text)
+        if isinstance(pattern, str) and any(c in pattern for c in "*?"):
+            result["pattern"] = pattern
 
-        if pattern:
-            # If detect_pattern returns a dict, extract the actual pattern
-            if isinstance(pattern, dict):
-                pattern = pattern.get("pattern")
-
-            # ONLY treat as pattern if wildcard characters exist
-            if isinstance(pattern, str) and any(ch in pattern for ch in ("*", "?")):
-                result["pattern"] = pattern
-
-
-    # ---------- NAVIGATION ----------
+    # ---------- SPANS ----------
     if intent == "NAVIGATION":
         path, conf = _extract_span(text, nav_model)
         if conf >= SPAN_CONF_THRESHOLD:
             result["path"] = path
-        else:
-            return {"ok": False, "reason": "Low navigation span confidence"}
 
-    # ---------- MOVE / COPY ----------
     elif intent in ("MOVE_FILE", "COPY_FILE"):
-        src, src_conf = _extract_span(text, src_model)
-        dst, dst_conf = _extract_span(text, dst_model)
+        result["src"], _ = _extract_span(text, src_model)
+        result["dst"], _ = _extract_span(text, dst_model)
 
-        if src_conf >= SPAN_CONF_THRESHOLD:
-            result["src"] = src
-        if dst_conf >= SPAN_CONF_THRESHOLD:
-            result["dst"] = dst
-
-    # ---------- RENAME ----------
     elif intent == "RENAME_FILE":
-        src, src_conf, dst, dst_conf = _extract_rename_spans(text, rename_model)
-
-        if src_conf >= SPAN_CONF_THRESHOLD:
+        src, sc, dst, dc = _extract_rename_spans(text, rename_model)
+        if sc >= SPAN_CONF_THRESHOLD:
             result["src"] = src
-        if dst_conf >= SPAN_CONF_THRESHOLD:
+        if dc >= SPAN_CONF_THRESHOLD:
             result["dst"] = dst
+        if src and dst and src == dst:
+            return {"ok": False, "reason": "Rename source and destination identical"}
 
-        # This check is now a true safety guard, not a hack
-        if result.get("src") and result.get("dst"):
-            if result["src"] == result["dst"]:
-                return {"ok": False, "reason": "Rename source and destination identical"}
-
-
-    # ---------- CREATE / DELETE ----------
-    elif intent in ("CREATE_DIR",):
-        path, conf = _extract_span(text, nav_model)
+    elif intent in ("CREATE_FILE", "DELETE_FILE"):
+        obj, conf = _extract_span(text, object_model)
         if conf >= SPAN_CONF_THRESHOLD:
-            result["path"] = path
-        else:
-            return {"ok": False, "reason": "Low directory span confidence"}
-
-    elif intent in ("DELETE_DIR",):
-        path, conf = _extract_span(text, nav_model)
-        if conf >= SPAN_CONF_THRESHOLD:
-            result["path"] = path
-        else:
-            return {"ok": False, "reason": "Low directory span confidence"}
-
-    elif intent in ("DELETE_FILE", "CREATE_FILE"):
-        obj, obj_conf = _extract_span(text, object_model)
-        if obj_conf >= SPAN_CONF_THRESHOLD:
             result["path"] = obj
+
+    elif intent == "CREATE_DIR" or intent == "DELETE_DIR":
+        path, conf = _extract_span(text, nav_model)
+        if conf >= SPAN_CONF_THRESHOLD:
+            result["path"] = path
+
     elif intent == "GIT_ADD":
         path, conf = _extract_span(text, git_add_model)
         if conf >= SPAN_CONF_THRESHOLD:
             result["path"] = path
-        else :
-            return {"ok": False, "reason": "Low git add span confidence"}
+
     elif intent == "GIT_CHECKOUT":
         branch, conf = _extract_span(text, git_checkout_model)
         if conf >= SPAN_CONF_THRESHOLD:
             result["branch"] = branch
-        else :
-            return {"ok": False, "reason": "Low git checkout span confidence"}
+
     elif intent == "GIT_CLONE":
         repo, conf = _extract_span(text, git_clone_model)
         if conf >= SPAN_CONF_THRESHOLD:
             result["repo"] = repo
-        else :
-            return {"ok": False, "reason": "Low git clone span confidence"}
+
     elif intent == "PROCESS_KILL":
         target, conf = _extract_span(text, target_model)
         if conf >= SPAN_CONF_THRESHOLD:
             result["target"] = target
-        else:
-            return {"ok": False, "reason": "Low process target span confidence"}
 
     # ---------- MEMORY FALLBACK ----------
-    if intent in ("DELETE_FILE", "DELETE_DIR"):
-        if not result.get("path") and memory.last_path:
-            result["path"] = memory.last_path
-
+    if intent in ("DELETE_FILE", "DELETE_DIR") and not result.get("path"):
+        result["path"] = memory.last_path
 
     if intent in ("MOVE_FILE", "COPY_FILE", "RENAME_FILE"):
-        if not result.get("src") and memory.last_src:
-            result["src"] = memory.last_src
-        if not result.get("dst") and memory.last_dst:
-            result["dst"] = memory.last_dst
+        result.setdefault("src", memory.last_src)
+        result.setdefault("dst", memory.last_dst)
 
     return result
