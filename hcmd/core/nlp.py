@@ -168,7 +168,7 @@ def interpret(text: str) -> dict:
     - ALWAYS run span extraction
     - Pattern detection does NOT short-circuit spans
     """
-
+    
     # ---------- INTENT ----------
     rule = rule_intent(text)
 
@@ -193,6 +193,7 @@ def interpret(text: str) -> dict:
         "intent": intent,
         "confidence": intent_conf
     }
+    print("DEBUG INTENT:", intent)
 
     # ---------- PATTERN DETECTION (non-blocking) ----------
     if intent in ("DELETE_FILE", "MOVE_FILE", "COPY_FILE"):

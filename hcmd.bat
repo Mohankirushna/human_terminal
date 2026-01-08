@@ -1,4 +1,3 @@
 @echo off
 set ROOT=%~dp0
-call "%ROOT%\venv\Scripts\activate.bat"
-hcmd %*
+"%ROOT%\venv\Scripts\python.exe" -m hcmd %*

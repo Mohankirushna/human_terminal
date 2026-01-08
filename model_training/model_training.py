@@ -19,7 +19,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {DEVICE}")
 EARLY_STOPPING_PATIENCE = 3
 LR_PATIENCE = 2
-LR_FACTOR = 0.5
+LR_FACTOR = 0.05
 
 df = pd.read_csv("intent_dataset.csv")
 
@@ -147,5 +147,5 @@ print(classification_report(
     target_names=[id2label[i] for i in range(len(labels))]
 ))
 
-model.save_pretrained("../intent_model")
-tokenizer.save_pretrained("../intent_model")
+model.save_pretrained("intent_model")
+tokenizer.save_pretrained("intent_model")

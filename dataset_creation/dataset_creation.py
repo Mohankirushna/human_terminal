@@ -117,6 +117,18 @@ INTENTS = {
             "new directory {dir}",
         ],
     },
+    
+    "DELETE_DIR": {
+        "count": 400,
+        "templates": [
+            "delete directory {dir}",
+            "remove directory {dir}",
+            "delete folder {dir}",
+            "remove folder {dir}",
+            "rmdir {dir}",
+        ],
+    },
+
 
     "DELETE_FILE": {
         "count": 500,
