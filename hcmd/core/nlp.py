@@ -221,21 +221,18 @@ def interpret_plan(text: str) -> dict:
 def interpret(text: str) -> dict:
     t = text.lower().strip()
 
-    # ---------- HARD PRONOUN DELETE (Phase 8) ----------
-    if t in ("delete it", "remove it", "erase it"):
-        if memory.last_path:
-            intent = "DELETE_FILE"
-            intent_conf = 1.0
-            result = {
+    # ---------- PRONOUN DELETE (Phase 9) ----------
+    if re.fullmatch(r"(delete|remove|erase)\s+(it|this|that)", t):
+        if memory.recent_objects:
+            return {
                 "ok": True,
-                "intent": intent,
-                "confidence": intent_conf,
-                "path": memory.last_path,
-                "from_pronoun": True   # 🔑 ADD THIS
+                "intent": "DELETE_FILE",
+                "confidence": 1.0,
+                "path": memory.recent_objects[-1],
+                "from_pronoun": True
             }
-            return result
-        else:
-            return {"ok": False, "reason": "Nothing to delete"}
+        return {"ok": False, "reason": "Nothing to delete"}
+
 
     else:
         intent = None
@@ -338,7 +335,6 @@ def interpret(text: str) -> dict:
         target, conf = _extract_span(text, target_model)
         if conf >= SPAN_CONF_THRESHOLD:
             result["target"] = target
-
     # ---------- MEMORY FALLBACK ----------
     if intent in ("DELETE_FILE", "DELETE_DIR") and not result.get("path"):
         result["path"] = memory.last_path

@@ -57,20 +57,40 @@ def _resolve_docker(ctx: SystemContext) -> None:
     code, out = _run(["docker", "ps", "--format", "{{.Names}}"])
     if code == 0 and out:
         ctx.docker_containers = out.splitlines()
+
 def resolve_pronouns(text: str, result: dict, memory):
-    t = text.lower()
+    """
+    Deterministic pronoun resolution.
+    This happens AFTER intent detection but BEFORE execution.
+    """
 
-    # it / that → last path
-    if any(p in t for p in (" it", " that")):
-        if not result.get("path") and memory.last_path:
-            result["path"] = memory.last_path
+    tokens = text.lower().split()
 
-        if not result.get("src") and memory.last_src:
-            result["src"] = memory.last_src
+    def get_recent(idx: int):
+        if len(memory.recent_objects) > idx:
+            return memory.recent_objects[-(idx + 1)]
+        return None
 
-    # there → last directory
-    if " there" in t and memory.last_path:
-        result["path"] = memory.last_path
+    # --- it / this → most recent ---
+    if any(tok in ("it", "this") for tok in tokens):
+        resolved = get_recent(0)
+        if resolved:
+            result.setdefault("path", resolved)
+            result.setdefault("src", resolved)
+            result["from_pronoun"] = True
+
+    # --- that → previous ---
+    if "that" in tokens:
+        resolved = get_recent(1)
+        if resolved:
+            result.setdefault("path", resolved)
+            result.setdefault("src", resolved)
+            result["from_pronoun"] = True
+
+    # --- there → last directory ---
+    if "there" in tokens and memory.last_path:
+        result.setdefault("path", memory.last_path)
+        result["from_pronoun"] = True
 
     return result
 
