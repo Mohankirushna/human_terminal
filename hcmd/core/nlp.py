@@ -177,7 +177,7 @@ INTENT_VERBS = {
     "GIT_BRANCH": ["git branch", "branch"],
     "GIT_CLONE": ["git clone", "clone"],
     "PROCESS_KILL": ["kill", "terminate", "stop process"],
-    "GIT_REPO": ["git repository", "git repo", "repository", "repo"],
+    "GIT_REPO_STATUS": ["git repository", "git repo", "repository", "repo"],
     "PROCESS": ["process", "application", "app"],
     "GIT_STATUS": ["git status", "status"],
     "GIT_STASH": ["git stash", "stash"]
