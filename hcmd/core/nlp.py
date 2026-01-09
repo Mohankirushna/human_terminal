@@ -161,6 +161,62 @@ def _extract_rename_spans(text: str, model):
 # --------------------------------------------------
 # MAIN INTERPRETER
 # --------------------------------------------------
+from hcmd.core.step_parser import split_into_steps
+INTENT_VERBS = {
+    "CREATE_FILE": ["create", "make", "new"],
+    "DELETE_FILE": ["delete", "remove", "erase"],
+    "MOVE_FILE": ["move"],
+    "COPY_FILE": ["copy"],
+    "RENAME_FILE": ["rename"],
+    "CREATE_DIR": ["create directory", "make directory", "new directory", "create folder", "make folder", "new folder"],
+    "DELETE_DIR": ["delete directory", "remove directory", "erase directory", "delete folder", "remove folder", "erase folder"],
+    "NAVIGATION": ["go to", "navigate to", "change directory to", "cd to" ],
+    "GIT_ADD": ["git add", "stage"],
+    "GIT_COMMIT": ["git commit", "commit"],
+    "GIT_CHECKOUT": ["git checkout", "checkout"],
+    "GIT_BRANCH": ["git branch", "branch"],
+    "GIT_CLONE": ["git clone", "clone"],
+    "PROCESS_KILL": ["kill", "terminate", "stop process"],
+    "GIT_REPO": ["git repository", "git repo", "repository", "repo"],
+    "PROCESS": ["process", "application", "app"],
+    "GIT_STATUS": ["git status", "status"],
+    "GIT_STASH": ["git stash", "stash"]
+}
+def contains_explicit_verb(text: str) -> bool:
+    t = text.lower()
+    for verbs in INTENT_VERBS.values():
+        for v in verbs:
+            if re.search(rf"\b{v}\b", t):
+                return True
+    return False
+
+def interpret_plan(text: str) -> dict:
+    parts = [p.strip() for p in re.split(r"\band\b", text) if p.strip()]
+    steps = []
+
+    base_intent = None
+
+    for i, part in enumerate(parts):
+        result = interpret(part)
+
+        if not result.get("ok"):
+            return result
+
+        if i == 0:
+            base_intent = result["intent"]
+        else:
+            # 🔒 ONLY inherit intent if NO explicit verb
+            if not contains_explicit_verb(part):
+                result["intent"] = base_intent
+            else:
+                base_intent = result["intent"]  # update base intent
+
+        steps.append(result)
+
+    return {
+        "ok": True,
+        "steps": steps
+    }
 
 def interpret(text: str) -> dict:
     t = text.lower().strip()

@@ -312,6 +312,20 @@ INTENTS = {
             "undo git add",
         ],
     },
+    "GIT_REPO_STATUS":{
+        "count": 300,
+            "templates": [
+            "am i in a git repo",
+            "am i in a git repository",
+            "is this a git repo",
+            "is this a git repository",
+            "is this folder a git repo",
+            "is this directory under git",
+            "is this project under version control",
+            "are we inside a git repo",
+            "do i have a git repository here",
+        ],
+    },
 
     "GIT_STASH": {
         "count": 300,
