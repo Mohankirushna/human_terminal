@@ -82,6 +82,10 @@ pip install -e .
 
 ## 📦 Installation (Portable)
 
+### Download Portable Version
+
+[Google Drive Link](https://drive.google.com/file/d/1LHxxQG-_ukn5bIjQe_qlN4c4_tr25-pc/view?usp=sharing)
+
 ### Windows
 
 ```bash
