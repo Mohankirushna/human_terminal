@@ -80,6 +80,48 @@ pip install -e .
    python setup.py install
    ```
 
+## 📦 Installation (Portable)
+
+### Windows
+
+```bash
+setup_windows.bat
+```
+
+### Linux / macOS
+
+```bash
+chmod +x setup_linux.sh
+./setup_linux.sh
+```
+
+### ▶ Run
+
+```bash
+python hcmd/main.py
+```
+
+### 🌍 Make It Global (Optional)
+
+#### Windows
+
+Add project folder to PATH
+
+Restart terminal
+
+Run anywhere:
+
+```bash
+hcmd
+```
+
+#### Linux/macOS
+
+```bash
+mv hcmd ~/.local/bin/
+chmod +x ~/.local/bin/hcmd
+```
+
 ## Usage
 
 ### Basic Command Syntax
