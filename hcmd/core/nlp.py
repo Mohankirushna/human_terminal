@@ -5,6 +5,10 @@ warnings.filterwarnings(
     message=".*weights_only=False.*",
     category=FutureWarning
 )
+import os
+
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+os.environ["HF_HUB_OFFLINE"] = "1"
 
 import torch
 import subprocess

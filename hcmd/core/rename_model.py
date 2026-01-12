@@ -6,7 +6,7 @@ class DualSpanQA(nn.Module):
     def __init__(self, model_name: str):
         super().__init__()
 
-        self.encoder = AutoModel.from_pretrained(model_name)
+        self.encoder = AutoModel.from_pretrained(model_name,local_files_only=True)
         hidden = self.encoder.config.hidden_size
 
         # Source span heads

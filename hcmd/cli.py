@@ -11,6 +11,7 @@ from hcmd.core.ambiguity import detect_ambiguity, ClarificationRequest
 from hcmd.core.memory import memory
 from hcmd.core.pattern_executor import resolve_pattern
 from hcmd.core.rollback import build_rollback
+from hcmd.core.help import show_help
 
 
 # --------------------------------------------------
@@ -20,9 +21,9 @@ def normalize_path(path: str | None, ctx: SystemContext) -> str | None:
     if not path:
         return None
 
-    # ✅ CRITICAL FIX
+    # Absolute paths must remain untouched
     if os.path.isabs(path):
-        return path
+        return os.path.abspath(path)
 
     if ctx.os_type == OS.WINDOWS:
         known = {
@@ -37,7 +38,7 @@ def normalize_path(path: str | None, ctx: SystemContext) -> str | None:
         "documents": os.path.expanduser("~/Documents"),
         "desktop": os.path.expanduser("~/Desktop"),
     }
-    return known.get(path.lower(), path)
+    return os.path.abspath(known.get(path.lower(), path))
 
 
 # --------------------------------------------------
@@ -63,44 +64,72 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
         dst = normalize_path(data.get("dst"), ctx)
         if not src or not dst:
             return None
+
         if os.path.isdir(dst):
             dst = os.path.join(dst, os.path.basename(src))
 
         if intent == "MOVE_FILE":
-            return f'Move-Item "{src}" "{dst}"' if os_type == OS.WINDOWS else f'mv "{src}" "{dst}"'
-        else:
-            return f'Copy-Item "{src}" "{dst}"' if os_type == OS.WINDOWS else f'cp "{src}" "{dst}"'
+            return (
+                f'Move-Item "{src}" "{dst}"'
+                if os_type == OS.WINDOWS
+                else f'mv "{src}" "{dst}"'
+            )
+
+        return (
+            f'Copy-Item "{src}" "{dst}"'
+            if os_type == OS.WINDOWS
+            else f'cp "{src}" "{dst}"'
+        )
 
     if intent == "CREATE_FILE":
-        name = data.get("path")
-        return f'New-Item -ItemType File "{name}"' if os_type == OS.WINDOWS else f'touch "{name}"'
+        name = normalize_path(data.get("path"), ctx)
+        return (
+            f'New-Item -ItemType File "{name}"'
+            if os_type == OS.WINDOWS
+            else f'touch "{name}"'
+        )
 
     if intent == "CREATE_DIR":
-        name = data.get("path")
-        return f'New-Item -ItemType Directory "{name}"' if os_type == OS.WINDOWS else f'mkdir "{name}"'
+        name = normalize_path(data.get("path"), ctx)
+        return (
+            f'New-Item -ItemType Directory "{name}"'
+            if os_type == OS.WINDOWS
+            else f'mkdir "{name}"'
+        )
 
     if intent == "DELETE_FILE":
         target = normalize_path(data.get("path"), ctx)
-        if target and os.path.isdir(target):
-            print(f"ERROR: '{target}' is a directory. Use 'delete directory' instead.")
-            return 1
         if not target:
             return None
-
-        if os_type == OS.WINDOWS:
-            return f'Remove-Item -LiteralPath "{target}" -Force'
-        else:
-            return f'rm "{target}"'
-
+        if os.path.isdir(target):
+            print(f"ERROR: '{target}' is a directory. Use 'delete directory'.")
+            return None
+        return (
+            f'Remove-Item -LiteralPath "{target}" -Force'
+            if os_type == OS.WINDOWS
+            else f'rm "{target}"'
+        )
 
     if intent == "DELETE_DIR":
         target = normalize_path(data.get("path"), ctx)
-        return f'Remove-Item -LiteralPath "{target}" -Recurse -Force' if os_type == OS.WINDOWS else f'rm -r "{target}"'
+        if not target:
+            return None
+        return (
+            f'Remove-Item -LiteralPath "{target}" -Recurse -Force'
+            if os_type == OS.WINDOWS
+            else f'rm -r "{target}"'
+        )
 
     if intent == "RENAME_FILE":
         src = normalize_path(data.get("src"), ctx)
         dst = normalize_path(data.get("dst"), ctx)
-        return f'Rename-Item "{src}" "{dst}"' if os_type == OS.WINDOWS else f'mv "{src}" "{dst}"'
+        if not src or not dst:
+            return None
+        return (
+            f'Rename-Item "{src}" "{dst}"'
+            if os_type == OS.WINDOWS
+            else f'mv "{src}" "{dst}"'
+        )
 
     # ---------- SYSTEM ----------
     if intent == "SYSTEM_INFO":
@@ -117,7 +146,11 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
         if not target:
             return None
         if os_type == OS.WINDOWS:
-            return f'taskkill /PID {target} /F' if target.isdigit() else f'taskkill /IM {target}.exe /F'
+            return (
+                f'taskkill /PID {target} /F'
+                if target.isdigit()
+                else f'taskkill /IM {target}.exe /F'
+            )
         return f'kill {target}' if target.isdigit() else f'killall {target}'
 
     # ---------- GIT ----------
@@ -146,18 +179,29 @@ def build_command(intent: str, data: dict, ctx: SystemContext) -> str | None:
 
 
 # --------------------------------------------------
-# MAIN (Phase 9 + Dry-run + Rollback)
+# MAIN
 # --------------------------------------------------
 def main() -> int:
+    explain = "--explain" in sys.argv
+    if explain:
+        sys.argv.remove("--explain")
+
     dry_run = "--dry-run" in sys.argv
     if dry_run:
         sys.argv.remove("--dry-run")
 
     if len(sys.argv) < 2:
-        print("Usage: hcmd <command> [--dry-run]")
+        print("Usage: hcmd <command> [--dry-run] [--explain]")
         return 1
 
     text = " ".join(sys.argv[1:])
+
+    # ---------- HELP ----------
+    if text.strip().lower().startswith("help"):
+        parts = text.split(maxsplit=1)
+        show_help(parts[1] if len(parts) > 1 else None)
+        return 0
+
     ctx = resolve_context()
 
     # ---------- ROLLBACK ----------
@@ -170,72 +214,42 @@ def main() -> int:
         print(f"Rolling back: {rollback_cmd}")
 
         executor = CommandExecutor()
-        success, output = executor.execute(rollback_cmd)
-        if not success:
-            print(f"ERROR during rollback: {output}")
+        ok, out = executor.execute(rollback_cmd)
+        if not ok:
+            print(f"ERROR during rollback: {out}")
             return 1
 
         memory.save()
         return 0
 
-    # ---------- PLAN ----------
+    # ---------- NLP ----------
     plan = interpret_plan(text)
     if not plan.get("ok"):
         print(f"ERROR: {plan.get('reason')}")
         return 1
 
     steps = plan["steps"]
-
-    # ---------- SHOW PLAN ----------
-    if len(steps) > 1:
-        title = "Dry run — planned steps:" if dry_run else "I will execute the following steps:"
-        print(title)
-        for i, step in enumerate(steps, 1):
-            print(f"{i}. {step['intent']}")
-
-        if not dry_run:
-            if input("Proceed? [y/N]: ").lower() != "y":
-                return 1
-
     executor = CommandExecutor()
+    explain_log = []
 
-    # ---------- EXECUTE ----------
+    if len(steps) > 1 and not explain:
+        print("I will execute the following steps:")
+        for i, s in enumerate(steps, 1):
+            print(f"{i}. {s['intent']}")
+        if input("Proceed? [y/N]: ").lower() != "y":
+            return 1
+
     for step in steps:
         intent = step["intent"]
 
-        # Skip ambiguity if path came from memory / pronoun
-        skip_ambiguity = (
-            step.get("from_pronoun")
-            or (
-                isinstance(step.get("path"), str)
-                and os.path.isabs(step["path"])
-            )
-        )
-
-        clarification = None
-        if not skip_ambiguity:
-            clarification = detect_ambiguity(intent, step, ctx)
+        skip_ambiguity = step.get("from_pronoun", False)
+        clarification = None if skip_ambiguity else detect_ambiguity(intent, step, ctx)
 
         if isinstance(clarification, ClarificationRequest):
-            if not clarification.options:
-                print(f"ERROR: {clarification.reason}")
-                return 1
-
             print(f"CLARIFICATION REQUIRED: {clarification.reason}")
             for i, opt in enumerate(clarification.options, 1):
                 print(f"{i}) {opt}")
-            idx = int(input("Select option number: ")) - 1
-            step["path"] = clarification.options[idx]
-
-        if "pattern" in step:
-            files = resolve_pattern(step["pattern"], ctx)
-            for f in files:
-                cmd = build_command(intent, {**step, "path": f}, ctx)
-                if dry_run:
-                    print(f"[DRY RUN] {cmd}")
-                else:
-                    executor.execute(cmd)
-            continue
+            step["path"] = clarification.options[int(input("> ")) - 1]
 
         cmd = build_command(intent, step, ctx)
         if not cmd:
@@ -243,6 +257,20 @@ def main() -> int:
             return 1
 
         safety = validate_command(intent, cmd, ctx)
+
+        explain_log.append({
+            "intent": intent,
+            "command": cmd,
+            "path": step.get("path"),
+            "src": step.get("src"),
+            "dst": step.get("dst"),
+            "from_pronoun": step.get("from_pronoun", False),
+            "safety": safety.warning if not safety.safe else "safe"
+        })
+
+        if explain:
+            continue
+
         if not safety.safe and not dry_run:
             if input(f"{safety.warning} Proceed? [y/N]: ").lower() != "y":
                 return 1
@@ -251,93 +279,55 @@ def main() -> int:
             print(f"[DRY RUN] {cmd}")
             continue
 
-        success, output = executor.execute(cmd)
-        if not success:
-            print(f"ERROR: {output}")
+        ok, out = executor.execute(cmd)
+        if not ok:
+            print(f"ERROR: {out}")
             return 1
-        if output:
-            print(output)
-        if intent in ("CREATE_FILE", "CREATE_DIR", "DELETE_FILE", "DELETE_DIR"):
-            obj = step.get("path")
-            memory.push_object(obj)
+        if out:
+            print(out)
 
-        # MOVE / COPY / RENAME
+        # ---------- MEMORY (SINGLE SOURCE OF TRUTH) ----------
+        if intent in ("CREATE_FILE", "DELETE_FILE", "CREATE_DIR", "DELETE_DIR"):
+            p = normalize_path(step.get("path"), ctx)
+            if p:
+                memory.push_object(p)
+
         elif intent == "MOVE_FILE":
             src = normalize_path(step.get("src"), ctx)
             dst = normalize_path(step.get("dst"), ctx)
-
             if src and dst:
-                if os.path.isdir(dst):
-                    moved_file = os.path.join(dst, os.path.basename(src))
-                else:
-                    moved_file = dst
-
-                moved_file = os.path.abspath(moved_file)
-                memory.push_object(moved_file)
+                moved = os.path.join(dst, os.path.basename(src)) if os.path.isdir(dst) else dst
+                memory.push_object(os.path.abspath(moved))
 
         elif intent == "COPY_FILE":
             src = normalize_path(step.get("src"), ctx)
             dst = normalize_path(step.get("dst"), ctx)
-
             if src and dst:
-                if os.path.isdir(dst):
-                    copied_file = os.path.join(dst, os.path.basename(src))
-                else:
-                    copied_file = dst
-
-                copied_file = os.path.abspath(copied_file)
-                memory.push_object(copied_file)
-
+                copied = os.path.join(dst, os.path.basename(src)) if os.path.isdir(dst) else dst
+                memory.push_object(os.path.abspath(copied))
 
         elif intent == "RENAME_FILE":
             dst = normalize_path(step.get("dst"), ctx)
             if dst:
-                dst = os.path.abspath(dst)
-                memory.push_object(dst)
+                memory.push_object(os.path.abspath(dst))
 
+        rb = build_rollback(intent, step, ctx)
+        if rb:
+            memory.history.append(rb)
 
-        rollback_cmd = build_rollback(intent, step, ctx)
-        if rollback_cmd:
-            memory.history.append(rollback_cmd)
+    if explain:
+        print("\nExplanation\n")
+        print(f"Input: {text}\n")
+        for i, e in enumerate(explain_log, 1):
+            print(f"Step {i}:")
+            for k, v in e.items():
+                if v:
+                    print(f"  {k}: {v}")
+            print()
+        print("No commands executed (--explain).")
+        return 0
 
-        # ---------- MEMORY ----------
-        if intent in ("CREATE_FILE", "DELETE_FILE", "CREATE_DIR", "DELETE_DIR"):
-            memory.last_path = step.get("path") or memory.last_path
-        # MOVE_FILE → push the moved FILE (not directory)
-        elif intent == "MOVE_FILE":
-            src = step.get("src")
-            dst = step.get("dst")
-
-            if src and dst:
-                moved_file = (
-                    os.path.join(dst, os.path.basename(src))
-                    if os.path.isdir(dst)
-                    else dst
-                )
-                memory.push_object(moved_file)
-
-        # COPY_FILE → push the copied FILE
-        elif intent == "COPY_FILE":
-            src = step.get("src")
-            dst = step.get("dst")
-
-            if src and dst:
-                copied_file = (
-                    os.path.join(dst, os.path.basename(src))
-                    if os.path.isdir(dst)
-                    else dst
-                )
-                memory.push_object(copied_file)
-
-        # RENAME_FILE → destination is the new file
-        elif intent == "RENAME_FILE":
-            memory.push_object(step.get("dst"))
-
-        if intent.startswith("GIT_"):
-            memory.last_git_intent = intent
-
-    if not dry_run:
-        memory.save()
+    memory.save()
     return 0
 
 
