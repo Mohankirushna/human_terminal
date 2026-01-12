@@ -61,7 +61,7 @@ class IntentDataset(Dataset):
             "labels": torch.tensor(self.labels[idx], dtype=torch.long)
         }
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME,local_files_only=True)
 
 model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_NAME,

@@ -36,7 +36,7 @@ print(f"Using device: {DEVICE}")
 df = pd.read_csv(CSV_PATH)
 train_df, val_df = train_test_split(df, test_size=0.2, random_state=42)
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME,local_files_only=True)
 
 # --------------------------------------------------
 # DATASET
@@ -222,4 +222,4 @@ os.makedirs(OUT_DIR, exist_ok=True)
 torch.save(model.state_dict(), os.path.join(OUT_DIR, "pytorch_model.bin"))
 tokenizer.save_pretrained(OUT_DIR)
 
-print(f"✅ Model saved → {OUT_DIR}")
+print(f"Model saved → {OUT_DIR}")

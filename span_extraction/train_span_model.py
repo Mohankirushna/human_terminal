@@ -77,7 +77,7 @@ def train(csv_path, out_dir):
     df = pd.read_csv(csv_path)
     train_df, val_df = train_test_split(df, test_size=0.2, random_state=42)
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME,local_files_only=True)
 
     train_ds = SpanDataset(train_df, tokenizer)
     val_ds = SpanDataset(val_df, tokenizer)
@@ -85,7 +85,7 @@ def train(csv_path, out_dir):
     train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
     val_loader = DataLoader(val_ds, batch_size=BATCH_SIZE)
 
-    model = AutoModelForQuestionAnswering.from_pretrained(MODEL_NAME)
+    model = AutoModelForQuestionAnswering.from_pretrained(MODEL_NAME,local_files_only=True)
     model.to(DEVICE)
 
     optimizer = AdamW(model.parameters(), lr=LR)

@@ -25,7 +25,7 @@ CSV_PATH = os.path.join("..", "directory_spans.csv") if not os.path.exists("dire
 df = pd.read_csv(CSV_PATH)
 train_df, val_df = train_test_split(df, test_size=0.2, random_state=42)
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME,local_files_only=True)
 
 class SpanDataset(Dataset):
     def __init__(self, df):
@@ -71,7 +71,7 @@ val_ds = SpanDataset(val_df)
 train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
 val_loader = DataLoader(val_ds, batch_size=BATCH_SIZE)
 
-model = AutoModelForQuestionAnswering.from_pretrained(MODEL_NAME)
+model = AutoModelForQuestionAnswering.from_pretrained(MODEL_NAME,local_files_only=True)
 model.to(DEVICE)
 
 optimizer = AdamW(model.parameters(), lr=LR)

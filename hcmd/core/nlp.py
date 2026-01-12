@@ -45,31 +45,31 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # Load models
 # --------------------------------------------------
 
-intent_tokenizer = AutoTokenizer.from_pretrained(INTENT_MODEL_PATH)
+intent_tokenizer = AutoTokenizer.from_pretrained(INTENT_MODEL_PATH,local_files_only=True)
 intent_model = AutoModelForSequenceClassification.from_pretrained(
-    INTENT_MODEL_PATH
+    INTENT_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
-span_tokenizer = AutoTokenizer.from_pretrained(NAVIGATION_SPAN_MODEL_PATH)
+span_tokenizer = AutoTokenizer.from_pretrained(NAVIGATION_SPAN_MODEL_PATH,local_files_only=True)
 
 nav_model = AutoModelForQuestionAnswering.from_pretrained(
-    NAVIGATION_SPAN_MODEL_PATH
+    NAVIGATION_SPAN_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
 src_model = AutoModelForQuestionAnswering.from_pretrained(
-    SRC_SPAN_MODEL_PATH
+    SRC_SPAN_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
 dst_model = AutoModelForQuestionAnswering.from_pretrained(
-    DST_SPAN_MODEL_PATH
+    DST_SPAN_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
 object_model = AutoModelForQuestionAnswering.from_pretrained(
-    OBJECT_SPAN_MODEL_PATH
+    OBJECT_SPAN_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
 target_model = AutoModelForQuestionAnswering.from_pretrained(
-    TARGET_SPAN_MODEL_PATH
+    TARGET_SPAN_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
 rename_model = DualSpanQA("distilbert-base-uncased").to(DEVICE)
@@ -79,15 +79,15 @@ rename_model.load_state_dict(
 rename_model.eval()
 
 git_add_model = AutoModelForQuestionAnswering.from_pretrained(
-    GIT_ADD_MODEL_PATH
+    GIT_ADD_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
 git_checkout_model = AutoModelForQuestionAnswering.from_pretrained(
-    GIT_CHECKOUT_MODEL_PATH
+    GIT_CHECKOUT_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
 git_clone_model = AutoModelForQuestionAnswering.from_pretrained(
-    GIT_CLONE_MODEL_PATH
+    GIT_CLONE_MODEL_PATH,local_files_only=True
 ).to(DEVICE).eval()
 
 # --------------------------------------------------
