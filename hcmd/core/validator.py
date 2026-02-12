@@ -70,6 +70,14 @@ def validate_command_type(command_type: CommandType, args: List[str]) -> Tuple[b
         dest = args[-1].lower()
         if any(dest.startswith(d) for d in ['/system', '/usr', '/bin', 'c:\\windows']):
             return False, f"{command_type.name} to system directory not allowed"
+
+    elif command_type == CommandType.DOCKER:
+        if not args:
+            return False, "Docker command requires a subcommand"
+            
+        subcommand = args[0]
+        if subcommand in ('run', 'stop', 'rm', 'rmi', 'logs') and len(args) < 2:
+            return False, f"Docker {subcommand} requires a target (container/image)"
     
     return True, ""
 

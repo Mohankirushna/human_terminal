@@ -69,6 +69,41 @@ class CommandGenerator:
                 'windows': 'Get-Location',
                 'darwin': 'pwd',
                 'linux': 'pwd'
+            },
+            'docker_list_containers': {
+                'windows': 'docker ps -a',
+                'darwin': 'docker ps -a',
+                'linux': 'docker ps -a'
+            },
+            'docker_list_images': {
+                'windows': 'docker images',
+                'darwin': 'docker images',
+                'linux': 'docker images'
+            },
+            'docker_run': {
+                'windows': 'docker run -d {image}',
+                'darwin': 'docker run -d {image}',
+                'linux': 'docker run -d {image}'
+            },
+            'docker_stop': {
+                'windows': 'docker stop {container}',
+                'darwin': 'docker stop {container}',
+                'linux': 'docker stop {container}'
+            },
+            'docker_rm': {
+                'windows': 'docker rm {container}',
+                'darwin': 'docker rm {container}',
+                'linux': 'docker rm {container}'
+            },
+            'docker_rmi': {
+                'windows': 'docker rmi {image}',
+                'darwin': 'docker rmi {image}',
+                'linux': 'docker rmi {image}'
+            },
+            'docker_logs': {
+                'windows': 'docker logs {container}',
+                'darwin': 'docker logs {container}',
+                'linux': 'docker logs {container}'
             }
         }
         
@@ -219,6 +254,34 @@ class CommandGenerator:
                 path = self._normalize_path(self._resolve_path(args[0]))
                 return self.templates['open'][platform_key].format(path=path)
                 
+            elif command_type == CommandType.DOCKER:
+                if not args:
+                    return ""
+                
+                subcommand = args[0]
+                
+                if subcommand == 'list_containers':
+                    return self.templates['docker_list_containers'][platform_key]
+                elif subcommand == 'list_images':
+                    return self.templates['docker_list_images'][platform_key]
+                elif subcommand == 'run':
+                    if len(args) < 2: return ""
+                    return self.templates['docker_run'][platform_key].format(image=args[1])
+                elif subcommand == 'stop':
+                    if len(args) < 2: return ""
+                    return self.templates['docker_stop'][platform_key].format(container=args[1])
+                elif subcommand == 'rm':
+                    if len(args) < 2: return ""
+                    return self.templates['docker_rm'][platform_key].format(container=args[1])
+                elif subcommand == 'rmi':
+                    if len(args) < 2: return ""
+                    return self.templates['docker_rmi'][platform_key].format(image=args[1])
+                elif subcommand == 'logs':
+                    if len(args) < 2: return ""
+                    return self.templates['docker_logs'][platform_key].format(container=args[1])
+                else:
+                    return ""
+
             else:
                 return ""
                 
@@ -276,6 +339,41 @@ class CommandGenerator:
         # Extract potential paths from the text
         paths = extract_paths(text)
         
+        # Check for Docker (High priority)
+        if 'docker' in text or 'container' in text or ('image' in text and not any(p in text for p in ['jpg', 'png', 'gif'])):
+            words = text.split()
+            
+            if 'list' in text or 'show' in text:
+                if 'image' in text:
+                    return CommandType.DOCKER, ['list_images']
+                return CommandType.DOCKER, ['list_containers']
+                
+            if 'run' in text or 'start' in text:
+                # heuristic: use word after 'run' or 'start' or last word
+                target = words[-1]
+                keyword = 'run' if 'run' in words else 'start'
+                
+                if keyword in words:
+                    idx = words.index(keyword)
+                    if idx + 1 < len(words):
+                        target = words[idx+1]
+                        # Skip keywords like 'docker' or 'container'
+                        if target in ['docker', 'container'] and idx + 2 < len(words):
+                            target = words[idx+2]
+                            
+                return CommandType.DOCKER, ['run', target]
+                
+            if 'stop' in text:
+                return CommandType.DOCKER, ['stop', words[-1]]
+                
+            if 'delete' in text or 'remove' in text or 'rm' in text:
+                if 'image' in text:
+                    return CommandType.DOCKER, ['rmi', words[-1]]
+                return CommandType.DOCKER, ['rm', words[-1]]
+
+            if 'log' in text:
+                return CommandType.DOCKER, ['logs', words[-1]]
+        
         # Check for navigation
         if any(phrase in text for phrase in nav_phrases):
             return CommandType.NAVIGATION, paths[:1] if paths else [text.split()[-1]]
@@ -308,4 +406,6 @@ class CommandGenerator:
         if paths:
             return CommandType.NAVIGATION, paths[:1]
             
+
+
         return CommandType.UNKNOWN, []

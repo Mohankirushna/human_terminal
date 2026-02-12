@@ -14,6 +14,7 @@ class CommandType(Enum):
     OPEN = auto()
     MOVE = auto()
     COPY = auto()
+    DOCKER = auto()
     UNKNOWN = auto()
 
 # Common system directories with platform-agnostic placeholders
